@@ -1,0 +1,62 @@
+KLUCOVE SLOVA, BODY, ZDROJE :
+
+(zoznam : pocitacova bezpecnost, bezpeènostné aplikácie, kybernetické útoky, bezpeènostné hrozby, internet eavesdropping, bezpeènostné opatrenia, 
+šifrovanie dát, dešifrovanie dát, Virtual Private Network, certifikaty, sifrovacie kluce, symetrical encryption, public key encryprion, Secure Sockets Layer,
+Transport Layer Secutiry)
+
+pocitacova bezpecnost
+- "cyber security" OR "internet safety"
+- https://www.sciencedirect.com/science/article/pii/S0167404813000801
+- Cyber-Security, Computer security, Risk, Threat, Vulnerability
+
+   1. bezpeènostné aplikácie
+   - "cyber security" AND "tools"
+   - https://www.sciencedirect.com/science/article/pii/S0167404810000775
+   - Information security enforcement
+
+   - "cyber security applications"
+   - https://link.springer.com/chapter/10.1007/978-3-319-16549-3_5
+   - Intrusion Detection
+
+   2. kybernetické útoky
+   - "computer security" AND "threat"
+   - https://patents.google.com/patent/US8239668B1/en
+
+      2.1 bezpeènostné hrozby
+      2.2 internet eavesdropping
+
+   3. bezpeènostné opatrenia
+
+      3.1 šifrovanie dát
+      - "security" AND "data encryption"
+      - https://patents.google.com/patent/US5999629A/en
+      3.2 dešifrovanie dát
+      3.3 VPN, (Virtual Private Network)
+      3.4 certifikaty
+
+      3.3 sifrovacie kluce
+      - "encryption key"
+      - https://patents.google.com/patent/US9002018B2/en
+
+         3.3.1 symetrical encryption
+         3.3.2 public key encryprion
+         - "key encryption"
+         - https://link.springer.com/chapter/10.1007/3-540-39200-9_16
+         - Bilinear Diffie-Hellman,  Forward security, Key exposure 
+         3.3.3 SSL, (Secure Sockets Layer)
+         3.3.4 TLS, (Transport Layer Secutiry)
+
+         - "security" AND "encryption"
+         - https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.95.4226
+
+         - "security" AND "data encryption"
+         - https://dl.acm.org/citation.cfm?id=358718
+         - Cryptography, Data management systems, Data layout
+
+OSNOVA :
+
+1. pocitacova bezpecnost - co to je, na co sluzi, vyznam
+2. ako zabezpecit pocitacovu bezpecnost, bezpecnostne aplikacie, opatrenia, certifikaty
+3. sifrovanie - ako funguje, druhy, vyuzitie
+4. sifrovacie kluce - popis, princip prace
+
