@@ -1,0 +1,6 @@
+Úloha 3:
+Vytvorte stránku s titulkom “Moja stránka”, ktorá bude obsahova jednu sekciu a v nej budú tri
+artikle: 1. artikel bude obsahova okrem vygenerovaného textu aj paragraf textu nasledovanı
+èíslovanımi odrákami; 2. artikel bude obsahova 3 nadpisy 2-hej úrovne, obrázok s nastavením
+altom. Druhá stránka bude obsahova záhlavie, sekciu s textom s vloenım obrázkom, a zápätie s
+odkazom na prvú stránku. V hlavièke bude nastavená správna znaková sada.
