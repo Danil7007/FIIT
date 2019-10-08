@@ -7,37 +7,72 @@
 // Ukážkový vstup:
 // 5
 // Ukážkový výstup:
-// Mesiac cislo 5 ma 31 dni
+// Mesiac cislo 5 ma 31 dni
 
 
 #include <stdio.h>
 
 int main () {
 
-    float w, h, i, bmi ;
-    printf ("Zadaj vysku(cm) a hmotnost(kg):\n") ;
-    scanf ("%f %f", &h, &w) ;
+    int m ;
 
-    printf ("Na zaklade tvojej vysky %.1f a vahy %.1f je ", h, w) ;
-    h = h/100 ;
-    i = h*h ;
-    bmi = w/i ;
-    printf ("\ntvoje BMI: %.3f\n", bmi) ;
+    printf ("Zadaj cislo mesiaca (1-12) : \n") ;
+    scanf ("%d", &m) ;
 
-    if (bmi <= 18.5) {
-        printf ("\nMas podvahu") ;
+    if (m == 1) {
+        printf ("\nMesiac %d ma 31 dni", m) ;
     }
 
-    if ((18.5 < bmi) && (bmi < 25)) {
-        printf ("\nMas normalnu vahu") ;
+    if (m == 2) {
+        printf ("\nMesiac %d ma 28 dni", m) ;
     }
 
-    if ((25 <= bmi) && (bmi < 30)) {
-        printf ("\nMas nadvahu") ;
+    if (m == 3) {
+        printf ("\nMesiac %d ma 31 dni", m) ;
     }
 
-    if (bmi >= 30) {
-        printf ("\nSi obezny") ;
+    if (m == 4) {
+        printf ("\nMesiac %d ma 30 dni", m) ;
+    }
+
+    if (m == 5) {
+        printf ("\nMesiac %d ma 31 dni", m) ;
+    }
+
+    if (m == 6) {
+        printf ("\nMesiac %d ma 30 dni", m) ;
+    }
+
+    if (m == 7) {
+        printf ("\nMesiac %d ma 31 dni", m) ;
+    }
+
+    if (m == 8) {
+        printf ("\nMesiac %d ma 31 dni", m) ;
+    }
+
+    if (m == 9) {
+        printf ("\nMesiac %d ma 30 dni", m) ;
+    }
+
+    if (m == 10) {
+        printf ("\nMesiac %d ma 31 dni", m) ;
+    }
+
+    if (m == 11) {
+        printf ("\nMesiac %d ma 30 dni", m) ;
+    }
+
+    if (m == 12) {
+        printf ("\nMesiac %d ma 31 dni", m) ;
+    }
+
+    if (m < 12) {
+        printf ("\nNeplatny mesiac") ;
+    }
+
+    if (m <= 0) {
+        printf ("\nNeplatny mesiac") ;
     }
 
     return 0 ;
