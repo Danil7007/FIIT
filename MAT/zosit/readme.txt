@@ -1,1 +1,0 @@
-poznamky zo seminaru, cviceni a prednasok
