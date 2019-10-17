@@ -1,0 +1,9 @@
+header, nav, section, article, div, aside, footer, main { 
+    border: 1px solid black; 
+    margin: 10px; 
+}
+
+table, th, td, figure { 
+    border: 1px solid black; 
+    margin: 10px; 
+}
