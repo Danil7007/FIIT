@@ -1,11 +1,23 @@
 header, nav, section, article, div, aside, footer, main { 
     border: 1px solid black; 
     margin: 10px; 
+    overflow: hidden;
+}
+
+.header_h1 {
+    margin:0;
+    float:left;
 }
 
 .ponuka {
     background-color: pink;
     color: darkblue;
+}
+
+.header_img {
+    max-width: 10%;
+    float: right;
+    margin: 0;
 }
 
 table, th, td, figure { 
