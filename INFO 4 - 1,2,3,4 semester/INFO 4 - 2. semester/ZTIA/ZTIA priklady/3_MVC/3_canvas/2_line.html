@@ -1,0 +1,59 @@
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #canvas {
+      border: 3px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="600" height="200"></canvas>
+  <script>
+    // Get canvas object and a context for 2D rendering
+    var canvas = document.getElementById("canvas")
+    var context = canvas.getContext("2d")
+
+    // Basic line
+    context.beginPath()
+    context.strokeStyle = "blue"
+    context.lineWidth = 15
+    context.moveTo(10, 10)
+    context.lineTo(500, 100)
+    context.stroke()
+
+    // Basic shape composed of lines
+    context.beginPath()
+    context.strokeStyle = "red"
+    context.lineWidth = 15
+    context.moveTo(100, 150)
+    context.lineTo(450, 50)
+    context.lineTo(50, 50)
+    context.lineTo(250, 150)
+    context.closePath()
+    context.stroke()
+
+    // Fill last shape with colour
+    context.fillStyle = "pink"
+    context.fill()
+
+    // Draw a Bezier curve
+    context.beginPath()
+    context.moveTo(188, 130)
+    context.bezierCurveTo(
+      140, 300,
+      388, 10,
+      388, 170)
+    context.lineWidth = 10
+    context.strokeStyle = "black"
+    context.stroke()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+  <title>Keyboard Ball</title>
+  <script>
+    var canvas;
+    var ctx;
+    var tick = 0;
+
+    // Model
+    var keys = {};
+
+    var ball = {
+      x: 50,
+      y: 50
+    };
+
+    // View
+    ball.draw = function() {
+      // Clear canvas
+      ctx.fillStyle = "gray";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Render a circle
+      ctx.fillStyle = "red";
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, 30, 0, Math.PI * 2, true);
+      ctx.closePath();
+      ctx.fill();
+    };
+
+    // Controller
+    function mainLoop() {
+      tick++;
+      ball.move();
+      ball.draw();
+      requestAnimationFrame(mainLoop);
+    }
+
+    ball.move = function() {
+      if (keys[37]) ball.x -= 5;
+      if (keys[39]) ball.x += 5;
+      if (keys[38]) ball.y -= 5;
+      if (keys[40]) ball.y += 5;
+    };
+
+    // Initialization
+    window.onload = function() {
+      // Setup global variables for easy access
+      button = document.getElementById("button");
+      canvas = document.getElementById("canvas");
+      ctx = canvas.getContext("2d");
+
+      requestAnimationFrame(mainLoop);
+    };
+
+    // Handle keyboard events
+    window.onkeydown = function(event) {
+      keys[event.keyCode] = true;
+      console.log(keys);
+    };
+    window.onkeyup = function(event) {
+      keys[event.keyCode] = false;
+    };
+  </script>
+  <style>
+    #canvas {
+      border: 0 solid;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    <canvas id="canvas" height="500" width="500"></canvas>
+  </p>
+</body>
+
+</html>
