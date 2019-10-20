@@ -11,7 +11,7 @@ dni_spolu = 0
 while datum1 <= datum2 :
 
     while datum1 // 10000 <= 12 :
-        
+
         dni_v_mesiaci = 0
 
         if datum1 // 10000 == 1 or datum1 // 10000 == 3 or datum1 // 10000 == 5 or datum1 // 10000 == 7 or datum1 // 10000 == 8 or datum1 // 10000 == 10 or datum1 // 10000 == 12 :
