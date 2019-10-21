@@ -1,0 +1,1 @@
+vstup = str (input ("vstup: "))
