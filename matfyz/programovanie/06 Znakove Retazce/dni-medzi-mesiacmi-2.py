@@ -27,12 +27,16 @@ while datum1 <= datum2 :
         dni_spolu += dni_v_mesiaci
         print ("pripocitavam mesiac ", datum1 // 10000, "s poctom dni ", dni_v_mesiaci, "datum ", datum1, "a priebezne mam ", dni_spolu)
 
-        datum1 += 1 * 10000
         if datum1 == datum2 :
+            dni_spolu -= dni_v_mesiaci
             break
+        else :
+            datum1 += 1 * 10000
+
 
     if datum1 == datum2 :
-            break
+        break
     datum1 -= 120000
     datum1 += 1
-    print (datum1)
+
+print (dni_spolu)
