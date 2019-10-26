@@ -72,7 +72,7 @@
 	overflow: hidden;
 }
 
-.navbar ul li a{
+.navbar li {
 	color: white;	
 	font-size: 3vh;
 	text-decoration: none;
@@ -159,6 +159,14 @@ body {
 	font-family: Tahoma, Geneva, sans-serif;
   }
 
+  img {
+	border-radius: 25px;
+  }
+
+  video {
+	border-radius: 25px;
+  }
+
 /*-------------------------------------------------------------*/
 
 .container {
@@ -240,6 +248,27 @@ p {
 	margin-top: 3%;
 }
 
+
+/*-------------------------------------------------------------*/
+
+#vlajka01 {
+	width: 4%;
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: 0;
+	float: right;
+	z-index: 0;
+}
+
+#vlajka02 {
+	width: 4%;
+	position: -webkit-sticky;
+	position: sticky;
+	margin-right: 0.3%;
+	bottom: 0;
+	float: right;
+	z-index: 0;
+}
 /*-------------------------------------------------------------*/
 
 table{
@@ -254,6 +283,56 @@ th, td {
 
 .f_riadok {
 	background-color: lightpink;
+}
+
+.stred {
+	background-color: white;
+	width: 5%;
+}
+
+/*-------------------------------------------------------------*/
+
+.mobil1 {
+	width: 49%;
+	float: left;
+}
+
+.mobil2 {
+	width: 49%;
+	float: right;
+	margin-left: 10px;
+}
+
+.mobil1 img{
+	width: 35%;
+	height: auto;
+	float: left;
+    margin-right: 20%;
+    margin-left: 30%;
+
+	overflow: hidden;
+
+	-webkit-transform:rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.mobil2 img{
+	width: 35%;
+	height: auto;
+	float: left;
+    margin-right: 20%;
+    margin-left: 30%;
+
+	overflow: hidden;
+
+	-webkit-transform:rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 /*-------------------------------------------------------------*/
