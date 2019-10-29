@@ -23,6 +23,10 @@
 	src: url("./fonts/ailerons/Ailerons-Regular.otf");
   }
 
+  @font-face {
+	font-family: Ailerons2;
+	src: url("./fonts/ailerons/Ailerons.otf");
+  }
 /*-------------------------------------------------------------*/
 
 .navbar{
@@ -157,15 +161,15 @@ header {
 body {
 	background-color: black;
 	font-family: Tahoma, Geneva, sans-serif;
-  }
+}
 
-  img {
+img {
 	border-radius: 25px;
-  }
+}
 
-  video {
+video {
 	border-radius: 25px;
-  }
+}
 
 /*-------------------------------------------------------------*/
 
@@ -209,6 +213,13 @@ body {
 	font-size: 5.5vh;
 }
 
+.select {
+	text-shadow: 1px 1px 3px rgb(48, 48, 48);
+	font-family: Ailerons, Georgia, 'Times New Roman', Times, serif;
+	font-size: 5.5vh;
+	color: rgba(161, 161, 161, 50);
+}
+
 p {
 	font-size: 20px;
 	font-size-adjust: unset;
@@ -246,8 +257,17 @@ p {
 	margin-left: auto;
 	margin-right: 7%;
 	margin-top: 3%;
+	margin-bottom: 0;
 }
 
+#parametre2{
+	width: 20%;
+	height: auto;
+	float: right;
+	margin-left: auto;
+	margin-right: 7%;
+	margin-top: 10%;
+}
 
 /*-------------------------------------------------------------*/
 
@@ -272,13 +292,19 @@ p {
 /*-------------------------------------------------------------*/
 
 table{
-	width: 59%;
 	margin-top: 2%;
+	table-layout: fixed;
+	width: 100%;
+	text-align: left;
+	
 }
 
 th, td {
-	font-size: 20px;
+	font-size: 1.5vw;
 	font-size-adjust: unset;
+	overflow: hidden;
+	padding-left: 1%;
+	vertical-align: middle;
 }
 
 .f_riadok {
@@ -287,20 +313,21 @@ th, td {
 
 .stred {
 	background-color: white;
-	width: 5%;
 }
 
 /*-------------------------------------------------------------*/
 
 .mobil1 {
-	width: 49%;
+	width: 47.5%;
 	float: left;
+	overflow: hidden;
 }
 
 .mobil2 {
-	width: 49%;
+	width: 47.5%;
 	float: right;
-	margin-left: 10px;
+	margin-left: 2%;
+	overflow: hidden;
 }
 
 .mobil1 img{
@@ -308,7 +335,8 @@ th, td {
 	height: auto;
 	float: left;
     margin-right: 20%;
-    margin-left: 30%;
+	margin-left: 30%;
+	margin-top: 1%;
 
 	overflow: hidden;
 
@@ -336,6 +364,45 @@ th, td {
 }
 
 /*-------------------------------------------------------------*/
+
+.dropbtn {
+	cursor: pointer;
+  }
+  
+  .dropdown {
+  
+  }
+  
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	width: 50vh;;
+	background-color: rgba(214, 209, 209, 0.932);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	text-align: center;
+  }
+  
+  .dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  .dropdown-content a:hover {
+  background-color: rgba(136, 124, 124, 0.2)
+  }
+  
+  .dropdown:hover .dropdown-content {
+	display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+  
+  }
+  
+  /*-------------------------------------------------------------*/
 
 footer{
 

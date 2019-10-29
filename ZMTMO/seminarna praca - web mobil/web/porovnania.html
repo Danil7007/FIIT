@@ -10,8 +10,30 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>HUAWEI P20 Lite</title>
+    <title>HUAWEI P20 Lite</title>
+    
+<!----------------------------------------------------------------->
+    <script type = "text/javascript">
+        function displayNextImage() {
+            x = (x === images.length - 1) ? 0 : x + 1;
+            document.getElementById("huawei").src = images[x];
+        }
 
+        function displayPreviousImage() {
+            x = (x <= 0) ? images.length - 1 : x - 1;
+            document.getElementById("huawei").src = images[x];
+        }
+
+        function startTimer() {
+            setInterval(displayNextImage, 3500);
+        }
+
+        var images = [], x = -1;
+        images[0] = "./EM_files/mobil_back.png";
+        images[1] = "./EM_files/mobil_front.png";
+        images[2] = "./EM_files/mobil_front_02.png";
+    </script>
+<!----------------------------------------------------------------->
 
 </head>
 
@@ -33,7 +55,6 @@
 		</ul>
 	</div>
 
-
 	<div class="container">
 
         <!-- VRCHNY NADPIS -->
@@ -45,31 +66,43 @@
         
         <!-- NADPISY MOBILOV -->
         <div>
-            <div class="mobil1" style="border: 1px solid red;">
+            <div class="mobil1">
                 <h2 class="intro_nadpis" style="text-align: center; margin-bottom: 0;">
                     HUAWEI P20 LITE
                 </h2>
             </div>
-            <div class="mobil2" style="border: 1px solid red;">
-                <h2 class="intro_nadpis" style="text-align: center; margin-bottom: 0;">
-                    ALCATEL ONE TOUCH 
-                </h2>
+            <div class="dropdown">
+                <div class="mobil2">
+                    <div class="dropbtn"> 
+                        <h2 class="select" style="text-align: center; margin-bottom: 0;">
+                            PROSÍM VYBERTE
+                        </h2>
+                        <div class="dropdown-content">
+                            <a href="porovnania_alcatel.html">Alcatel One Touch</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
         </br>
         <!--------------------->
 
         <!------- FOTKY ------->
         <div>
-            <div class="mobil1" style="border: 1px solid rgb(138, 255, 4);">
-                <img src="./EM_files/mobil_back.png">
+            <div class="mobil1">
+                <!-------SKRIPT-------->
+                <body onload = "startTimer()">
+                    <img id="huawei" src="./EM_files/mobil_back.png">
+                </body>
+                <!--------------------->
             </div>
-            <div class="mobil2" style="border: 1px solid rgb(138, 255, 4);">
+            <div class="mobil2">
                 <img src="./EM_files/unspecified.PNG">
             </div>
         </div>
         <!--------------------->
-        
+        <div>
         <table style="width: 100%;">
             
             <tr class="f_riadok">
@@ -79,7 +112,7 @@
                 <td class="stred">   </td>
                 <th style="width:16%;">SIEŤ</th>
                 <td style="width:16%;">technológia</td>
-                <td style="width:16%;">GSM/HSPA/LTE</td>
+                <td style="width:16%;">-</td>
             </tr>
             <tr>
                 <th>VYDANIE</th>
@@ -88,7 +121,7 @@
                 <td class="stred">   </td>
                 <th>VYDANIE</th>
                 <td>hlásené</td>
-                <td>20 jún 2019</td>
+                <td>-</td>
             </tr> 
             <tr>
                 <th></th>
@@ -97,7 +130,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>status</td>
-                <td>dostupný, uvedený na trh v júli 2019</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th>TELO</th>
@@ -106,7 +139,7 @@
                 <td class="stred">   </td>
                 <th>TELO</th>
                 <td>rozmery</td>
-                <td>159.1 x75.9 x 8.3 mm</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -115,7 +148,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>hmotnosť</td>
-                <td>178g</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -124,7 +157,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>stavba</td>
-                <td>predné sklo, plastické telo</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -133,7 +166,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>SIM</td>
-                <td>Single SIM alebo Dual SIM</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th>DISPLEJ</th>
@@ -142,7 +175,7 @@
                 <td class="stred">   </td>
                 <th>DISPLEJ</th>
                 <td>typ</td>
-                <td>LTPS IPS LCD, 16M farieb</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -151,7 +184,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>veľkosť</td>
-                <td>6.4 inches, 101.4 cm2 (~84.0% screen-to-body ratio)</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -160,7 +193,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>rozlíšenie</td>
-                <td>1080 x 2310 px</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th>PLATFORMA</th>
@@ -169,7 +202,7 @@
                 <td class="stred">   </td>
                 <th>PLATFORMA</th>
                 <td>OS</td>
-                <td>Android 9.0, EMUI 9.1</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -178,7 +211,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>chipset</td>
-                <td>Hisilicon Kirin 710 (12 nm)</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -187,7 +220,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>CPU</td>
-                <td>Octa-core</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -196,7 +229,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td></td>
-                <td>(4x2.2 GHz Cortex-A73 & 4x1.7 GHz Cortex-A53)</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -205,7 +238,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>GPU</td>
-                <td>Mali-G51 MP4</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th>PAMAŤ</th>
@@ -214,7 +247,7 @@
                 <td class="stred">   </td>
                 <th>PAMAŤ</th>
                 <td>card slot</td>
-                <td>microSD až do 256 GB</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -223,7 +256,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>vnútorná</td>
-                <td>64 GB 4 GB RAM alebo 128 GB 4 GB RAM</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th>ZADNÁ KAMERA</th>
@@ -232,7 +265,7 @@
                 <td class="stred">   </td>
                 <th>ZADNÁ KAMERA</th>
                 <td></td>
-                <td>16 MP, f/1.8, PDAF</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -241,7 +274,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td></td>
-                <td>8 MP, (ultrawide)</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -250,7 +283,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td></td>
-                <td>2 MP, f/2.4, 27mm (wide) dedicated macro camera</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -259,7 +292,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td></td>
-                <td>2 MP, f/2.4, depth sensor</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -268,7 +301,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>video</td>
-                <td>1080p@30fps</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th>PREDNÁ KAMERA</th>
@@ -277,7 +310,7 @@
                 <td class="stred">   </td>
                 <th>PREDNÁ KAMERA</th>
                 <td></td>
-                <td>16 MP, f/2.2</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -286,7 +319,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>video</td>
-                <td>1080p@30fps</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th>ZVUK</th>
@@ -295,7 +328,7 @@
                 <td class="stred">   </td>
                 <th>ZVUK</th>
                 <td>hlasný mód</td>
-                <td>áno</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -304,7 +337,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>jack</td>
-                <td>3.5mm</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th>COMMS</th>
@@ -313,7 +346,7 @@
                 <td class="stred">   </td>
                 <th>COMMS</th>
                 <td>WLAN</td>
-                <td>Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -322,7 +355,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>Bluetooth</td>
-                <td>5.0, A2DP, LE, aptX HD</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -331,7 +364,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>GPS</td>
-                <td>A-GPS, BDS</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -340,7 +373,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>NFC</td>
-                <td>áno</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -349,7 +382,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>FM radio</td>
-                <td>áno</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th></th>
@@ -358,7 +391,7 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>USB</td>
-                <td>2.0, type-C 1.0</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th>FUNKCIE</th>
@@ -367,21 +400,21 @@
                 <td class="stred">   </td>
                 <th>FUNKCIE</th>
                 <td>senzory</td>
-                <td>otlačok prstu, akcelerometer, kompas, gyro-proximity</td>
+                <td>-</td>
             </tr>
             <tr>
                 <th>BATÉRIA</th>
                 <td colspan="2">rýchle nabíjanie 18W</td>
                 <td class="stred">   </td>
                 <th>BATÉRIA</th>
-                <td colspan="2">rýchle nabíjanie 18W</td>
+                <td colspan="2">-</td>
             </tr>
             <tr>
                 <th></th>
                 <td colspan="2">nevyberatelná Li-Po 4000 mAh batéria</td>
                 <td class="stred">   </td>
                 <th></th>
-                <td colspan="2">nevyberatelná Li-Po 4000 mAh batéria</td>
+                <td colspan="2">-</td>
             </tr>
             <tr class="f_riadok">
                 <th>INÉ</th>
@@ -390,7 +423,7 @@
                 <td class="stred">   </td>
                 <th>INÉ</th>
                 <td>farebnosť</td>
-                <td>Midnight Black, Crush Blue, Charming Red</td>
+                <td>-</td>
             </tr>
             <tr class="f_riadok">
                 <th></th>
@@ -399,15 +432,16 @@
                 <td class="stred">   </td>
                 <th></th>
                 <td>cena</td>
-                <td>cca 280 EUR</td>
+                <td>-</td>
             </tr>
+        </table>  
+        </div>  
 
-        </table>    
-
-	</div>
-
-	<a x-ms-format-detection="none" href="parametre.html"><img id="vlajka01" src="./EM_files/vlajka01.svg"></a>
-	<a x-ms-format-detection="none" href="parametre_eng.html"><img id="vlajka02" src="./EM_files/vlajka02.svg"></a>
+	    </div>
+    </div>
+    
+	<a x-ms-format-detection="none" href="porovnania.html"><img id="vlajka01" src="./EM_files/vlajka01.svg"></a>
+	<a x-ms-format-detection="none" href="porovnania_eng.html"><img id="vlajka02" src="./EM_files/vlajka02.svg"></a>
     </br>
     
 	<footer>
