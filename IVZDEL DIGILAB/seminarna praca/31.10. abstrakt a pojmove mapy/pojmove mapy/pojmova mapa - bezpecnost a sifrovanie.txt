@@ -1,0 +1,22 @@
+POCITACOVA BEZPECNOST
+      |
+      |........zabezpecuju ju: BEZPECNOSTNE OPATRENIA, KRYPTOGRAFIA, BEZPECNOSTNE APLIKACIE
+      |			 |			|
+      |			 |			|.......na principe: SIFROVANIA DAT, DESIFROVANIA DAT
+      |		 	 |				|
+      |		 	 |				|.......zalozene na: SIFROVACICH KLUCOCH, CERTIFIKATOCH........................................................  |
+      |	      	 	 |				|			|							|
+      |	      	 	 |				|			|.......ako su: VEREJNE KLUCE, SUKROMNE KLUCE			|
+      |	      	 	 |				|					|					|
+      |	      	 	 |				|					|					|
+      |	      	 	 |				|.......napriklad: SYMETRICKE SIFROVANIE	|					|
+      |	      		 |					|	|			|					|
+      |	      		 |					|	|.......poskytujuce: SIFROVANIE VEREJNYMI KLUCAMI/PRIVATNYMI KLUCAMI	|
+      |	     		 |					|									|
+      |	     		 |					|.......chrani: PLAIN TEXT							|
+      |	     		 |														|
+      |			 |.......napriklad aj: VPN, SECURE SOCKET LAYER, TRANSPORT LAYER SECURITY, EMAIL SECURITY...............................................................	|
+      |
+      |........ohrozuju ju: KYBERNETICKE UTOKY, BEZPECNOSTNE HROZBY, VIRUSY
+		|
+		|.......napriklad: INTERNET EAVESDROPPING
