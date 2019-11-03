@@ -28,7 +28,6 @@
 	src: url("./fonts/ailerons/Ailerons.otf");
   }
 /*-------------------------------------------------------------*/
-
 .navbar{
 	height: auto;
 	position: sticky;
@@ -171,6 +170,12 @@ video {
 	border-radius: 25px;
 }
 
+li {
+	font-size: 20px;
+	font-size-adjust: unset;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
 /*-------------------------------------------------------------*/
 
 .container {
@@ -207,16 +212,15 @@ video {
 }
 
 /*-------------------------------------------------------------*/
+.select,
 .intro_nadpis {
-	text-shadow: 1px 1px 3px lightskyblue;
+	text-shadow: 3px 3px 3px lightskyblue;
 	font-family: Ailerons, Georgia, 'Times New Roman', Times, serif;
 	font-size: 5.5vh;
 }
 
 .select {
-	text-shadow: 1px 1px 3px rgb(48, 48, 48);
-	font-family: Ailerons, Georgia, 'Times New Roman', Times, serif;
-	font-size: 5.5vh;
+	text-shadow: 3px 3px 3px rgb(48, 48, 48);
 	color: rgba(161, 161, 161, 50);
 }
 
@@ -256,21 +260,13 @@ p {
 	float: right;
 	margin-left: auto;
 	margin-right: 7%;
-	margin-top: 3%;
-	margin-bottom: 0;
-}
-
-#parametre2{
-	width: 20%;
-	height: auto;
-	float: right;
-	margin-left: auto;
-	margin-right: 7%;
 	margin-top: 10%;
+	margin-bottom: 0;
 }
 
 /*-------------------------------------------------------------*/
 
+#vlajka02,
 #vlajka01 {
 	width: 4%;
 	position: -webkit-sticky;
@@ -281,14 +277,22 @@ p {
 }
 
 #vlajka02 {
-	width: 4%;
-	position: -webkit-sticky;
-	position: sticky;
 	margin-right: 0.3%;
-	bottom: 0;
-	float: right;
-	z-index: 0;
 }
+
+/*-------------------------------------------------------------*/
+
+#pris_powerbanka,
+#pris_sluchadla,
+#pris_puzdro,
+#pris_nabijacka{
+	float: right;
+	width: 20%;
+	margin-top: 2%;
+	margin-left: 2%;
+	border-radius: 0%;
+}
+
 /*-------------------------------------------------------------*/
 
 table{
@@ -296,19 +300,23 @@ table{
 	table-layout: fixed;
 	width: 100%;
 	text-align: left;
-	
 }
 
 th, td {
 	font-size: 1.5vw;
 	font-size-adjust: unset;
 	overflow: hidden;
-	padding-left: 1%;
+	padding: 1%;
 	vertical-align: middle;
+
 }
 
 .f_riadok {
 	background-color: lightpink;
+}
+
+.f_riadok2 {
+	background-color:  rgb(255, 183, 88);
 }
 
 .stred {
@@ -369,7 +377,7 @@ th, td {
 	cursor: pointer;
   }
   
-  .dropdown {
+.dropdown {
   
   }
   
@@ -402,7 +410,95 @@ th, td {
   
   }
   
-  /*-------------------------------------------------------------*/
+/*-------------------------------------------------------------*/
+
+.navigacia_prislusenstvo {
+	float: left;
+	width: 35%;
+	margin-right: 5%;
+	margin-top: 2%;
+}
+
+.navigacia_prislusenstvo ul{
+	width: 100%;
+	list-style-type: none;
+	text-align: center;
+	padding: 0%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+}
+
+.navigacia_prislusenstvo li{
+	box-sizing: border-box;
+	border: solid black;
+	outline-color: black;
+	outline-width: 2px;
+	outline-style: solid;
+
+	width: 100%;
+	background-color: black;
+	color: white;
+	font-size: 3vh;
+	text-decoration: none;
+	font-family: Ailerons, Georgia, 'Times New Roman', Times, serif;
+	list-style-type: none;
+	text-align: center;
+	padding: 3%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5%;
+}
+
+.navigacia_prislusenstvo .active {
+	background-color: rgb(180, 118, 238);
+}
+
+.navigacia_prislusenstvo li:hover{
+	box-sizing: border-box;
+	border: solid rgb(255, 170, 58);
+	outline-color: rgb(255, 170, 58);
+	outline-width: 2px;
+	outline-style: solid;
+	text-shadow: 2px 2px 4px rgb(255, 170, 58);
+}
+
+.navigacia_prislusenstvo a {
+	text-decoration: none;
+}
+
+.text_prislusenstvo {
+	margin-top: 2.3%;
+}
+
+.navigacia_prislusenstvo .link {
+	background-color: rgb(255, 162, 56);
+	margin-top: 15%;
+
+}
+
+/*-------------------------------------------------------------*/
+
+.flexbox {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	flex-direction: row-reverse;
+	justify-content: space-evenly;
+	height: auto;
+  }
+
+.item {
+	margin: 2%;
+	width:15%;
+}
+
+.item audio{
+	width:100%;
+	margin-top:1.15%;
+}
+
+/*-------------------------------------------------------------*/
 
 footer{
 

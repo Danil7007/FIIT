@@ -12,10 +12,33 @@
 
 	<title>HUAWEI P20 Lite</title>
 
+<!----------------------------------------------------------------->
+<script type = "text/javascript">
+    function displayNextImage() {
+        x = (x === images.length - 1) ? 0 : x + 1;
+        document.getElementById("parametre").src = images[x];
+    }
+
+    function displayPreviousImage() {
+        x = (x <= 0) ? images.length - 1 : x - 1;
+        document.getElementById("parametre").src = images[x];
+    }
+
+    function startTimer() {
+        setInterval(displayNextImage, 2500);
+    }
+
+    var images = [], x = -1;
+    images[0] = "./EM_files/mobil_front.png";
+    images[1] = "./EM_files/mobil_back.png";
+    images[2] = "./EM_files/mobil_front_02.png";
+
+</script>
+<!----------------------------------------------------------------->    
 
 </head>
 
-<body>
+<body onload = "startTimer()">
 
 	<header>
 		<p class="banner">HUAWEI P2O Lite</p>
@@ -39,199 +62,206 @@
     <h2 class="intro_nadpis" style="float:left;">
         ŠPECIFIKÁCIE - HUAWEI P20 LITE
     </h2>
-
-        <img id="parametre" src="./EM_files/mobil_front_02.png">
-
-        <table class="parametre" style="width: 59%;">
-            
-            <tr class="f_riadok">
-                <th>SIEŤ</th>
-                <td>technológia</td>
-                <td>GSM/HSPA/LTE</td>
-            </tr>
-            <tr>
-                <th>VYDANIE</th>
-                <td>hlásené</td>
-                <td>20 jún 2019</td>
-            </tr> 
-            <tr>
-                <th></th>
-                <td>status</td>
-                <td>dostupný, uvedený na trh v júli 2019</td>
-            </tr>
-            <tr class="f_riadok">
-                <th>TELO</th>
-                <td>rozmery</td>
-                <td>159.1 x75.9 x 8.3 mm</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>hmotnosť</td>
-                <td>178g</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>stavba</td>
-                <td>predné sklo, plastické telo</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>SIM</td>
-                <td>Single SIM alebo Dual SIM</td>
-            </tr>
-            <tr>
-                <th>DISPLEJ</th>
-                <td>typ</td>
-                <td>LTPS IPS LCD, 16M farieb</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>veľkosť</td>
-                <td>6.4 inches, 101.4 cm2 (~84.0% screen-to-body ratio)</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>rozlíšenie</td>
-                <td>1080 x 2310 px</td>
-            </tr>
-            <tr class="f_riadok">
-                <th>PLATFORMA</th>
-                <td>OS</td>
-                <td>Android 9.0, EMUI 9.1</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>chipset</td>
-                <td>Hisilicon Kirin 710 (12 nm)</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>CPU</td>
-                <td>Octa-core</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td></td>
-                <td>(4x2.2 GHz Cortex-A73 & 4x1.7 GHz Cortex-A53)</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>GPU</td>
-                <td>Mali-G51 MP4</td>
-            </tr>
-            <tr>
-                <th>PAMAŤ</th>
-                <td>card slot</td>
-                <td>microSD až do 256 GB</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>vnútorná</td>
-                <td>64 GB 4 GB RAM alebo 128 GB 4 GB RAM</td>
-            </tr>
-            <tr class="f_riadok">
-                <th>ZADNÁ KAMERA</th>
-                <td></td>
-                <td>16 MP, f/1.8, PDAF</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td></td>
-                <td>8 MP, (ultrawide)</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td></td>
-                <td>2 MP, f/2.4, 27mm (wide) dedicated macro camera</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td></td>
-                <td>2 MP, f/2.4, depth sensor</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>video</td>
-                <td>1080p@30fps</td>
-            </tr>
-            <tr>
-                <th>PREDNÁ KAMERA</th>
-                <td></td>
-                <td>16 MP, f/2.2</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>video</td>
-                <td>1080p@30fps</td>
-            </tr>
-            <tr class="f_riadok">
-                <th>ZVUK</th>
-                <td>hlasný mód</td>
-                <td>áno</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>jack</td>
-                <td>3.5mm</td>
-            </tr>
-            <tr>
-                <th>COMMS</th>
-                <td>WLAN</td>
-                <td>Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>Bluetooth</td>
-                <td>5.0, A2DP, LE, aptX HD</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>GPS</td>
-                <td>A-GPS, BDS</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>NFC</td>
-                <td>áno</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>FM radio</td>
-                <td>áno</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>USB</td>
-                <td>2.0, type-C 1.0</td>
-            </tr>
-            <tr class="f_riadok">
-                <th>FUNKCIE</th>
-                <td>senzory</td>
-                <td>otlačok prstu, akcelerometer, kompas, gyro-proximity</td>
-            </tr>
-            <tr>
-                <th>BATÉRIA</th>
-                <td colspan="2">rýchle nabíjanie 18W</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td colspan="2">nevyberatelná Li-Po 4000 mAh batéria</td>
-            </tr>
-            <tr class="f_riadok">
-                <th>INÉ</th>
-                <td>farebnosť</td>
-                <td>Midnight Black, Crush Blue, Charming Red</td>
-            </tr>
-            <tr class="f_riadok">
-                <th></th>
-                <td>cena</td>
-                <td>cca 280 EUR</td>
-            </tr>
-
-        </table>
-
-        <img id="parametre2" src="./EM_files/mobil_back.png">
         
+        <!-------SKRIPT-------->
+            <img id="parametre" class="huawei" src="./EM_files/mobil_front.png">  
+        <!--------------------->
+
+        <article style="width: 59%; float:left">
+            <table class="parametre" style="width: 100%;">
+                
+                <tr class="f_riadok">
+                    <th>SIEŤ</th>
+                    <td>technológia</td>
+                    <td>GSM/HSPA/LTE</td>
+                </tr>
+                <tr>
+                    <th>VYDANIE</th>
+                    <td>hlásené</td>
+                    <td>20 jún 2019</td>
+                </tr> 
+                <tr>
+                    <th></th>
+                    <td>status</td>
+                    <td>dostupný, uvedený na trh v júli 2019</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th>TELO</th>
+                    <td>rozmery</td>
+                    <td>159.1 x75.9 x 8.3 mm</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th></th>
+                    <td>hmotnosť</td>
+                    <td>178g</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th></th>
+                    <td>stavba</td>
+                    <td>predné sklo, plastické telo</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th></th>
+                    <td>SIM</td>
+                    <td>Single SIM alebo Dual SIM</td>
+                </tr>
+                <tr>
+                    <th>DISPLEJ</th>
+                    <td>typ</td>
+                    <td>LTPS IPS LCD, 16M farieb</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>veľkosť</td>
+                    <td>6.4 inches, 101.4 cm2 (~84.0% screen-to-body ratio)</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>rozlíšenie</td>
+                    <td>1080 x 2310 px</td>
+                </tr>
+            </table>
+        </article>
+            
+            <table class="parametre" style="width: 100%;">
+                <tr class="f_riadok">
+                    <th>PLATFORMA</th>
+                    <td>OS</td>
+                    <td>Android 9.0, EMUI 9.1</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th></th>
+                    <td>chipset</td>
+                    <td>Hisilicon Kirin 710 (12 nm)</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th></th>
+                    <td>CPU</td>
+                    <td>Octa-core</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th></th>
+                    <td></td>
+                    <td>(4x2.2 GHz Cortex-A73 & 4x1.7 GHz Cortex-A53)</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th></th>
+                    <td>GPU</td>
+                    <td>Mali-G51 MP4</td>
+                </tr>
+                <tr>
+                    <th>PAMAŤ</th>
+                    <td>card slot</td>
+                    <td>microSD až do 256 GB</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>vnútorná</td>
+                    <td>64 GB 4 GB RAM alebo 128 GB 4 GB RAM</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th>ZADNÁ KAMERA</th>
+                    <td></td>
+                    <td>16 MP, f/1.8, PDAF</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th></th>
+                    <td></td>
+                    <td>8 MP, (ultrawide)</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th></th>
+                    <td></td>
+                    <td>2 MP, f/2.4, 27mm (wide) dedicated macro camera</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th></th>
+                    <td></td>
+                    <td>2 MP, f/2.4, depth sensor</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th></th>
+                    <td>video</td>
+                    <td>1080p@30fps</td>
+                </tr>
+                <tr>
+                    <th>PREDNÁ KAMERA</th>
+                    <td></td>
+                    <td>16 MP, f/2.2</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>video</td>
+                    <td>1080p@30fps</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th>ZVUK</th>
+                    <td>hlasný mód</td>
+                    <td>áno</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th></th>
+                    <td>jack</td>
+                    <td>3.5mm</td>
+                </tr>
+                <tr>
+                    <th>COMMS</th>
+                    <td>WLAN</td>
+                    <td>Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>Bluetooth</td>
+                    <td>5.0, A2DP, LE, aptX HD</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>GPS</td>
+                    <td>A-GPS, BDS</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>NFC</td>
+                    <td>áno</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>FM radio</td>
+                    <td>áno</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>USB</td>
+                    <td>2.0, type-C 1.0</td>
+                </tr>
+                <tr class="f_riadok2">
+                    <th>FUNKCIE</th>
+                    <td>senzory</td>
+                    <td>otlačok prstu, akcelerometer, kompas, gyro-proximity</td>
+                </tr>
+                <tr>
+                    <th>BATÉRIA</th>
+                    <td colspan="2">rýchle nabíjanie 18W</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2">nevyberatelná Li-Po 4000 mAh batéria</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th>INÉ</th>
+                    <td>farebnosť</td>
+                    <td>Midnight Black, Crush Blue, Charming Red</td>
+                </tr>
+                <tr class="f_riadok">
+                    <th></th>
+                    <td>cena</td>
+                    <td>cca 280 EUR</td>
+                </tr>
+
+            </table>
+        
+
+
 	</div>
 
 	<a x-ms-format-detection="none" href="parametre.html"><img id="vlajka01" src="./EM_files/vlajka01.svg"></a>

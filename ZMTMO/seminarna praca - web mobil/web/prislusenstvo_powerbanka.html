@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="sk">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<!--- favicon --->
+	<link rel="icon" type="image/png" href="./EM_files/EM_png.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>HUAWEI P20 Lite</title>
+    
+<!----------------------------------------------------------------->
+    <script type = "text/javascript">
+    function displayNextImage() {
+        x = (x === images.length - 1) ? 0 : x + 1;
+        document.getElementById("pris_powerbanka").src = images[x];
+    }
+
+    function displayPreviousImage() {
+        x = (x <= 0) ? images.length - 1 : x - 1;
+        document.getElementById("pris_powerbanka").src = images[x];
+    }
+
+    function startTimer() {
+        setInterval(displayNextImage, 2500);
+    }
+
+    var images = [], x = -1;
+    images[0] = "./EM_files/powbank_top.png";
+    images[1] = "./EM_files/powerbank_bottom.png";
+
+    </script>
+<!-----------------------------------------------------------------> 
+
+
+</head>
+
+<body onload = "startTimer()">
+
+	<header>
+		<p class="banner">HUAWEI P2O Lite</p>
+	</header>
+
+	<div class="navbar">
+		<ul>
+			<a x-ms-format-detection="none" href="EM.html"><li>úvod</li></a>
+			<a x-ms-format-detection="none" href="parametre.html"><li>parametre</li></a>
+			<a x-ms-format-detection="none" href="porovnania.html"><li>porovnania</li></a>
+			<a x-ms-format-detection="none" href="galeria.html"><li>galéria</li></a>
+			<a x-ms-format-detection="none" href="prislusenstvo.html"><li class="active">príslušenstvo</li></a>
+			<a x-ms-format-detection="none" href="rozhranie.html"><li>rozhranie</li></a>
+			<a x-ms-format-detection="none" href="feedback.html"><li>feedback</li></a>
+		</ul>
+	</div>
+
+	<div class="container">
+ 
+    <div class="navigacia_prislusenstvo">
+        <ul>
+            <a x-ms-format-detection="none" href="prislusenstvo_puzdro.html"><li>puzdro</li></a>
+            <a x-ms-format-detection="none" href="prislusenstvo_nabijacka.html"><li>nabíjačka</li></a>
+            <a x-ms-format-detection="none" href="prislusenstvo_sluchadla.html"><li>slúchadlá</li></a>
+            <a x-ms-format-detection="none" href="prislusenstvo_powerbanka.html"><li class="active">power banka</li></a>
+            <a x-ms-format-detection="none" target="_new" href="https://www.manualslib.com/products/Silvercrest-Power-Bank-8903611.html"><li class="link">LINK NA POWER BANKU</li></a>
+        </ul>
+    </div>
+
+    <!-------SKRIPT-------->
+        <img id="pris_powerbanka" src="./EM_files/powbank_top.png"> 
+    <!--------------------->
+
+    <div class="text_prislusenstvo">
+            <div> 
+                <h2 class="intro_nadpis" style="text-align: left;">
+                    SILVERCREST Power Banka
+                </h2>
+            </div>
+            <p>
+                Poskytuje nabíjanie pre elektronické zariadenia. 
+            </p>   
+            <p>
+                Má kapacitu 2600 mAH a trojročnú záruku. Má taktiež štvorstupňové LED značenie úrovni nabitia.
+            </p> 
+    </div>
+
+	</div>
+
+    </br>
+	<a x-ms-format-detection="none" href="prislusenstvo_powerbanka.html"><img id="vlajka01" src="./EM_files/vlajka01.svg"></a>
+	<a x-ms-format-detection="none" href="prislusenstvo_powerbanka_eng.html"><img id="vlajka02" src="./EM_files/vlajka02.svg"></a>
+	</br>
+	
+	<footer>
+		<p> Copyright © 2019 Emma Macháčová. </p>
+	</footer>
+
+</body>
+
+</html>
