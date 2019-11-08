@@ -1,7 +1,3 @@
-// uloha6-2.c -- Emma Macháčová, 3.11.2019 18:59
-
-#include <stdio.h>
-
 // uloha6-1.c -- Emma Macháčová, 2.11.2019 23:38
 
 #include <stdio.h>
