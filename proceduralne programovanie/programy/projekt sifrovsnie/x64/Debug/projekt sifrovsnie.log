@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\DATA\FIIT\proceduralne programovanie\programy\projekt sifrovsnie\Source.cpp(45,6): warning C4101: 'i': unreferenced local variable
+C:\DATA\FIIT\proceduralne programovanie\programy\projekt sifrovsnie\Source.cpp(71,19): warning C4101: 'counter': unreferenced local variable
+  projekt sifrovsnie.vcxproj -> C:\DATA\FIIT\proceduralne programovanie\programy\projekt sifrovsnie\x64\Debug\projekt sifrovsnie.exe
