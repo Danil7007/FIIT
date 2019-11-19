@@ -36,18 +36,25 @@
 		 float: left;
 		 width: 40%;
 		 display: none;
-		 
 	}
-	.aside{
+
+	.aside {
 		display: block;
 	}
-	div.container,footer{
+
+	div.container {
 		width: 60%;
 		float: right;
 	}
 
+	footer {
+		width: 100%;
+		display: block;
+	}
 }
+
 /*-------------------------------------------------------------*/
+
 .aside{
 	height: auto;
 	position: sticky;
@@ -57,6 +64,67 @@
 	overflow: hidden;
 	display: none;
 }
+
+.aside ul{
+	background-color: hotpink;
+	list-style-type: none;
+
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-top: 0.3%;
+	padding-bottom: 0.8%;
+
+	overflow: hidden;
+	
+	box-shadow: 0px 0px 15px black;
+}
+
+.aside .active {
+	background-color: blueviolet;
+}
+
+.aside ul li{
+	box-sizing: border-box;
+	border: solid black;
+	outline-color: black;
+	outline-width: 2px;
+	outline-style: solid;
+
+	margin-right: 1.1%;
+	margin-left: 1.1%;
+	margin-top: 0.8%;
+	margin-top: 0.8%;
+
+	background-color: black;
+	float: left;
+	text-align: center;
+	width: 12%;
+	padding: 0.5% 0%;
+	overflow: hidden;	
+}
+
+.aside li {
+	color: white;	
+	font-size: 3vh;
+	text-decoration: none;
+	font-family: Ailerons, Georgia, 'Times New Roman', Times, serif;
+}
+
+.aside ul li:hover{
+	box-sizing: border-box;
+	border: solid #99ffff;
+	outline-color: #99ffff;
+	outline-width: 2px;
+	outline-style: solid;
+	text-shadow: 2px 2px 4px lightskyblue;
+}
+
+.aside ul li:active{
+	background-color: lightskyblue;
+}
+
+/*-------------------------------------------------------------*/
+
 .navbar{
 	height: auto;
 	position: sticky;
