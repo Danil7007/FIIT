@@ -7,8 +7,7 @@ int main()
     float w, h, i, bmi;
     int a,b,countnad=0,countnorm=0,countobe=0,countpod=0;
     scanf("%d",&a);
-    for(b=1;b<=a;b++)
-    {
+    for(b=1;b<=a;b++){
     scanf ("%f %f", &h, &w) ;
     h = h/100 ;
     i = h*h ;

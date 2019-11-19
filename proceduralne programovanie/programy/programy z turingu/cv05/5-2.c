@@ -1,18 +1,15 @@
 #include <stdio.h>
 
-int main()
-{
+int main(){
   int r,n,a,c;
   scanf("%d",&n);
   if(n>15 || n<1){
     printf("Cislo nie je z daneho intervalu");
   }
   c=n;
-  for(r=1;r<=c;r++)
-  {
+  for(r=1;r<=c;r++){
     printf("%d: ",r);
-    for(a=1; a<=n; a++)
-    {
+    for(a=1; a<=n; a++){
       printf("%d ",a);
     }
     n--;

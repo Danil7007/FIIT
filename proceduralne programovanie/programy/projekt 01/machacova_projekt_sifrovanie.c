@@ -19,7 +19,8 @@ int main (){
                         break;
             case 'd' : a = vypis_danej_dlzky (povodny_pointer);
                         break;
-            case 'h' : break;
+            case 'h' :  a = histogram(int* upraveny)
+						break;
             case 'c' : break;
             case 'k' : break;
             default : break;
@@ -154,3 +155,4 @@ int nacitaj (int *povodny){
 		
 	return 0;
 }
+

@@ -20,7 +20,7 @@ int main()
     while (c != EOF){
         c = fgetc(vstup);
         e = c;
-        if (c!='\n'){
+        if (c =='\n'){
             fprintf(cisla,"\n");
         }
         while (c != '\n') { 
