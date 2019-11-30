@@ -10,6 +10,15 @@ int nacitaj(int* povodny);
 int c_sifra(int* upraveny);
 int histogram(int* upraveny);
 
+int prevrat(int* upraveny);
+int vloz(int* upraveny);
+
+int pomer(int* povodny);
+int zmaz(int* upraveny);
+
+int najdi(int* upraveny);
+
+
 int main() {
 	int i, vstup_prikaz, povodny[1000], upraveny[1000], * povodny_pointer, * upraveny_pointer, a;
 	povodny_pointer = &povodny[0];
@@ -35,6 +44,16 @@ int main() {
 			break;
 		case 'c': a = c_sifra(upraveny_pointer);
 			break;
+		case 'o': a = prevrat(upraveny_pointer);
+			break;
+		case 'z': a = vloz(upraveny_pointer);
+			break;
+		case 'p': a = pomer(povodny_pointer);
+			break;
+		case 'z': a = zmaz(upraveny_pointer);
+			break;
+		case 'b': a = najdi(upraveny_pointer);
+			break;
 		case 'k': break;
 		default: break;
 		}
@@ -43,7 +62,189 @@ int main() {
 	return 0;
 }
 
-// FUNGUJE
+int vloz(int* upraveny) {
+	int dlzka = 0, retazec[10], c, i = 0, pom_pole[1000], j = 0;
+
+	//pocitanie dlzky upraveneho pola
+	do {
+		dlzka += 1;
+	} while (*(upraveny + dlzka) != 0);
+
+	//retazec do pola
+	do {
+		c = getchar();
+		if (c == ' ') {
+			c = getchar();
+		}
+		if (c != '\n') {
+			if (c >= 'A' && c <= 'Z') {
+				retazec[i] = c;
+
+				if (i >= 9) {
+					//dlzka viac ako 10
+					printf("Retazec nie je mozne vlozit - dlzka\n");
+					return 0;
+				}
+				else {
+					++i;
+				}
+			}
+			else if ((c < 'A' || c > 'Z')) {
+				//iba velke pismena
+				printf("Retazec nie je mozne vlozit - velke pismena\n");
+				return 0;
+			}
+		}
+	} while (c != '\n');
+	int dlzka_retazca = i, k = 0;
+
+	//menej ako 1000 znakov
+	if (dlzka + i + 1 > 1000) {
+		printf("Retazec nie je mozne vlozit - vela znakov\n");
+		return 0;
+	}
+	//ak nie je stred
+	if (dlzka % 2 != 0) {
+		printf("Retazec nie je mozne vlozit - bez stredu\n");
+		return 0;
+	}
+	for (i = 0; i < 1000; ++i) {
+		if (i < (dlzka / 2) + 1) {
+			pom_pole[i] = *(upraveny + j);
+			++j;
+		}
+		if (((i >= (dlzka / 2) + 1)) && (i < ((dlzka / 2) + 1 + dlzka_retazca))) {
+			pom_pole[i] = retazec[k];
+			++k;
+		}
+		if (i >= ((dlzka / 2) + 1 + dlzka_retazca)) {
+			pom_pole[i] = *(upraveny + j);
+			++j;
+		}
+	}
+	//prepisanie pola upraveny
+	i = 0;
+	do {
+		*(upraveny + i) = pom_pole[i];
+		i++;
+	} 
+	while (pom_pole[i] != 0);
+
+	printf("Retazec sa vlozil\n");
+
+	return 0;
+}
+
+//najdi --------------------------------------------------------------------------- pisomka
+int najdi(int* upraveny) {
+	int j = 0, c, k, pocet_c=0, minimum_k=26, minimum_c=1000;
+
+	scanf("%d", &c);
+
+	if (*upraveny == NULL) {
+		printf("Nie je k dispozicii upravena sprava\n");
+	}
+
+	else {
+		for (k = 0; k < 26; ++k) {
+			for (j = 0; j < 1000; ++j) {
+				if (*(upraveny + j) >= 'A' && *(upraveny + j) <= 'Z') {
+					*(upraveny + j) = *(upraveny + j) - k;
+					if (*(upraveny + j) < 'A') {
+						*(upraveny + j) = 'Z' - k + 1;
+					}
+					if (*(upraveny + j) == c); {
+						++pocet_c;
+					}
+				}
+			}
+			if (pocet_c < minimum_c) {
+				minimum_c = pocet_c;
+				minimum_k = k;
+			}
+		}
+	}
+	k = minimum_k;
+	printf("%d", k);
+	return 0;
+}
+
+//zmaz ------------------------------------------------------------------ pisomka
+int zmaz(int* upraveny) {
+	int dlzka = 0, z, k, i = 0, pom_pole[1000], j = 0;
+
+	if (*upraveny == NULL) {
+		printf("Nie je k dispozicii upravena sprava\n");
+		return 0;
+	}
+
+	//pocitanie dlzky upraveneho pola
+	do {
+		dlzka += 1;
+	} 
+	while (*(upraveny + dlzka) != 0);
+
+	//sken cisiel
+	scanf("%d %d", &z, &k);
+
+	//nezmyslny index
+	if (k < z) {
+		printf("Retazec nie je mozne zmazat\n");
+		return 0;
+	}
+	// nekryje sa so znakom
+	if (z >= dlzka) {
+		printf("Retazec nie je mozne zmazat\n");
+		return 0;
+	}
+	
+	for (i = 0; i < 1000; ++i) {
+		if ((i < z) || (i > k)) {
+			pom_pole[j] = *(upraveny + i); 
+			++j;
+		}
+	}
+	//vynulovanie
+	for (i = 0; i < 1000; ++i) {
+		*(upraveny + i) = 0;
+	}
+
+	//prepisanie pola upraveny
+	i = 0;
+	do {
+		*(upraveny + i) = pom_pole[i];
+		i++;
+	} while (pom_pole[i] != 0);
+
+	printf("Retazec sa zmazal\n");
+
+	return 0;
+}
+
+int prevrat(int* upraveny) {
+	int dlzka = 0, i, j = 0, prev_pole[1000];
+	//pocitanie dlzky upraveneho pola
+	do {
+		dlzka += 1;
+	} while (*(upraveny + dlzka) != 0);
+	//pomocne prevratene pole
+	for (i = dlzka; i >= 0; --i) {
+		if (*(upraveny + i) != 0) {
+			prev_pole[j] = *(upraveny + i);
+			++j;
+		}
+	}
+	i = 0;
+	//prepisanie pola upraveny
+	do {
+
+		*(upraveny + i) = prev_pole[i];
+		i++;
+	} while (prev_pole[i] != 0);
+	return 0;
+}
+
+// odsifrovanie
 int c_sifra(int* upraveny) {
 	int j = 0, n;
 	scanf("%d", &n);
@@ -167,6 +368,29 @@ int uprav(int* povodny, int* upraveny) {
 		}
 	}
 
+	return 0;
+}
+
+// pomer ------------------------------------------------------------------------- pisomka
+int pomer(int* povodny) {
+	int i, pocet_malych,pocet_velkych;
+
+	if (*povodny == NULL) {
+		printf("Sprava nie je nacitana\n");
+	}
+	else {
+		for (i = 0; i < 1000; ++i) {
+			if ((*(povodny + i) >= 'A' && *(povodny + i) <= 'Z') || (*(povodny + i) >= 'a' && *(povodny + i) <= 'z')) {
+				if (*(povodny + i) >= 'a' && *(povodny + i) <= 'z') {
+					++pocet_malych;
+				}
+				else {
+					++pocet_velkych;
+				}
+			}
+		}
+		printf("%d:%d\n", pocet_velkych, pocet_malych);
+	}
 	return 0;
 }
 
