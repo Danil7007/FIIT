@@ -1,17 +1,16 @@
 <?php
 require "./translator_sk.php";
 session_start();
-if(isset($_SESSION["lang"]) OR !empty($_SESSION["lang"])){
+if (isset($_SESSION["lang"]) or !empty($_SESSION["lang"])) {
     $lang = $_SESSION["lang"];
-}
-else{
+} else {
     $lang = "sk";
 }
 
 $files = scandir("../assets/pictures");
 $images = array();
-foreach($files as $a){
-    if(!empty($a)){
+foreach ($files as $a) {
+    if (!empty($a)) {
         $images[] = $a;
     }
 }
@@ -20,41 +19,51 @@ foreach($files as $a){
 
 <html lang="sk">
 
+<!--- vyber jazyka --->
+<?php if ($lang == "sk") {
+    require "./translator_sk.php";
+} elseif ($lang == "en") {
+    require "./translator_en.php";
+}
+?>
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<!--- favicon --->
-	<link rel="icon" type="image/png" href="../assets/pictures/EM_png.png">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/galeria.css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--- favicon --->
+    <link rel="icon" type="image/png" href="../assets/pictures/EM_png.png">
 
-	<title>HUAWEI P20 Lite</title>
+    <link rel="stylesheet" type="text/css" href="../css/style2.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><?php echo $hw; ?></title>
 
 </head>
 
 <body>
 
-	<?php $name=basename(__FILE__, ".php"); require "../html//header.html"?>
+    <?php $name = basename(__FILE__, ".php");
+    require "../html/header.html" ?>
 
-	<div class="container">
-
-		<article id="flex">
-            <?php 
+    <div class="container">
+        <br>
+        <article>
+            <?php
             $e = 0;
-                foreach($files as $i){
-                    echo '<img id="'.$e.'" src="../assets/pictures/'.$i.'">';
+            foreach ($images as $i) {
+                if ($i != '.' and $i != '..') {
+                    echo '<img class="gallery" src="../assets/pictures/' . $i . '">';
                     ++$e;
                 }
+            }
             ?>
+        </article>
+    </div>
 
-
-		</article>
-	</div>
-	
-	<footer>
-		<p> Copyright © 2019 Emma Macháčová. </p>
-	</footer>
+    <?php
+    require "../html/footer.html";
+    ?>
 
 </body>
 

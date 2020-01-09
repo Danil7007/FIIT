@@ -1,0 +1,37 @@
+<div class="navigacia_prislusenstvo">
+	<ul>
+		<a x-ms-format-detection="none" href="prislusenstvo_puzdro.php">
+			<li <?php if($name=="prislusenstvo_puzdro" ){ echo 'class="active"';} else{ echo $name;} ?>>
+				<?php {
+						echo $puzdro;
+					}
+					?>
+			</li>
+		</a>
+		<a x-ms-format-detection="none" href="prislusenstvo_nabijacka.php">
+			<li <?php if($name=="prislusenstvo_nabijacka" ){ echo 'class="active"';} else{ echo $name;} ?>>
+				<?php {
+						echo $nabijacka;
+					}
+					?>
+			</li>
+		</a>
+		<a x-ms-format-detection="none" href="prislusenstvo_sluchadla.php">
+			<li <?php if($name=="prislusenstvo_sluchadla" ){ echo 'class="active"';} else{ echo $name;} ?>>
+				<?php {
+						echo $sluchadla;
+					}
+					?>
+			</li>
+		</a>
+		<a x-ms-format-detection="none" href="prislusenstvo_powerbanka.php">
+			<li <?php if($name=="prislusenstvo_powerbanka" ){ echo 'class="active"';} else{ echo $name;} ?>>
+				<?php {
+						echo $powerbanka;
+					}
+					?>
+			</li>
+		</a>
+	</ul>
+</div>
+
