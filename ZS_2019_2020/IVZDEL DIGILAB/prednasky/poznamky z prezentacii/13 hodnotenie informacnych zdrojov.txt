@@ -1,0 +1,167 @@
+> **Proste overuj, overuj a overuj
+Checkuj si autora, vydavateľa, kontext informácií
+Checkovať publikáciu aj v zmysle formálnych záležitostí**
+
+# Kvôli čomu by sme mali IZ hodnotiť?
+
+> Hodnotenie informácií ⇒ rozpoznavanie kvality informácií
+
+- Treba proste kontolovať informácie na internete
+- Rôzne webové stánky ⇒ rôzna kvalitaa
+- Nárasť dezinformácií ⇒ Reálne následky
+
+## Informačná etika
+
+- Zaoberá sa hodnotením a kontrolou informácií
+- Zaoberá sa aj zneužitia informácií
+- Zaoberá sa ešte aj práv na vyjadrenie názoru
+- Vytvára a kontoluje prístup k vlastníctvu
+
+### 5 Klúčových tém
+
+- Komunita
+- Vlastníctvo
+- Prístup
+- Súkromie
+- Bezpečnosť
+
+## Ako overiť informácie
+
+- Top je checknuť iný zdroj a porovnáť si fakty Nájsť a prečítať si pôvodnú informáciu
+- Opatrnosť pri hodnotení
+- Čím viac šokantné info, tým väčšia šanca že to je pičovina
+- Na overenie fotografií je dobrá websajda **image.google.com**
+- Audiovizualne informácie
+    - DeepFake ⇒ Vďaka bohu zatial nedokonalá techonologia
+- Treba dať bacha ak je niečo **emocionalne podfarbené**
+
+## Webové služby na overovanie informácií
+
+- Demagog.sk
+- Infosecurity.sk
+- euvsdisinfo.??
+
+## CRAAP test
+
+Ak to nemôžeš cez droje overiť, môžeš použíť tento test, ktorý ti položí pár otázok
+
+1. Je aktualna?
+2. Je spoľahlivá?
+3. Je podpísana?
+4. Je presná?
+    - Je podložená dôkazmi?
+5. Je vytvorená s cieľom informovať? 
+    - Predať?
+    - Presvedčiť?
+    - Aký je vlastne jej cieľ?
+
+## Ešte nejaký test
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c14e54b3-e4ae-41f3-a054-9a02084f27eb/20191203_111823.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c14e54b3-e4ae-41f3-a054-9a02084f27eb/20191203_111823.jpg)
+
+## Typyy nedôverihodných informácií
+
+- Úplne vymyslené informácií
+    - Nieje ich až toľko, pretože skôr či neskôr sa na to dojde 😎
+- Pravdivé informácie v nesprávnom kontexte
+- Chybné informácie
+- Satirické weby
+- Nesprávne spojenia (nadpis ako grafická stránka nezodpovedá obsahu)
+
+# Hodnotenia:
+
+### Tlačených odborných časopisov
+
+- Uverejnená redakčná rada, šéfredaktor s kontaktmi
+- Vydavateľ ako záruka kvalityy
+- Kontrola kvality recezným konaním (peer-review)
+
+### Monografia
+
+- Vedecké monografie prechádzajú recezným konaním
+- Čo ešte autor napísal?
+- Je autor autoritov v danej oblasti?
+- Je renomované čo vydavateľstvo vydáva?
+
+### Zborníky
+
+- Dohľadateľnosť informácií o konferencii
+- Usporiadania konferencie
+- Programovaý výber
+- Zoznam rečníkov → Sú to všeto odborníci v danej oblasti?
+- Vydavateľ zbornníka
+
+### Elektronické odborné IZ
+
+- Indexované v rešpektovaných databázach
+- Renomovaný vydavateľ
+- Uverejnená redakčný rada šéfredaktora
+- ....
+- ...
+
+### Voľne dostupné Elektronické časopisy
+
+- Indexované v databáza DOAJ
+    - PRísne kritéria na zaradenie časopisu
+- tIRáž:
+    - rEDAKčNA RADA SO šÉFREDAKTOROM+KONTAKTY
+- Jasne vymedzenie oblasti (v názve)
+- Webová stránka časopisu  Logická štruktúra, archív čísiel časopisu, redakčná rada, ISSN a pod...
+
+### Voľné dostupné EIZ
+
+- Monografie, zborníky a pod.. Bývajú zverejnené v repozitáry
+- Repozitár je dohľadateĺný v registry repozitárov ako opendoar
+- Vydavateľstvo?
+- Autor je autorita v danej oblasti?
+- Recenzie
+- Dátumy
+- Preklepy a pravopisné chyby
+
+### Vdecké blogy, osobné stránky
+
+- Treba si zistiť kto je autor, kde pôsobi a **či to nieje káres**
+
+### Videá YouTube a pod
+
+- Flajočka overenia je vždy fajn, ale nie povinnosť
+- Checkovať inforácie o autorovi, kto to je zač
+
+### Videozáznami s prednášok
+
+- Checkovať inforácie o autorovi, kto to je zač
+
+## Citačná analýza
+
+Odborníci, pedagogovia,projekt
+
+- Je to spôsob zisťovania relatívnej dôležitosti, alebo impaktu autora, článku, publikácie
+- Zisťovanie kolkokrát bol autor alebo článok citovaný alebo publikovaný
+
+### Impact factro časopisu IF
+
+- **Web of Sciene**
+    - Základný ukazovateľ dopadu a kvality časopisu
+    - Vzťahuje sa len na časopis ako celok nie na článok alebo jednotlivca
+    - Časopisy s vysokám impakt faktorom uverejňujú články na vsokej úrovni aby si ho udržali
+- H-Index
+    - Určuje kvalifikácie wedeckovýskumného výkonu jednotlivca
+    - Kvantitatívne ohodnotenie produktivity ale aj impaktu publikovaných prác
+    - Na určenie H-idnexu sa musia prce autora zoradiť zostupne....
+    - ...
+    - ...
+    - Dá sa to dogugliž všetko kto aký ma a ako sa jeho h-index vyvýja
+
+    ### Príklad
+
+    - 1-článok ⇒ 9 citácií
+    - 2 články ⇒ 4 citácie
+    - 5 článok - 1 citácie
+    - Piči nestíham ju, nerozumiem jej, dogugli sa to
+
+## Ako zistiť ťi je autor odborníkom v danej oblasti?
+
+- Môžeš si vyhľadávať profily
+    - Umožňujú spojiť konkretný výsledok výskumu s konkretnym jednotlivcom
+    - Zvyšujú šancu že publikácie budú citované
+    - Použí napríklad Google Schoolar, Scopus, ACM....

@@ -1,0 +1,8 @@
+1. Aky typ suborovych systemov pouziva OS Windows
+2. Kde su vo Win 10 ulozene dokumenty pouzivatela
+3. Kde su standardne ukladane instalovane programy
+4. Ako zistite vsetky aktualne sietove nastavenia (2 sposoby)
+
+Typy filesystemov MS Windows
+Oznacenia diskov a standardne miesta ulozenia pouzivatelskych dat a aplikacii vo Win
+Kde sa robia nastavenia siete
