@@ -1,0 +1,83 @@
+@font-face {
+    font-family: "AC";
+    src: url(../assets/fonts/arcadeclassic/ARCADECLASSIC.TTF);
+}
+
+@font-face {
+    font-family: "1982";
+    src: url(../assets/fonts/1982/BACKTO1982.TTF);
+}
+
+@font-face {
+    font-family: "AR";
+    src: url(../assets/fonts/arcaderegular/ARCADE.TTF);
+}
+
+*{
+    font-family: "AR", "AC", sans-serif;
+}
+
+canvas {
+    border: 3px solid black;
+    background-color: #4b4b4b;
+    /*background-image: url(../assets/pictures/bg/bg02_02.png);
+    background-repeat: no-repeat;
+    background-size: cover;*/
+
+    padding-left: 0;
+    padding-right: 0;
+
+    display: block;
+    margin: 0 auto;
+    cursor: url("../assets/cursor/chapadlo03.cur"), auto; 
+}
+
+table{
+    z-index: 0;
+    float: right;
+    position: relative;
+    bottom: 445px;
+    right: 150px;
+    font-size: 1.5em;  
+    border-collapse: separate;
+    border-spacing: 15px 0px;
+    text-align: left;
+}
+
+html {
+    background-color: black;
+    background-image: url("../assets/pictures/octo/octo02.png");
+    background-color: thistle;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nadpis {
+    color:rgb(255, 230, 0);
+    text-align:center;
+    text-shadow: 5px 5px 0px black;
+
+    font-size: 6em;
+    font-family: "AR", "AC", sans-serif;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    margin-top: 0;
+    margin-bottom: 0 !important;
+    
+    padding: 0px;
+}
+
+.credits{
+    z-index: -1;
+    text-align: center;
+    font-size: 1em;
+    margin: 0.5% 35%;
+    padding: 0%;
+
+}
+html,body{
+    margin:0;
+    height: 100%;
+}
