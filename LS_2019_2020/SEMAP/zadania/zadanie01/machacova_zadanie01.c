@@ -7,7 +7,7 @@
 
 int main(){
     // meranie casu
-	double cas = 0.0;
+	//double cas = 0.0;
 
     // pole na vstup, [index][0] pre vojaka, [index][1] pre skusenosti (lepsie sa mi s tym robi ako s polom x[] a polom y[])
     int pole[1000][2];
@@ -23,13 +23,13 @@ int main(){
     int cisla = 0, pismena = 1;
     
     // meranie casu
-    clock_t begin = clock();
+    //clock_t begin = clock();
 
     do {
         // ----------------------------------------- ak ocakava pismeno 
         if (pismena == 1){
             scanf("%c", &skenC);
-            pole[pom][0] = skenC;
+            pole[pom][0] = (int)skenC;
             
             // prepinanie pismena / cisla
             pismena = 0;
@@ -64,20 +64,17 @@ int main(){
     
     //  ----------------------------------------- zoradenie vsetkych vstupov
     pocet_prvkov = pom;
-    
-    for (i=0; i < pocet_prvkov; i++){
+
+    for (j=0; j < pocet_prvkov; j++){
         
-        for (j=0; j < pocet_prvkov; j++){
+        for (k= j+1; k < pocet_prvkov; k++){
             
-            for (k=0; k < pocet_prvkov; k++){
-                
-                // ak je hodnota mensia a "pismeno" sa zhoduje
-                if (pole[j][1] < pole[k][1] && pole[j][0] == pole[k][0]){
-                    // vymen prvky
-                    vymen = pole[j][1];
-                    pole[j][1] = pole[k][1];
-                    pole[k][1] = vymen;
-                }
+            // ak je hodnota mensia a "pismeno" sa zhoduje
+            if (pole[j][1] > pole[k][1] && pole[j][0] == pole[k][0]){
+                // vymen prvky
+                vymen = pole[j][1];
+                pole[j][1] = pole[k][1];
+                pole[k][1] = vymen;
             }
         }
     }
@@ -88,9 +85,9 @@ int main(){
     }
     
     // stop cas
-    clock_t end = clock();
-	cas += (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("\nCas na exekuciu %f sekund", cas);
+    //clock_t end = clock();
+	//cas += (double)(end - begin) / CLOCKS_PER_SEC;
+	//printf("\nCas na exekuciu %f sekund", cas);
 
     return 0;
 }
