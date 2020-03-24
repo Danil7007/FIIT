@@ -28,6 +28,7 @@ int main() {
     int pole[N][N], n, i, j;
     int sucty[M], im=0;
     
+    // vynulovanie pola
     for (i=0; i<M; i++){
         sucty[i] = 0;
     }
