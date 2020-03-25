@@ -76,32 +76,7 @@ void vypis (char *pole, int *ind){
 }
 
 void polindrom(char *pole, int *zaciatok, int *koniec){
-    int a, b, i, n, pal=0, max=0;
-    
-    a = *zaciatok;
-    b = *koniec;
-    n = b;
-    
-    while (a < b){
-        
-        for (i=a; i < n/2 && n != 0; i++){
-            
-            if (*(pole+i) != *(pole+n-i)){
-                pal = 1; // nieje palindrom
-                break;
-            }
-        }
-        
-        if (pal=0){
-            max = n;
-            break;
-        }
-        
-        else {
-            a++;
-            pal=0;
-        }
-    }
+
 }
 
 int main(){
