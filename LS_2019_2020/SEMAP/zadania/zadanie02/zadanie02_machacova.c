@@ -62,14 +62,45 @@ void nacitanie (char *pole, int *ind){
 void vypis (char *pole, int *ind){
     int i=0, dlzka;
     
+    // vypis slov
     while (*(pole+i) != '\0'){
         printf("%c", *(pole+i));
         i++;
     }
     
+    // vypis indexov
     dlzka = *ind;
     for (i=1; i < dlzka; i++){
         printf("%d ", *(ind+i));
+    }
+}
+
+void polindrom(char *pole, int *zaciatok, int *koniec){
+    int a, b, i, n, pal=0, max=0;
+    
+    a = *zaciatok;
+    b = *koniec;
+    n = b;
+    
+    while (a < b){
+        
+        for (i=a; i < n/2 && n != 0; i++){
+            
+            if (*(pole+i) != *(pole+n-i)){
+                pal = 1; // nieje palindrom
+                break;
+            }
+        }
+        
+        if (pal=0){
+            max = n;
+            break;
+        }
+        
+        else {
+            a++;
+            pal=0;
+        }
     }
 }
 
