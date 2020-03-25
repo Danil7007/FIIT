@@ -15,9 +15,12 @@ Ukážka výstupu:
 */
 
 #define N 10
+
 #include <stdio.h>
 #include <stdlib.h>
+
 int *vloz(int cislo , int *pole , int *m , int *n);
+
 int main() {
     
     int *pole, m, n;
