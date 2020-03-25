@@ -52,3 +52,8 @@ int main(){
     
     slova = (char *)malloc(velkost *sizeof(char));
     
+    nacitanie(slova);
+    vypis(slova);
+    
+    return 0;
+}
