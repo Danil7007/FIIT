@@ -9,7 +9,7 @@ void nacitanie (char *pole, int *ind){
     
     velkost = N + 1;
     
-    // nacitanie celeho vstupu
+    // nacitanie celeho vstupu -------------------------------------------------
     while (scanf("%c", &c) == 1){
         
         // realokovanie velkosti pola
@@ -25,25 +25,28 @@ void nacitanie (char *pole, int *ind){
         i++;
     }
     
-    // zistenie poctu slov
+    // zistenie poctu slov -----------------------------------------------------
     for (j=0; j<i; j++){
         if(*(pole+j) == '\n'){
             pocet++;
         }
     }
     
-    // realokovanie pre zisteny pocet slov (*2 lebo zaciatok-koniec a +1 lebo velkost)
-    ind = (int *)realloc(ind, (2*pocet)+1);
+    // realokovanie pre zisteny pocet slov -------------------------------------
+    // *2 lebo ukladam zaciatok aj koniec, a +1 lebo ukladam velkost
+    pocet = (2*pocet)+1;
+    ind = (int *)realloc(ind, pocet);
     
-    // zapis indexov
-    // na zaciatku pola dlzka
-    *(ind+k) = (2*pocet);
+    // zapis indexov - pomoc pre orientaciu v poli -----------------------------
+    // na zaciatku pola jeho dlzka
+    *(ind+k) = pocet;
     k++;
     // prve slovo vzdy na indexe 0
     *(ind+k) = 0;
     k++;
     for (j=0; j<i; j++){
         if(*(pole+j) == '\n'){
+            // zaznamenania pozicie enteru
             *(ind+k) = j;
             k++;
             // zaciatok dalsieho slova
@@ -65,7 +68,7 @@ void vypis (char *pole, int *ind){
     }
     
     dlzka = *ind;
-    for (i=1; i <= dlzka; i++){
+    for (i=1; i < dlzka; i++){
         printf("%d ", *(ind+i));
     }
 }
