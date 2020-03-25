@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+// N tak akurat na tri slova
 #define N 1500
 
-void nacitanie (char *pole, int *pocet){
-    int velkost, i=0;
+int nacitanie (char *pole){
+    int velkost, i=0, j=0, pocet=0;
     char c;
     
     velkost = N + 1;
     
-    // citanie vstupu
+    // nacitanie celeho vstupu
     while (scanf("%c", &c) == 1){
         
         // realokovanie velkosti pola
@@ -19,30 +20,35 @@ void nacitanie (char *pole, int *pocet){
         }
         
         *(pole+i) = c;
-        
-        printf("%c", *(pole+i));
+        //printf("%c", *(pole+i));
         
         i++;
     }
     
+    // zistenie poctu slov
+    for (j=0; j<i; j++){
+        if(*(pole+j) == '\n'){
+            pocet++;
+        }
+    }
+    //printf("\n%d", pocet);
+    
+    return pocet;
 }
 
+// vypisovanie vstupu - hotovo
 void vypis (char *pole){
-    
+    int i=0;
+    while (*(pole+i) != '\0'){
+        printf("%c", *(pole+i));
+        i++;
+    }
 }
 
 int main(){
     char *slova;
-    int *pocet, velkost;
+    int velkost;
     velkost = N + 1;
-    *pocet = 0;
     
     slova = (char *)malloc(velkost *sizeof(char));
     
-    nacitanie(slova, pocet);
-    //vypis(slova);
-    
-    printf("\n%d", *pocet);
-    
-    return 0;
-}
