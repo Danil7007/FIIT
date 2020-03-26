@@ -1,0 +1,25 @@
+canvas {
+    border: 3px solid black;
+    background-color: #bacded;
+    /*background-image: url(../assets/pictures/bg/bg02_02.png);
+    background-repeat: no-repeat;
+    background-size: cover;*/
+
+    padding-left: 0;
+    padding-right: 0;
+
+    display: block;
+    margin: 50px auto;
+}
+
+html {
+    background-color: black;
+    background-color: thistle;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+html,body{
+    margin:0;
+    height: 100%;
+}
