@@ -38,15 +38,48 @@ void nacitaj(int *vyska, int *sirka){
         pocty[i] = 0;
         dlzky[i] = N;
     }
+    
+    for (r=0; r < *vyska; r++){
+        for (s=0; s < *sirka; s++){
+            
+            i = pole[r][s] - 'A';
+            
+            pocty[i]++;
+            if (pocty[i]*2 > dlzky[i]){
+                znaky[i] = (int *)realloc(znaky[i], (dlzky[i]+N) *sizeof(int));
+                dlzky[i] += N;
+            }
+            
+            znaky[i][pocty[i] * 2 - 2] = r;
+            znaky[i][pocty[i] * 2 - 1] = s;
+        }
+    }
 }
 
 // hotova funkcia 
-void vypis(int *vyska){
-    int r;
+void vypis(int *vyska, int *sirka){
+    int r, s;
 
     for(r=0; r < *vyska; r++){
         printf("%s\n", pole[r]);
     }
+    
+    printf("\n");
+    
+    for (r=0; r < 26; r++){
+        printf("%c: ", r+'A');
+        for (s=0; s < pocty[r]*2; s++){
+            printf("%3d ", znaky[r][s]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void riesenie(){
+    int zmena_r[8] = {-1, -1, 0, 1, 1, 1, 0, -1};
+    int zmena_s[8] = {0, 1, 1, 1, 0, -1, -1, -1};
+    
 }
 
 int main(){
@@ -54,7 +87,7 @@ int main(){
     int i=0;
     
     nacitaj(pm, pn);
-    vypis(pm);
+    vypis(pm, pn);
 
     return 0;
 }
