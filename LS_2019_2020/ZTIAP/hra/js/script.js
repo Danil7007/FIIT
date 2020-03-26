@@ -16,7 +16,7 @@ var sec = 0;
 var count = 0;
 var done = 0;
 
-//inicializačná funkcia
+//inicializačná funkcia --------------------------------------------------------------------------------------
 function init() {
   preloadAssets();
   audio = new Audio();
@@ -35,7 +35,7 @@ function init() {
   printToTable();
 }
 
-// skore
+// skore -----------------------------------------------------------------------------------------------------
 function printToTable() {
   var table = document.querySelector("tbody");
   for (var i = 0; i < score.length; i++) {
@@ -50,6 +50,7 @@ function printToTable() {
   }
 }
 
+// zvuky -----------------------------------------------------------------------------------------------------
 // let funkcie sa nestackuju
 function selectSound() {
   var random = Math.floor(Math.random() * 5);
@@ -150,7 +151,7 @@ function playSound(src) {
   };
 }
 
-//prednačítnie všetkých obrázkov
+//prednačítnie všetkých obrázkov --------------------------------------------------------------------------------
 function preloadAssets() {
   // pozadie 02
   this.background02_01 = new Image(); //vytvorenie objektu "obrázok"
@@ -776,6 +777,7 @@ btn.prototype.clicked = function() {
   }
 };
 
+// funkcia text --------------------------------------------------------------------------------------------
 function txt(x, y, size, color, text) {
   this.X = x;
   this.Y = y;
@@ -915,7 +917,7 @@ function pena(x, y, width, height) {
   };
 }
 
-// premenná pre canvas
+// premenná pre canvas --------------------------------------------------------------------
 var gameArea = {
   canvas: document.querySelector("canvas"), //ziskanie elementu canvas
   nadpis: document.querySelector("h1"), //ziskanie elementu nadpis
