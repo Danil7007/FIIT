@@ -90,7 +90,7 @@ int palindrom(char *str, int start, int len) {
 
     for (int i = 1; i < len; ++i) { 
    
-        low = i - 1; 
+        low = i + start - 1; 
         high = i; 
         
         while (low >= 0 && high < len && str[low] == str[high]) { 
