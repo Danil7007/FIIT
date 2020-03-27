@@ -10,6 +10,7 @@ int **znaky;
 int pocty[26], dlzky[26];
 FILE * subor; 
 
+// hotovo
 void nacitaj(int *vyska, int *sirka){
     int i=0, r=0, s=0;
     char c;
@@ -76,10 +77,13 @@ void vypis(int *vyska, int *sirka){
                 printf("%c", pole[r][s]);   
             else printf("%c", pole[r][s] + rozdiel);
         }
+        // za slovom
         printf("\n");
     }
     
+    // za vypisom
     printf("\n");
+    
     /*
     // tabulka znakov
     for (r=0; r < 26; r++){
@@ -93,6 +97,7 @@ void vypis(int *vyska, int *sirka){
     */
 }
 
+// hotovo
 void riesenie(int *vyska, int *sirka){
     int zmena_r[8] = {-1, -1, 0, 1, 1, 1, 0, -1};
     int zmena_s[8] = {0, 1, 1, 1, 0, -1, -1, -1};
@@ -154,16 +159,38 @@ void riesenie(int *vyska, int *sirka){
                     r += zmena_r[smer];
                 }
                 
-                // ak ma vyskrtat vsetky vyskyty daneho slova
+                // ak nema vyskrtat vsetky vyskyty daneho slova
                 //if (nasiel == 1) break;
             }
             
-            // ak ma vyskrtat vsetky vyskyty daneho slova
+            // ak nema vyskrtat vsetky vyskyty daneho slova
             //if (nasiel == 1) break;
         }
         
         if (nasiel == 1) vypis(vyska, sirka);
-        else printf("slovo nebolo najdene\n");
+        else printf("slovo %s nebolo najdene\n\n", slovo);
+    }
+}
+
+// hotovo
+void tajnicka(int *vyska, int *sirka){
+    int i, j, prazdna=0;
+    
+    for (i=0; i < *vyska; i++){
+        for (j=0; j < *sirka; j++){
+            
+            if ( maska[i][j] == 0){
+                printf("%c\n", pole[i][j]);
+                prazdna++;
+            }
+        }
+    }
+    
+    if (prazdna == 0){
+        printf("osemsmerovka neobsahovala tajnicku");
+    }
+    else {
+        printf("\n");
     }
 }
 
@@ -172,9 +199,15 @@ int main(){
     int i=0;
     subor = fopen("osemsmerovka.txt", "r");
     
+    if (subor == NULL){
+        printf("subor sa nepodarilo nacitat\n");
+        return 0;
+    }
+    
     nacitaj(pm, pn);
     vypis(pm, pn);
     riesenie(pm, pn);
+    tajnicka(pm, pn);
 
     
     return 0;
