@@ -154,10 +154,12 @@ void riesenie(int *vyska, int *sirka){
                     r += zmena_r[smer];
                 }
                 
-                if (nasiel == 1) break;
+                // ak ma vyskrtat vsetky vyskyty daneho slova
+                //if (nasiel == 1) break;
             }
             
-            if (nasiel == 1) break;
+            // ak ma vyskrtat vsetky vyskyty daneho slova
+            //if (nasiel == 1) break;
         }
         
         if (nasiel == 1) vypis(vyska, sirka);
