@@ -170,6 +170,9 @@ void riesenie(int *vyska, int *sirka){
         if (nasiel == 1) vypis(vyska, sirka);
         else printf("slovo %s nebolo najdene\n\n", slovo);
     }
+    
+    // uvolnenie pamate
+    free (slovo);
 }
 
 // hotovo
@@ -194,6 +197,27 @@ void tajnicka(int *vyska, int *sirka){
     }
 }
 
+void uvolni(int *vyska){
+    int i;
+    
+    // znaky
+    for (i=0; i < 26; i++){
+        free(znaky[i]);
+    }
+    free(znaky);
+    
+    // pole a maska
+    for (i=0; i < *vyska; i++){
+        free(pole[i]);
+        free(maska[i]);
+    }
+    free(pole);
+    free(maska);
+    
+    // subor
+    fclose(subor);
+}
+
 int main(){
     int m, n, spolu, *pm = &m, *pn = &n;
     int i=0;
@@ -208,6 +232,7 @@ int main(){
     vypis(pm, pn);
     riesenie(pm, pn);
     tajnicka(pm, pn);
+    uvolni(pm);
 
     
     return 0;
