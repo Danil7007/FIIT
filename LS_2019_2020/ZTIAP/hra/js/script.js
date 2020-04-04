@@ -1,4 +1,4 @@
-//globalne premenne
+// premenne
 var mouseX;
 var mouseY;
 var fps = 60;
@@ -16,47 +16,73 @@ var sec = 0;
 var count = 0;
 var done = 0;
 
-//inicializačná funkcia --------------------------------------------------------------------------------------
+// inicializačná funkcia ----------------------------------------------------------------------------------------
+
 function init() {
+
+  // prednacitanie assetov
   preloadAssets();
+
+  // deklaracia audia
   audio = new Audio();
-  // na pracu s formatmi dat
+
+  // na pracu s formatmi dat pre ukladanie do tabulky
   if (myStorage.getItem("score") != null) {
     score = JSON.parse(myStorage.getItem("score"));
   }
 
+  // add event listener pre mysku
   window.addEventListener("click", mouseClicked);
+
   // canvas
   gameArea.createCanvas();
+
+  // draw menu
   setTimeout(drawMenu, 400);
+
+  // deklaracia lodky a zivotov
   live = new kolieska();
   boat = new lodka();
 
+  // skore
   printToTable();
 }
 
-// skore -----------------------------------------------------------------------------------------------------
+// skore --------------------------------------------------------------------------------------------------------
+
 function printToTable() {
+
+  // vybranie tabulky v html
   var table = document.querySelector("tbody");
+
   for (var i = 0; i < score.length; i++) {
+
     if (score[i].date != null && score[i].score != null) {
+
       var row = document.createElement("tr");
       var cell = document.createElement("td");
-      cell.textContent =
-        score[i].date + " " + score[i].score + " Mode: " + score[i].gameMode;
+
+      cell.textContent = score[i].date + " " + score[i].score + " Mode: " + score[i].gameMode;
+
       row.appendChild(cell);
       table.appendChild(row);
     }
   }
 }
 
-// zvuky -----------------------------------------------------------------------------------------------------
+// zvuky --------------------------------------------------------------------------------------------------------
+
 // let funkcie sa nestackuju
+// nahodny vyber zvuku
 function selectSound() {
+
   var random = Math.floor(Math.random() * 5);
+
   switch (true) {
-    // menu
+
+    // menu ----------------------------------------------------------
     case soundMode == "menu":
+
       switch (random) {
         case 1:
           playSound("../assets/music/menu01.mp3");
@@ -76,8 +102,9 @@ function selectSound() {
       }
       break;
 
-    // soundMode 01
+    // soundMode 01 -----------------------------------------------
     case soundMode == "mode01":
+
       switch (random) {
         case 1:
           playSound("../assets/music/mode01_01.mp3");
@@ -97,8 +124,9 @@ function selectSound() {
       }
       break;
 
-    // soundMode 02
+    // soundMode 02 ---------------------------------------------
     case soundMode == "mode02":
+
       switch (random) {
         case 1:
           playSound("../assets/music/mode02_01.mp3");
@@ -118,8 +146,10 @@ function selectSound() {
       }
       break;
 
-    // rules
+    // rules ---------------------------------------------------
     case soundMode == "rules":
+
+      // 3 na vyber, nie 5
       random = random % 3;
       switch (random) {
         case 1:
@@ -134,25 +164,30 @@ function selectSound() {
       }
       break;
 
-    // end screen
+    // end screen ----------------------------------------------
     case soundMode == "endscreen":
+
       playSound("../assets/music/endscreen.mp3");
       break;
   }
 }
 
+// prehravanie vybrateho zvuku
 function playSound(src) {
   audio.pause();
   audio.src = src;
   audio.volume = 0.5;
   audio.play();
+  // loop
   audio.onended = function() {
     selectSound();
   };
 }
 
-//prednačítnie všetkých obrázkov --------------------------------------------------------------------------------
+// prednačítnie všetkých obrázkov -------------------------------------------------------------------------------
+
 function preloadAssets() {
+
   // pozadie 02
   this.background02_01 = new Image(); //vytvorenie objektu "obrázok"
   this.background02_01.src = "../assets/pictures/bg/bg02_01.png"; //pridanie objektu cestu k súboru
@@ -210,17 +245,24 @@ function preloadAssets() {
   this.imgPena.src = "../assets/pictures/particles/pena.png";
 }
 
-//spustenie obnovovacieho intervalu
+// spustenie obnovovacieho intervalu PLAY -----------------------------------------------------------------------
+
 function play() {
+
   delete menuBtn_01;
   delete menuBtn_02;
   delete menuBtn_03;
-  // mod 01
+
+  // mod 01 -------------------------------------------------------------------
   if (mode == 1) {
+
     fps = 60;
+
     scoreText = new txt(480, 100, "25px", "black", "0");
+
     soundMode = "mode01";
     selectSound();
+
     chapadielko1 = new chapadlo(100, 200, 200);
     chapadielko1Btn = new btn(125, 175, 200, 400);
 
@@ -236,28 +278,29 @@ function play() {
     redrawInterval = setInterval(updateGameAreaPlay1, 1000 / fps);
   }
 
-  //mód 2
+  // mod 02 -------------------------------------------------------------------
   if (mode == 2) {
+
     fps = 3;
     sec = 60;
+
     scoreTextMode02 = new txt(500, 20, "25px", "black", "0");
+
     timeLeft = new txt(10, 20, "25px", "black", "0");
+
     soundMode = "mode02";
     selectSound();
-    chapadielko1 = new chapadlo(30, 180, 200);
 
+    chapadielko1 = new chapadlo(30, 180, 200);
     pena1 = new pena(68, 370, 36, 30);
 
     chapadielko2 = new chapadlo(200, 140, 200);
-
     pena2 = new pena(235, 320, 36, 30);
 
     chapadielko3 = new chapadlo(320, 140, 200);
-
     pena3 = new pena(355, 315, 36, 30);
 
     chapadielko4 = new chapadlo(460, 180, 200);
-
     pena4 = new pena(500, 360, 36, 30);
 
     chapadielko5 = new chapadlo(100, 80, 125);
@@ -275,8 +318,9 @@ function play() {
   }
 }
 
-//funkcia mod1
+// funkcia UPDATEGAMEAREA 01 -------------------------------------------------------------------- !
 function updateGameAreaPlay1() {
+
   frameNo += 1;
 
   // zvysovanie narocnosti
@@ -298,10 +342,10 @@ function updateGameAreaPlay1() {
     boat.drawMe(2);
   }
 
-  switch (
-    true //prehrávanie animácie
-  ) {
+  //prehrávanie animácie
+  switch (true ) {
     // pozadie + chapadla
+
     case frameNo <= 15:
       gameArea.context.drawImage(
         background01_01,
@@ -310,11 +354,14 @@ function updateGameAreaPlay1() {
         gameArea.canvas.width,
         gameArea.canvas.height
       );
+
       chapadielko1.drawMe(1);
       chapadielko2.drawMe(2);
       chapadielko3.drawMe(3);
       chapadielko4.drawMe(2);
       break;
+
+
     case frameNo <= 30:
       gameArea.context.drawImage(
         background01_02,
@@ -323,11 +370,14 @@ function updateGameAreaPlay1() {
         gameArea.canvas.width,
         gameArea.canvas.height
       );
+
       chapadielko1.drawMe(2);
       chapadielko2.drawMe(3);
       chapadielko3.drawMe(2);
       chapadielko4.drawMe(1);
       break;
+
+
     case frameNo <= 45:
       gameArea.context.drawImage(
         background01_03,
@@ -336,11 +386,14 @@ function updateGameAreaPlay1() {
         gameArea.canvas.width,
         gameArea.canvas.height
       );
+
       chapadielko1.drawMe(3);
       chapadielko2.drawMe(2);
       chapadielko3.drawMe(1);
       chapadielko4.drawMe(2);
       break;
+
+    // POHYB V TOMTO CASE  
     case frameNo <= 60:
       gameArea.context.drawImage(
         background01_02,
@@ -356,6 +409,7 @@ function updateGameAreaPlay1() {
       chapadielko2.drawMe(1);
       chapadielko3.drawMe(2);
       chapadielko4.drawMe(3);
+
       // chapadlo 01
       if (chapadielko1.Y >= 0 && random == 0) {
         chapadielko1.height += 1 * diff;
@@ -376,6 +430,7 @@ function updateGameAreaPlay1() {
           chapadielko4.height = 200;
         }
       }
+
       // chapadlo 02
       if (chapadielko2.Y >= 0 && random == 1) {
         chapadielko2.height += 1 * diff;
@@ -396,6 +451,7 @@ function updateGameAreaPlay1() {
           chapadielko4.height = 200;
         }
       }
+
       // chapadlo 03
       if (chapadielko3.Y >= 0 && random == 2) {
         chapadielko3.height += 1 * diff;
@@ -416,6 +472,7 @@ function updateGameAreaPlay1() {
           chapadielko4.height = 200;
         }
       }
+
       // chapadlo 04
       if (chapadielko1.Y >= 0 && random == 3) {
         chapadielko4.height += 1 * diff;
@@ -456,6 +513,7 @@ function updateGameAreaPlay1() {
   scoreText.text = "Score: " + myScore;
   scoreText.drawMe();
 
+  // GAME OVER
   if (lives <= 0) {
     clearInterval(redrawInterval);
 
@@ -471,7 +529,9 @@ function updateGameAreaPlay1() {
   }
 }
 
+// funkcia UPDATEGAMEAREA 02 -------------------------------------------------------------------- !
 function updateGameAreaPlay2() {
+
   frameNo += 1;
 
   if (frameNo > 3) {
@@ -479,9 +539,13 @@ function updateGameAreaPlay2() {
     count += 0.5;
     sec--;
   }
+
   console.log(count);
   gameArea.clear();
+
+  // animacia
   switch (true) {
+
     case frameNo == 0:
       gameArea.context.drawImage(
         background02_01,
@@ -491,6 +555,8 @@ function updateGameAreaPlay2() {
         gameArea.canvas.height
       );
       break;
+
+
     case frameNo == 1:
       gameArea.context.drawImage(
         background02_02,
@@ -500,6 +566,8 @@ function updateGameAreaPlay2() {
         gameArea.canvas.height
       );
       break;
+
+
     case frameNo == 2:
       gameArea.context.drawImage(
         background02_03,
@@ -509,6 +577,8 @@ function updateGameAreaPlay2() {
         gameArea.canvas.height
       );
       break;
+
+
     case frameNo == 3:
       gameArea.context.drawImage(
         background02_02,
@@ -520,10 +590,14 @@ function updateGameAreaPlay2() {
       done = 0;
       break;
   }
+
+  // narocnost
   if (sec == 60) diff = 2;
   if (sec == 45) diff = 1;
   if (sec == 30) diff = 0.5;
+
   if (count >= diff && done == 0) {
+
     chapadielko1.visible = 0;
     chapadielko2.visible = 0;
     chapadielko3.visible = 0;
@@ -533,42 +607,55 @@ function updateGameAreaPlay2() {
     chapadielko7.visible = 0;
     chapadielko8.visible = 0;
     chapadielko9.visible = 0;
+
     var random = Math.floor(Math.random() * 9);
+
     done = 1;
     count = 0;
+
+    // vyber nahodneho chapadla
     switch (random) {
+
       case 0:
         chapadielko1.visible = 1;
         chapadielko1Btn2 = new btn(60, 110, 200, 380);
         break;
+
       case 1:
         chapadielko2.visible = 1;
         chapadielko2Btn2 = new btn(225, 275, 150, 350);
         break;
+
       case 2:
         chapadielko3.visible = 1;
         chapadielko3Btn2 = new btn(350, 400, 150, 350);
         break;
+
       case 3:
         chapadielko4.visible = 1;
         chapadielko4Btn2 = new btn(490, 530, 200, 400);
         break;
+
       case 4:
         chapadielko5.visible = 1;
         chapadielko5Btn2 = new btn(115, 155, 100, 210);
         break;
+
       case 5:
         chapadielko6.visible = 1;
         chapadielko6Btn2 = new btn(200, 220, 130, 250);
         break;
+
       case 6:
         chapadielko7.visible = 1;
         chapadielko7Btn2 = new btn(325, 345, 90, 210);
         break;
+
       case 7:
         chapadielko8.visible = 1;
         chapadielko8Btn2 = new btn(525, 545, 90, 210);
         break;
+
       case 8:
         chapadielko9.visible = 1;
         chapadielko9Btn2 = new btn(245, 265, 35, 120);
@@ -576,6 +663,7 @@ function updateGameAreaPlay2() {
     }
   }
 
+  // vykreslenie vybrateho chapadla
   if (chapadielko1.visible == 1) {
     chapadielko1.drawMe(2);
     pena1.drawMe();
@@ -608,6 +696,7 @@ function updateGameAreaPlay2() {
     chapadielko9.drawMe(2);
   }
 
+  // vypis skore
   scoreTextMode02.text = "Score: " + myScore;
   timeLeft.text = "Time left: " + sec;
   scoreTextMode02.drawMe();
@@ -617,6 +706,7 @@ function updateGameAreaPlay2() {
   scoreTextMode02.drawMe();
   timeLeft.drawMe();
 
+  // GAME OVER
   if (sec <= 0) {
     delete btn;
     delete txt;
@@ -626,11 +716,15 @@ function updateGameAreaPlay2() {
     drawEndScreen();
   }
 }
-//
+
+// vykreslenie pravidiel ----------------------------------------------------------------------------------------
+
 function drawRules() {
+
   gameArea.clear();
   var ctx = gameArea.context;
   ctx.textAlign = "center";
+
   rulesText1 = new txt(
     gameArea.canvas.width / 2,
     100,
@@ -638,6 +732,7 @@ function drawRules() {
     "Black",
     "RULES"
   );
+
   rulesText2 = new txt(
     gameArea.canvas.width / 2,
     150,
@@ -645,6 +740,7 @@ function drawRules() {
     "Black",
     "Mode 01: Click on chapadielko object to retract it."
   );
+
   rulesText3 = new txt(
     gameArea.canvas.width / 2,
     170,
@@ -652,6 +748,7 @@ function drawRules() {
     "Black",
     "Mode 01: Chapadielko cannot touch the ship otherwise you loose a life."
   );
+
   rulesText4 = new txt(
     gameArea.canvas.width / 2,
     200,
@@ -659,6 +756,7 @@ function drawRules() {
     "Black",
     "Mode 02: Click as many chapadielko objects as you can."
   );
+
   rulesText5 = new txt(
     gameArea.canvas.width / 2,
     220,
@@ -666,6 +764,7 @@ function drawRules() {
     "Black",
     "Mode 02: You have 60 seconds."
   );
+
   rulesText6 = new txt(
     gameArea.canvas.width / 2,
     270,
@@ -680,14 +779,18 @@ function drawRules() {
   rulesText4.drawMe();
   rulesText5.drawMe();
   rulesText6.drawMe();
+
   goBackBtn = new btn(0, gameArea.canvas.width, 0, gameArea.canvas.height);
   ctx.textAlign = "left";
 }
 
-// nakreslenie menu
+// vykreslenie menu ---------------------------------------------------------------------------------------------
+
 function drawMenu() {
+
   soundMode = "menu";
   selectSound();
+
   menuBtn_01 = new btn(195, 445, 80, 140); //vytvorenie objektov tlačidiel
   menuBtn_02 = new btn(195, 445, 200, 260);
   menuBtn_03 = new btn(195, 445, 290, 360);
@@ -703,19 +806,26 @@ function drawMenu() {
   );
 }
 
-// endscreen
+// vykreslenie endscreen ----------------------------------------------------------------------------------------
+
 function drawEndScreen() {
+
   var date = new Date();
+
+  // update score
   score.push({
     date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     score: myScore,
     gameMode: mode
   });
+
   if (score.length > 10) score.splice(0, 1);
   score.sort((a, b) => (a.score < b.score ? 1 : -1));
 
   myStorage.setItem("score", JSON.stringify(score));
   printToTable();
+
+
   soundMode = "endscreen";
   selectSound();
 
@@ -748,14 +858,19 @@ function drawEndScreen() {
   scoreTextEndScreen_02.drawMe();
 }
 
-// objekt tlačidlo
+// OBJEKTY
+
+// tlacidla -----------------------------------------------------------------------------------------------------
+
 function btn(xLeft, xRight, yTop, yBottom) {
+
   this.xL = xLeft;
   this.xR = xRight;
   this.yT = yTop;
   this.yB = yBottom;
   this.height = this.yB - this.yT;
   this.width = this.xR - this.xL;
+
   this.drawMe = function() {
     //funkcia na vykreslenie v canvas
     gameArea.context.strokeStyle = "red";
@@ -765,7 +880,7 @@ function btn(xLeft, xRight, yTop, yBottom) {
   };
 }
 
-//funkcia na overenie kliknutia na tlačidlo
+// funkcia na overenie kliknutia na tlačidlo
 btn.prototype.clicked = function() {
   if (
     this.xL <= mouseX &&
@@ -777,13 +892,15 @@ btn.prototype.clicked = function() {
   }
 };
 
-// funkcia text --------------------------------------------------------------------------------------------
+// funkcia text -------------------------------------------------------------------------------------------------
+
 function txt(x, y, size, color, text) {
   this.X = x;
   this.Y = y;
   this.size = size;
   this.color = color;
   this.text = text;
+
   this.drawMe = function() {
     gameArea.context.font = this.size + " AR";
     gameArea.context.fillStyle = color;
@@ -791,15 +908,21 @@ function txt(x, y, size, color, text) {
   };
 }
 
-//objekt pre chapadielko
+// objekt pre chapadielko ---------------------------------------------------------------------------------------
+
 function chapadlo(x, y, scale) {
+  
   this.X = x;
   this.Y = y;
   this.visible = 0;
   this.width = scale / 2;
   this.height = scale;
+
   this.drawMe = function(version) {
+
+    // animacia
     switch (true) {
+
       case version == 1:
         gameArea.context.drawImage(
           chapadlo01,
@@ -809,6 +932,7 @@ function chapadlo(x, y, scale) {
           this.height
         );
         break;
+
       case version == 2:
         gameArea.context.drawImage(
           chapadlo02,
@@ -818,6 +942,7 @@ function chapadlo(x, y, scale) {
           this.height
         );
         break;
+
       case version == 3:
         gameArea.context.drawImage(
           chapadlo03,
@@ -831,14 +956,20 @@ function chapadlo(x, y, scale) {
   };
 }
 
-//objekt pre zivoty
+// objekt pre zivoty --------------------------------------------------------------------------------------------
+
 function kolieska() {
+
   this.X = 475;
   this.Y = 5;
   this.width = 130;
   this.height = 40;
+
   this.drawMe = function(version) {
+
+    // ubudanie zivotov
     switch (true) {
+
       case version == 1:
         gameArea.context.drawImage(
           lives03,
@@ -848,6 +979,7 @@ function kolieska() {
           this.height
         );
         break;
+
       case version == 2:
         gameArea.context.drawImage(
           lives02,
@@ -857,6 +989,7 @@ function kolieska() {
           this.height
         );
         break;
+
       case version == 3:
         gameArea.context.drawImage(
           lives01,
@@ -870,14 +1003,20 @@ function kolieska() {
   };
 }
 
-//objekt pre lodku
+// objekt pre lodku ---------------------------------------------------------------------------------------------
+
 function lodka() {
+
   this.X = 0;
   this.Y = 0;
   this.width = 613.9;
   this.height = 434;
+
   this.drawMe = function(version) {
+
+    // animacia
     switch (true) {
+
       case version == 1:
         gameArea.context.drawImage(
           boat01,
@@ -887,6 +1026,7 @@ function lodka() {
           this.height
         );
         break;
+
       case version == 2:
         gameArea.context.drawImage(
           boat02,
@@ -900,12 +1040,15 @@ function lodka() {
   };
 }
 
-//objekt pre penu
+// objekt pre penu ----------------------------------------------------------------------------------------------
+
 function pena(x, y, width, height) {
+
   this.X = x;
   this.Y = y;
   this.width = width;
   this.height = height;
+
   this.drawMe = function() {
     gameArea.context.drawImage(
       imgPena,
@@ -917,18 +1060,21 @@ function pena(x, y, width, height) {
   };
 }
 
-// premenná pre canvas --------------------------------------------------------------------
+// premenná pre CANVAS ------------------------------------------------------------------------------------------
+
 var gameArea = {
-  canvas: document.querySelector("canvas"), //ziskanie elementu canvas
-  nadpis: document.querySelector("h1"), //ziskanie elementu nadpis
+
+  canvas: document.querySelector("canvas"), // ziskanie elementu canvas
+  nadpis: document.querySelector("h1"), // ziskanie elementu nadpis
   frameNo: 0,
   menu: 0,
 
-  createCanvas: function() {
-    this.context = this.canvas.getContext("2d"); //zsikanie contextu - obsahu canvas
+  createCanvas: function() {  
+
+    this.context = this.canvas.getContext("2d"); // ziskanie contextu - obsahu canvas
     this.canvas.width = 613.9;
     this.canvas.height = 434;
-    //this.canvas.style.cursor = url("../assets/cursor/chapadlo03.cur"),auto;
+    
     // offset od vrchu stranky po canvas
     this.oX = parseInt(window.getComputedStyle(this.canvas).marginLeft);
     this.oY =
@@ -942,12 +1088,14 @@ var gameArea = {
   }
 };
 
-// funkcia po kliknutí myšou ------------------------------------------------------------
+// funkcia po kliknutí myšou ------------------------------------------------------------------------------------
+
 function mouseClicked(e) {
+
   this.mouseX = e.pageX - gameArea.oX;
   this.mouseY = e.pageY - gameArea.oY;
 
-  // menu
+  // menu -------------------------------------------------------------------
   if (typeof menuBtn_01 != "undefined" && menuBtn_01.clicked()) {
     mode = 1;
     play();
@@ -959,7 +1107,8 @@ function mouseClicked(e) {
   if (typeof menuBtn_03 != "undefined" && menuBtn_03.clicked()) {
     setTimeout(drawRules, 200);
   }
-  // chapadla v hre - mod 01
+
+  // chapadla v hre - mod 01 ------------------------------------------------
   if (typeof chapadielko1Btn != "undefined" && chapadielko1Btn.clicked()) {
     chapadielko1.height = 200;
     chapadielko1.Y = 200;
@@ -976,7 +1125,8 @@ function mouseClicked(e) {
     chapadielko4.height = 200;
     chapadielko4.Y = 200;
   }
-  // tlačitka endscreen
+
+  // tlačitka endscreen ----------------------------------------------------
   if (typeof endBtn_01 != "undefined" && endBtn_01.clicked()) {
     myScore = 0;
     delete btn;
@@ -988,7 +1138,7 @@ function mouseClicked(e) {
     play();
   }
 
-  //tlačitka mode2
+  // tlačitka v hre- mod 02 ------------------------------------------------
   if (typeof chapadielko1Btn2 != "undefined" && chapadielko1Btn2.clicked()) {
     chapadielko1.visible = 0;
     myScore++;
