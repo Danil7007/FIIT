@@ -1,96 +1,93 @@
 #include <stdio.h>
 #include <stdlib.h>
-// N tak akurat na tri slova
-#define N 1500
+#include <string.h>
 
-void nacitanie (char *pole, int *ind){
-    int velkost, i=0, j=0, k=0, pocet=0;
-    char c;
-    
-    velkost = N + 1;
-    
-    // nacitanie celeho vstupu -------------------------------------------------
-    while (scanf("%c", &c) == 1){
-        
-        // realokovanie velkosti pola
-        if (i == velkost){
-            // add miesto na dalsie slovo
-            velkost += N;
-            pole = (char *)realloc(pole, velkost);
+void palindrom (char *slovo){
+   int maxDlzka=1, indexy[2][500], pocet=1;
+   int s=0, i=0, n = strlen(slovo);
+
+   // prve pismenko je palindrom dlzky 1
+   indexy[0][0] = 0;
+   indexy[1][0] = 0;
+
+   // podmienka - ked je slovo nulovej dlzky
+   if (n <= 0){
+        printf("0\n");
+        return;
+   }
+
+   // stred palindromu je pismenko
+   //printf("%d %d, pocet %d dzlka %d\n", s, i, pocet, maxDlzka);
+   for (s=1; s<n; s++){
+
+        for (i=0; ((s-i-1) >= 0) && ((s+i+1) < n) && (slovo[s-i-1] == slovo[s+i+1]); i++){
+
         }
-        
-        *(pole+i) = c;
-        //printf("%c", *(pole+i));
-        
-        i++;
-    }
-    
-    // zistenie poctu slov -----------------------------------------------------
-    for (j=0; j<i; j++){
-        if(*(pole+j) == '\n'){
+
+        // novy najdlhsi palindrom
+        if (2*i+1 > maxDlzka){
+            maxDlzka = 2*i+1;
+            pocet = 1;
+            indexy[0][0] = (s-i);
+            indexy[1][0] = (s+i);
+        }
+        // dalsi rovnako dlhy palindrom
+        else if (2*i+1 == maxDlzka){
             pocet++;
+            indexy[0][pocet-1] = (s-i);
+            indexy[1][pocet-1] = (s+i);
         }
-    }
-    
-    // realokovanie pre zisteny pocet slov -------------------------------------
-    // *2 lebo ukladam zaciatok aj koniec, a +1 lebo ukladam velkost
-    pocet = (2*pocet)+1;
-    ind = (int *)realloc(ind, pocet);
-    
-    // zapis indexov - pomoc pre orientaciu v poli -----------------------------
-    // na zaciatku pola jeho dlzka
-    *(ind+k) = pocet;
-    k++;
-    // prve slovo vzdy na indexe 0
-    *(ind+k) = 0;
-    k++;
-    for (j=0; j<i; j++){
-        if(*(pole+j) == '\n'){
-            // zaznamenania pozicie enteru
-            *(ind+k) = j;
-            k++;
-            // zaciatok dalsieho slova
-            *(ind+k) = j+1;
-            k++;
+        //printf("1: %d %d, pocet %d dzlka %d\n", s, i, pocet, maxDlzka);
+   }
+   //printf("\n");
+
+   // stred palindromu je medzi pismenkami
+   for (s=1; s<n; s++){
+
+       // ak sa nezhoduju stredove pismenka
+       if (slovo[s-1] != slovo[s]){
+           continue;
+       }
+
+        for (i=0; ((s-i-2) >= 0) && ((s+i+1) < n) && (slovo[s-i-2] == slovo[s+i+1]); i++){
+
         }
-    }
-    // posledny enter
-    *(ind+k) = i;
-}
 
-// vypisovanie vstupu - hotovo
-void vypis (char *pole, int *ind){
-    int i=0, dlzka;
-    
-    // vypis slov
-    while (*(pole+i) != '\0'){
-        printf("%c", *(pole+i));
-        i++;
-    }
-    
-    // vypis indexov
-    dlzka = *ind;
-    for (i=1; i < dlzka; i++){
-        printf("%d ", *(ind+i));
-    }
-}
+        // novy najdlhsi palindrom
+        if (2*i+2 > maxDlzka){
+            maxDlzka = 2*i+2;
+            pocet = 1;
+            indexy[0][0] = (s-i-1);
+            indexy[1][0] = (s+i);
+        }
+        // dalsi rovnako dlhy palindrom
+        else if (2*i+2 == maxDlzka){
+            pocet++;
+            indexy[0][pocet-1] = (s-i-1);
+            indexy[1][pocet-1] = (s+i);
+        }
+        //printf("2: %d %d, pocet %d dzlka %d\n", s, i, pocet, maxDlzka);
+   }
 
-void polindrom(char *pole, int *zaciatok, int *koniec){
+   // vypis
+   printf ("%d ", maxDlzka);
+   for (i=0; i<pocet; i++){
+       for (s = indexy[0][i]; s <= indexy[1][i]; s++){
+           printf("%c", slovo[s]);
+       }
+       printf(" ");
+   }
+   printf("\n");
 
+   //printf("-------------------------------------------\n\n");
 }
 
 int main(){
-    char *slova;
-    int velkost, *indexy;
-    velkost = N + 1;
-    
-    // pole pre slova zo vstupu
-    slova = (char *)malloc(velkost *sizeof(char));
-    // pole s indexami zaciatkov a koncov slov
-    indexy = (int *)malloc(6 *sizeof(int));
-    
-    nacitanie(slova, indexy);
-    vypis(slova, indexy);
-    
+    char slovo[500];
+
+    while (scanf("%s", slovo) > 0){
+        palindrom(slovo);
+    }
+
     return 0;
 }
