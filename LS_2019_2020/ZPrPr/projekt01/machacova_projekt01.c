@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -199,6 +200,30 @@ void tajnicka (int *vyska, int *sirka) {
     }
 }
 
+// nepovinna uloha
+void vypis_indexy () {
+    int i, j;
+    
+    //for (i=0; i < 26; i++){
+    //   printf ("%c %d\n", i + 'A', pocty[i]);
+    //}
+    
+    for (i=0; i < 26; i++){
+        // pismenko na zaciatku
+        if (pocty[i] > 0){
+            printf("%c: ", i + 'A');
+        }
+        // jednotlive indexy (ak su tam pismenka)
+        for (j=0; (j < 2*pocty[i]) && (pocty[i] > 0); j++){
+            printf("%d ", znaky[i][j]);
+        }
+        // enter
+        if (pocty[i] > 0){
+            printf("\n");
+        }
+    }
+}
+
 void uvolni (int *vyska) {
     int i;
 
@@ -231,10 +256,11 @@ int main () {
     }
 
     nacitaj (pm, pn);
-    vypis (pm, pn);
-    riesenie (pm, pn);
-    tajnicka (pm, pn);
-    uvolni (pm);
+    //vypis (pm, pn);
+    vypis_indexy();
+    //riesenie (pm, pn);
+    //tajnicka (pm, pn);
+    //uvolni (pm);
 
     return 0;
 }
