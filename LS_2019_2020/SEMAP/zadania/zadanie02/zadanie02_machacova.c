@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+// funkcia na hladanie palindromovych substringov
 void palindrom (char *slovo){
+   // palindrom s dlzkou 0 neexistuje, 1 pismenko uz je palindrom
    int maxDlzka=1, indexy[2][500], pocet=1;
    int s=0, i=0, n = strlen(slovo);
 
+   // indexy palindromov
    // prve pismenko je palindrom dlzky 1
    indexy[0][0] = 0;
    indexy[1][0] = 0;
@@ -16,18 +19,21 @@ void palindrom (char *slovo){
         return;
    }
 
-   // stred palindromu je pismenko
+   // -------------------- moznost 1: ----------------------------------------------------- stred palindromu je pismenko
+
    //printf("%d %d, pocet %d dzlka %d\n", s, i, pocet, maxDlzka);
    for (s=1; s<n; s++){
-
+        // kym sa nedostane mimo pola a ma zhodu
         for (i=0; ((s-i-1) >= 0) && ((s+i+1) < n) && (slovo[s-i-1] == slovo[s+i+1]); i++){
-
+            // nerobi nic, iba inkrementuje i
         }
 
         // novy najdlhsi palindrom
         if (2*i+1 > maxDlzka){
             maxDlzka = 2*i+1;
             pocet = 1;
+            // prepise uz zapisany palindrom, ak je ich zapisanych viac z predchadzajucej najvacsej dlzky
+            // nevadi, lebo na to je ukladany pocet
             indexy[0][0] = (s-i);
             indexy[1][0] = (s+i);
         }
@@ -41,7 +47,8 @@ void palindrom (char *slovo){
    }
    //printf("\n");
 
-   // stred palindromu je medzi pismenkami
+   // -------------------- moznost 2: ------------------------------------------ stred palindromu je medzi pismenkami
+
    for (s=1; s<n; s++){
 
        // ak sa nezhoduju stredove pismenka
@@ -50,7 +57,7 @@ void palindrom (char *slovo){
        }
 
         for (i=0; ((s-i-2) >= 0) && ((s+i+1) < n) && (slovo[s-i-2] == slovo[s+i+1]); i++){
-
+            // inkrementovanie i
         }
 
         // novy najdlhsi palindrom
@@ -71,6 +78,7 @@ void palindrom (char *slovo){
 
    // vypis
    printf ("%d ", maxDlzka);
+   // podla poctu
    for (i=0; i<pocet; i++){
        for (s = indexy[0][i]; s <= indexy[1][i]; s++){
            printf("%c", slovo[s]);
