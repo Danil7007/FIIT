@@ -795,7 +795,7 @@ function drawRules() {
 // vykreslenie menu ---------------------------------------------------------------------------------------------
 
 function drawMenu() {
-
+  
   gameArea.soundMode = "menu";
   
    selectSound();
@@ -1255,7 +1255,8 @@ function mouseClicked(e) {
 
   if (typeof goBackBtn != "undefined" && goBackBtn.clicked()) {
     delete txt;
-    delete btn;
+    //delete btn;
+    delete goBackBtn;
     drawMenu();
   }
   
