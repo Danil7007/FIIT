@@ -1,0 +1,67 @@
+Ja Kral 1. Velky
+100
+Jeho_velicenstvo Kral_prvy_Velky
+* Jeho_velicenstvo Kral_prvy_Velky 0
+* O O 10
+* On On 20
+* Ona Ona 30
+* Onno Onno 40
+Ja Kral 2. Velky - Upadok civilizacie
+202
+Jeho_velicenstvo Kral_prvy_Velky
+* Jeho_velicenstvo Kral_prvy_Velky 0
+* Jeho_velicenstvo Kral_prvy_Velky 1010
+* Jeho_velicenstvo Kral_prvy_VelkyX 0
+* Jeho_velicenstvoX Kral_prvy_Velky 0
+* O O 10
+* On On 20
+* Ona Ona 30
+* Onno Onno 40
+* A A 1
+* BB BB 22
+* CCC CCC 333
+* DDDD DDDD 4444
+Ja Kral 3. Velky - Navrat krala
+333
+Jeho_velicenstvo Kral_prvy_Velky
+* Jeho_velicenstvo Kral_prvy_Velky 0
+* Jeho_velicenstvo Kral_prvy_Velky 1010
+* On On 20
+* Onno Onno 40
+* BB BB 22
+* DDDD DDDD 4444
+Ja Kral 4. Velky - Uder temna
+404
+Jeho_velicenstvo Kral_prvy_Velky
+* Jeho_velicenstvo Kral_prvy_Velky 1010
+* O O 10
+* CCC CCC 333
+* DDDD DDDD 4444
+Ja Kral 5. Velky - Posledne tazenie
+555
+Jeho_velicenstvo Kral_prvy_Velky
+* Jeho_velicenstvo Kral_prvy_Velky 0
+Ja Kral 6. Velky - Znovuzrodenie krala
+202
+Jeho_velicenstvo Kral_prvy_Velky
+* Jeho_velicenstvo Kral_prvy_Velky 11
+* Jeho_velicenstvo Kral_prvy_Velky 1111
+* Jeho_velicenstvo Kral_prvy_VelkyX 0
+* Jeho_velicenstvoX Kral_prvy_Velky 0
+* O O 11
+* On On 22
+* Ona Ona 33
+* Onno Onno 44
+* A A 2
+* BB BB 21
+* CCC CCC 334
+* DDDD DDDD 4443
+Ja Kral 7. Velky - vecnost
+202
+Jeho_velicenstvo Kral_prvy_Velky
+* Jeho_velicenstvoXXX Kral_prvy_Velky 0
+* X O 9
+* OX On 21
+* OnX Ona 34
+* BB BX 21
+* DDDD DDDX 4442
