@@ -1,0 +1,9 @@
+# prevodník z Gray do BCD 2421
+A = (b&d) | (b&!d);
+
+B = (b&d) | (a&!d);
+
+C = (!b&c) | (b&!d) | (a);
+
+D = (!a&b&c&d) | (!b&!c&d) | (b&!c&!d) | (!b&c&!d) | (a&!d);
+
