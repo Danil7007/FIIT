@@ -1,9 +1,7 @@
-# prevodník z Gray do BCD 2421
-A = (b&d) | (b&!d);
+# 
+D1 = (!x&z2&z3) | (!x&z1&!z3);
 
-B = (b&d) | (a&!d);
+D2 = (x&!z1&!z2&z3) | (z2&!z3);
 
-C = (!b&c) | (b&!d) | (a);
-
-D = (!a&b&c&d) | (!b&!c&d) | (b&!c&!d) | (!b&c&!d) | (a&!d);
+D3 = (x&!z2&!z3) | (!x&z2&!z3) | (x&z2&z3) | (!x&z1&!z3) | (x&z1);
 
