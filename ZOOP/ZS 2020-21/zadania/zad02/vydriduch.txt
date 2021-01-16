@@ -1,0 +1,50 @@
+package com.organizer.core;
+
+import com.organizer.triedy.Turnaj;
+
+import java.io.*;
+import java.util.Scanner;
+
+//Ulohou tohto velmi kompikovaného ba priam až jednoduchého klassu je spôsobiť uloženie poľahky načítanie vele podstatného suboru obsahuúceho nami cenené a oceňované dáta
+//Túto vznešenú a riskantnú ulohu dosahuje zneužitím a vydieraním Serializable interfacu
+//Vydriduch jeden
+public class DataHandler {
+    private static String pathName = System.getProperty("user.dir");  //ziska cestu k priečinku v ktorom sa vykonáva
+
+    public static void saveData (Turnaj turnaj) { //metoda ktorá sa spolieha na našu schopnosť správne nastaviť a naprogramovať jej funkcionalitu
+        try{
+            File subor = new File(pathName);
+            subor.createNewFile();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Zadaj meno suboru pre ulozenie:");
+            FileOutputStream fileOut = new FileOutputStream(subor+"/"+scanner.next()+".ser",false);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(turnaj);
+            objectOut.close();
+            fileOut.close();
+        }
+        catch (IOException e){// vstupno výstupo chybovo hlášková massage ktorá nam podstátnú ulohu má splniť a to sposobiť pracovanie programu aj po kritickoum zlyhaní mentálneho konštruktu ktorý sposobil vznik tejto funkcie
+            System.out.println("Subor sa nepodarilo ulozit pretoze:");
+            e.printStackTrace();
+        }
+    }
+
+    public static Turnaj loadData() { //táto metoda je dôlezitou súčasťou načítavacieho procesu nakoľko je sama v sebe zakomponovaná načítacia funkcionalita... šifrovanie popisov je zadarmo
+
+        Turnaj turnaj = null;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Zadaj meno ulozeneho suboru:");
+            FileInputStream fileIn = new FileInputStream(pathName + "/" + scanner.next() + ".ser");
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            turnaj = (Turnaj) objectIn.readObject();
+            objectIn.close();
+            fileIn.close();
+        }
+        catch (ClassNotFoundException | IOException e) { //počúvame či náhodou vydriduch nechce vyhodiť nejakú nepeknú až otravnú chybový massage
+            System.out.println("Subor sa nepodarilo nacitat pretoze:");
+            e.printStackTrace();
+        }
+        return turnaj;
+    }
+}

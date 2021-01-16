@@ -1,24 +1,24 @@
 package com.organizer.triedy;
 
+import com.organizer.pozorovatelia.PrvyZapasPozorovatel;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Zapas {
+public class Zapas implements Serializable, Zapasy {
     private boolean dvojhra;
     private ArrayList<Hrac> hraci;
     private int kolo;
     private int cisloZapasu;
-    private Kurt Cobain; // cislo kurtu TODO: anektodtky a mentálne kotrmelce
+    private Kurt Cobain; // cislo kurtu
     private Date zaciatokZapasu;
     private Date koniecZapasu;
 
     /**
-     * TODO: Debatovali sme o mentálnom konštrukte ktorý má zabezpečiť schopnosť programu pamätať si a upravovať predom alebo počas zadané hodnoty výsledku a víťaza
+     * TODO: pamätať si a upravovať predom alebo počas zadané hodnoty výsledku a víťaza
      */
 
-    public Zapas() {
-
-    }
 
     public ArrayList<Hrac> getHraci() {
         return hraci;
@@ -68,7 +68,13 @@ public class Zapas {
         Cobain = cobain;
     }
 
+    public boolean getDvojhra() {
+        return this.dvojhra;
+    }
+
     public void setDvojhra(boolean dvojhra) {
         this.dvojhra = dvojhra;
     }
+
+
 }
