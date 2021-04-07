@@ -1,0 +1,44 @@
+# ww^R, w ∈ {a, b}*
+input: ' aba'
+blank: ' '
+start state: scan
+table:
+  # naskenovanie pismena
+  scan:
+    a: {write: A, R: rollA}
+    b: {write: B, R: rollB}
+    [A, B]: {L: rollback2}
+    " ": {R: check}
+  # hladanie a
+  rollA:
+    [a, b]: {R: rollA}
+    [A, B, " "]: {L: toA}
+  # hladanie b
+  rollB:
+    [a, b]: {R: rollB}
+    [A, B, " "]: {L: toB}
+  # a-> A
+  toA:
+    a: {write: A, L: rollback}
+  # b -> B
+  toB:
+    b: {write: B, L: rollback}
+  # kym najdeme A alebo B, potom -> scan
+  rollback:
+    [a, b]: {L: rollback}
+    [A, B]: {R: scan}
+  # po zaciatok pasky
+  rollback2:
+    [A, B]: {L: rollback2}
+    " ": {R: check}
+  # ci su vsetky uppercase  
+  check:
+    [A, B]: {R: check}
+    " ": {R: accept}
+    [a, b]: {R: reject}
+    
+  accept:
+  
+  reject:
+
+
