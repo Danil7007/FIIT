@@ -370,7 +370,7 @@ int main() {
     // pre zmenu testov upravit
     int randVelkost;
     int maxPocet = 500000;
-    int minPocet = 2000;
+    int minPocet = 400000;
     int pocetTestov = 20;
 
     for (int i = 1; i <= pocetTestov; i++) {

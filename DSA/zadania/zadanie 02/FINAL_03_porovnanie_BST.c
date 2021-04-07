@@ -1,4 +1,10 @@
 // Zadanie 2 - Vyhladavanie v dynamickych mnozinah -- Emma Macháčová, 22.3.2021 17:25
+// (1 bod) Prevzatú (nie vlastnú!) implementáciu BVS s iným algoritmom na vyvažovanie ako
+// v predchádzajúcom bode. Zdroj musí byť uvedený.
+
+// kod prevzaty z Programiz
+// https://www.programiz.com/dsa/red-black-tree
+// search funkcia z https://www.codesdope.com/blog/article/binary-search-tree-in-c/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,7 +32,6 @@ typedef struct node {
 
     struct node *left;
     struct node *right;
-    struct node *parent;
 
     int dlzkaPodstromu;
 } ZVIERA;
@@ -96,8 +101,8 @@ struct node *rotateLeft(struct node *middle) {
         middle->right = bottom;
 
         // aktualizacia dlzok
-        top->dlzkaPodstromu = maxDlzka(top);
         middle->dlzkaPodstromu = maxDlzka(middle);
+        top->dlzkaPodstromu = maxDlzka(top);
 
         OTOCENIE_DOLAVA++; // pre test
 
@@ -126,6 +131,7 @@ struct node *leftRight(struct node *node) {
     }
     return node; // ak nepride k otoceniu
 }
+
 
 // vyhladavanie podla poctu noh
 struct node *search(struct node *node, int pocetNoh) {
@@ -165,13 +171,16 @@ struct node *insert(struct node *node, int pocetNoh, int pocetOci, char *nazovZv
         //printf ("-> %s\n", newNode->nazovZvierata);
 
         POCET_VLOZENI++; // pre test
-        return (newNode);
+        //return (newNode);
+        node = newNode;
     }
 
 
-    // ak je duplikat:
-    //if ((node->pocetNoh == pocetNoh) && (node->pocetOci == pocetOci) && (strcmp(node->nazovZvierata, nazovZvierata) == 0)) {
-    if (node->pocetNoh == pocetNoh) {
+        // ak je duplikat:
+        /*if ((node->pocetNoh == pocetNoh) && (node->pocetOci == pocetOci) && (strcmp(node->nazovZvierata, nazovZvierata) == 0)) {
+            POCET_DUPLIKATOV++;
+        }*/
+    else if (node->pocetNoh == pocetNoh) {
         POCET_DUPLIKATOV++;
     }
 
@@ -227,18 +236,6 @@ struct node *avl(struct node *node, int pocetNoh, int pocetOci, char *nazovZvier
         } else if (pocetNoh > node->left->pocetNoh) {
             return leftRight(node);
         }
-            // podla oci
-        else if (pocetOci < node->left->pocetOci) {
-            return rotateRight(node);
-        } else if (pocetOci > node->left->pocetOci) {
-            return leftRight(node);
-        }
-            // podla nazvu
-        else if (strcmp(nazovZvierata, node->nazovZvierata) < 0) {
-            return rotateRight(node);
-        } else if (strcmp(nazovZvierata, node->nazovZvierata) > 0) {
-            return leftRight(node);
-        }
     }
         // vyvazovanie z prava -------------------------------------------
     else if (rozdiel < -1) {
@@ -246,19 +243,6 @@ struct node *avl(struct node *node, int pocetNoh, int pocetOci, char *nazovZvier
         if (pocetNoh > node->right->pocetNoh) {
             return rotateLeft(node);
         } else if (pocetNoh < node->right->pocetNoh) {
-
-            return rightLeft(node);
-        }
-            // podla oci
-        else if (pocetOci > node->right->pocetOci) {
-            return rotateLeft(node);
-        } else if (pocetOci < node->right->pocetOci) {
-            return rightLeft(node);
-        }
-            // podla nazvu
-        else if (strcmp(nazovZvierata, node->nazovZvierata) > 0) {
-            return rotateLeft(node);
-        } else if (strcmp(nazovZvierata, node->nazovZvierata) < 0) {
             return rightLeft(node);
         }
     }
@@ -266,6 +250,7 @@ struct node *avl(struct node *node, int pocetNoh, int pocetOci, char *nazovZvier
 
     return node;
 }
+
 
 // vypis
 void printOut(struct node *node, int order) {
@@ -611,7 +596,7 @@ int main() {
     // pre zmenu testov upravit
     int randVelkost;
     int maxPocet = 500000;
-    int minPocet = 2000;
+    int minPocet = 200000;
     int pocetTestov = 20;
 
     double efektivitaAVL, efektivitaRB;
@@ -627,15 +612,15 @@ int main() {
     efektivitaRB = (CELKOVY_POCET_VLOZENYCH_RB / CELKOVY_CAS_RB_INSERT);
 
     printf ("VYSLEDOK VKLADANIE:\npocet vlozenych prvkov:\n\tAVL: %d,\n\tRB:  %d,\n", CELKOVY_POCET_VLOZENYCH_AVL, CELKOVY_POCET_VLOZENYCH_RB);
-    printf ("cas potrebny na beh:\n\tAVL: %.3lf sekund,\n\tRB:  %.3lf sekund,\n", CELKOVY_CAS_AVL_INSERT, CELKOVY_CAS_RB_INSERT);
-    printf ("pomer vlozeny prvok / sekundu:\n\tAVL: %lf,\n\tRB:  %lf,\n", efektivitaAVL, efektivitaRB);
+    printf ("cas potrebny na beh:\n\tAVL: %.3lf sekund,\n\tRB:   %.3lf sekund,\n", CELKOVY_CAS_AVL_INSERT, CELKOVY_CAS_RB_INSERT);
+    printf ("pomer vlozeny prvok / sekundu:\n\tAVL: %lf,\n\tRB:   %lf,\n", efektivitaAVL, efektivitaRB);
 
     efektivitaAVL = (CELKOVY_POCET_NAJDENYCH_AVL / CELKOVY_CAS_AVL_SEARCH);
     efektivitaRB = (CELKOVY_POCET_NAJDENYCH_RB / CELKOVY_CAS_RB_SEARCH);
 
     printf ("\nVYSLEDOK HLADANIE:\npocet najdenych prvkov:\n\tAVL: %d,\n\tRB:  %d,\n", CELKOVY_POCET_NAJDENYCH_AVL, CELKOVY_POCET_NAJDENYCH_RB);
-    printf ("cas potrebny na beh:\n\tAVL: %.3lf sekund,\n\tRB:  %.3lf sekund,\n", CELKOVY_CAS_AVL_SEARCH, CELKOVY_CAS_RB_SEARCH);
-    printf ("pomer najdeny prvok / sekundu:\n\tAVL: %lf,\n\tRB:  %lf,\n", efektivitaAVL, efektivitaRB);
+    printf ("cas potrebny na beh:\n\tAVL: %.3lf sekund,\n\tRB:   %.3lf sekund,\n", CELKOVY_CAS_AVL_SEARCH, CELKOVY_CAS_RB_SEARCH);
+    printf ("pomer najdeny prvok / sekundu:\n\tAVL: %lf,\n\tRB:   %lf,\n", efektivitaAVL, efektivitaRB);
 
     printf("end\n");
 

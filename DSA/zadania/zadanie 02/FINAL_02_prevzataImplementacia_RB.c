@@ -1,3 +1,11 @@
+// Zadanie 2 - Vyhladavanie v dynamickych mnozinah -- Emma Macháčová, 22.3.2021 17:25
+// (1 bod) Prevzatú (nie vlastnú!) implementáciu BVS s iným algoritmom na vyvažovanie ako 
+// v predchádzajúcom bode. Zdroj musí byť uvedený.
+
+// kod prevzaty z Programiz
+// https://www.programiz.com/dsa/red-black-tree
+// search funkcia z https://www.codesdope.com/blog/article/binary-search-tree-in-c/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -61,7 +69,7 @@ struct rbNode *insertion(struct rbNode *root, int data, int data2, char *string)
     // kontrola ci je strom prazdny
     // ak hej, vlozi sa novy uzol a prefarbi sa na cierno
     while (ptr != NULL) {
-        //if (ptr->data == data && ptr->data2 == data2 && strcmp(ptr->string, string) == 0) { // ak narazi na duplikat
+        // ak narazi na duplikat
         if (ptr->data == data) {
             //printf("Duplicates Not Allowed!!\n");
             POCET_DUPLIKATOV++;
@@ -132,6 +140,7 @@ struct rbNode *insertion(struct rbNode *root, int data, int data2, char *string)
                 // otocenie doprava noveho uzla
                 if (dir[ht - 1] == 1) {
                     yPtr = stack[ht - 1];
+                    OTOCENIE_DOPRAVA++;
                 } else {
                     xPtr = stack[ht - 1];
                     yPtr = xPtr->link[0];
