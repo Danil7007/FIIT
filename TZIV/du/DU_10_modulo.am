@@ -1,0 +1,16 @@
+a0a0a0a0a0a0a0
+
+//Kopírovanie registra R0 do registra 1 (cez pomocný register R5)
+(s0a1a5)0 (s5a0)5
+
+// delenie 2 - dolna cast
+s1 (s1s1 a2)1
+
+// nasobenie 2
+(s2 a1a1)2
+
+// odcitanie
+(s0 s1)1
+
+
+

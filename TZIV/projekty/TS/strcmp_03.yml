@@ -1,0 +1,3621 @@
+input: 'a$e$a'
+blank: ' '
+start state: start
+table:
+  start:
+    ["ℹ","$"]: {write: "§", R: najdi_$}   # ked skontroluje cele slovo
+    " ": {L: chod_nakoniec}    # (existuje len jedno slovo)
+
+    "⇏": {R: najdi_druhy_$}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "a": {write: "ⓐ", R: najdi_a} "b": {write: "ⓑ", R: najdi_b} "c": {write: "ⓒ", R: najdi_c}
+    "d": {write: "ⓓ", R: najdi_d} "e": {write: "ⓔ", R: najdi_e} "f": {write: "ⓕ", R: najdi_f}
+    "g": {write: "ⓖ", R: najdi_g} "h": {write: "ⓗ", R: najdi_h} "i": {write: "ⓘ", R: najdi_i}
+    "j": {write: "ⓙ", R: najdi_j} "k": {write: "ⓚ", R: najdi_k} "l": {write: "ⓛ", R: najdi_l}
+    "m": {write: "ⓜ", R: najdi_m} "n": {write: "ⓝ", R: najdi_n} "o": {write: "ⓞ", R: najdi_o}
+    "p": {write: "ⓟ", R: najdi_p} "q": {write: "ⓠ", R: najdi_q} "r": {write: "ⓡ", R: najdi_r}
+    "s": {write: "ⓢ", R: najdi_s} "t": {write: "ⓣ", R: najdi_t} "u": {write: "ⓤ", R: najdi_u}
+    "v": {write: "ⓥ", R: najdi_v} "w": {write: "ⓦ", R: najdi_w} "x": {write: "ⓧ", R: najdi_x}
+    "y": {write: "ⓨ", R: najdi_y} "z": {write: "ⓩ", R: najdi_z}
+  
+    "A": {write: "Ⓐ", R: najdi_A} "B": {write: "Ⓑ", R: najdi_B} "C": {write: "Ⓒ", R: najdi_C} 
+    "D": {write: "Ⓓ", R: najdi_D} "E": {write: "Ⓔ", R: najdi_E} "F": {write: "Ⓕ", R: najdi_F}
+    "G": {write: "Ⓖ", R: najdi_G} "H": {write: "Ⓗ", R: najdi_H} "I": {write: "Ⓘ", R: najdi_I} 
+    "J": {write: "Ⓙ", R: najdi_J} "K": {write: "Ⓚ", R: najdi_K} "L": {write: "Ⓛ", R: najdi_L} 
+    "M": {write: "Ⓜ", R: najdi_M} "N": {write: "Ⓝ", R: najdi_N} "O": {write: "Ⓞ", R: najdi_O} 
+    "P": {write: "Ⓟ", R: najdi_P} "Q": {write: "Ⓠ", R: najdi_Q} "R": {write: "Ⓡ", R: najdi_R} 
+    "S": {write: "Ⓢ", R: najdi_S} "T": {write: "Ⓣ", R: najdi_T} "U": {write: "Ⓤ", R: najdi_U}
+    "V": {write: "Ⓥ", R: najdi_V} "W": {write: "Ⓦ", R: najdi_W} "X": {write: "Ⓧ", R: najdi_X} 
+    "Y": {write: "Ⓨ", R: najdi_Y} "Z": {write: "Ⓩ", R: najdi_Z}
+    
+# ----------------------------------------------------------------------------------------------------- final touches
+  final_edit: 
+    ["⇏","ℹ","§"]: {write: "$", L}
+
+    " ": {R: end}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}   
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L} 
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+    
+  end:
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}  
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R} 
+
+    "$": {R}
+    "#": {write: "$", R}
+
+# ----------------------------------------------------------------------------------------------------- posun  
+  chod_naspat:
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}   
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}  
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {L}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {L}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {L}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {L}
+
+    "⇏": {R: oprava}
+    
+    ["ℹ","$"]: {L}    # (aj medzi slovami)
+    ["#", "1"]: {L}   # aj cez cast pocitania
+    [" "]: {R: start}   # (ked uz je zas na zaciatku)
+    "§": {R: check}   # (ci to nieje posledne slovo)
+
+  chod_naspat_reset:  
+    "ℹ": {write: "$", L} # reset
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L} 
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {L}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {L}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {L}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {L}
+
+    ["$","⇏"]: {L}    # (aj medzi slovami)
+    ["#", "1"]: {L}   # aj cez cast pocitania
+    [" "]: {R: start}   # (ked uz je zas na zaciatku)
+    "§": {R: check}   # (ci to nieje posledne slovo)
+
+  chod_nakoniec:
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R} 
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    ["ℹ"]: {write: "$", R}    # (tie slova sa uz nemaju ignorovat)
+    "$": {R}      # (aj medzi slovami)  
+
+    " ": {write: "#", R: zapis_jednotku}    # ked uz je na konci
+    "#": {R: zapis_jednotku}
+
+  chod_na_hesteg:
+    "1": {L}  
+    "#": {L: final_edit}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    ["$","⇏"]: {R}
+
+# ----------------------------------------------------------------------------------------------------- oprava ak sa odoznaci ignorovane slovo
+  oprava:
+    "⇏": {R}
+    ["$","#","ℹ"]: {L: chod_po_dolar}
+
+
+    "a": {write: "ⓐ", R}  # <-- CELA ABECEDA
+    "b": {write: "ⓑ", R}
+    "c": {write: "ⓒ", R}
+    "d": {write: "ⓓ", R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {L: chod_po_dolar}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {L: chod_po_dolar}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {L: chod_po_dolar}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {L: chod_po_dolar}
+
+  chod_po_dolar:
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {L}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {L} 
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {L}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L} 
+
+    "⇏": {L}
+
+    "§": {R: start}
+
+    ["$","ℹ"]: {L: chod_naspat}
+    
+# ----------------------------------------------------------------------------------------------------- kontrola posledneho
+  check:  # (hlada zaciatok dalsieho slova)
+    "⇏": {R}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R} 
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+
+    ["ℹ","$"]: {L: goBack_check}
+
+    "#": {L: checkPrev}
+
+  checkPrev:
+    # TODO: ide to tu do dobrej strany?
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {L}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {L}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {L}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R: zapis_poslednu_jednotku}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R: zapis_poslednu_jednotku} 
+
+    #["§","⇏"]: {R: zapis_poslednu_jednotku}
+    #["§","⇏"]: {R: chod_na_hesteg}
+    
+    "§": {R: chod_na_hesteg}
+    "⇏": {L}
+    
+    "$": {R: chod_nakoniec}
+    "#": {R: chod_na_hesteg}
+
+  goBack_check: # (ked este je slovo vracia sa naspat kde zacal check)  
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L} 
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {L}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {L}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {L}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {L}
+
+    ["§",$"]: {R: start}
+
+# ----------------------------------------------------------------------------------------------------- pocitanie  
+  zapis_jednotku:
+    "1": {R}
+    " ": {write: "1", L: chod_naspat_reset}
+
+  zapis_poslednu_jednotku:
+    ["1","#","⇏"]: {R}
+    " ": {write: "1", L: chod_na_hesteg}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+# ----------------------------------------------------------------------------------------------------- $ kontrola
+  najdi_$:
+    "ℹ": {R}         # (toto slovo sa ignorovalo)
+    ["⇏","$"]: {R}        # (kontroluje sa ci je tam kde ma byt nie ci nejake stretneme)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R: oznac_$} # za tymto ma byt $  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R: oznac_$}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R: oznac_$}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R: oznac_$}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R} 
+
+    [" ","#"]: {L: chod_nakoniec}  # (skontroloval celu pasku)
+
+  najdi_druhy_$:
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    ["ℹ","$","⇏"]: {write: "§", R: najdi_$}  # (toto slovo sa uz nemoze  citat)
+
+  najdi_zaciatocne_$:
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {L}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {L}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {L}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {L}
+
+    "$": {write: "⇏", R: preskoc_za_$}  # (toto slovo sa uz nemoze  citat)
+    "⇏": {R: preskoc_za_$}    # (tak ho nekontrolujeme)
+    "§": {R: start}
+
+  preskoc_za_$:
+    ["⇏","ℹ"]: {R}
+
+    "$": {R: najdi_$}
+
+    " ": {write: "#", R: zapis_jednotku}
+    "#": {R: zapis_jednotku}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: najdi_$}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: najdi_$} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: najdi_$}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: najdi_$} 
+
+  oznac_$:
+    ["ℹ","$"," ","⇏"]: {L: najdi_zaciatocne_$}     # (na tomto mieste mal byt $)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: $_nezhodne}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: $_nezhodne} 
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: $_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: $_nezhodne} 
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "#": {R: zapis_jednotku}
+
+  $_nezhodne:   # (slovo bolo dlhsie ako to co sa hladalo)
+    ["§","$"]: {R: najdi_$}   # (hladanie ostatnych nevhodnych)
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- a  
+  najdi_a:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_a}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_a:
+    "a": {write: "ⓐ", R: najdi_a} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: a_nezhodne}       # (slovo je moc kratke)
+    
+    ["b","c","d","e","f","g","h","i","j","k","l","m"]: {L: a_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: a_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: a_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: a_nezhodne}
+
+    [" ","#"]: {L: a_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  a_nezhodne:
+    ["$"]: {write: "ℹ", R: najdi_a}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- b  
+  najdi_b:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_b}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_b:
+    "b": {write: "ⓑ", R: najdi_b} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: b_nezhodne}       # (slovo je moc kratke)
+
+    ["a","c","d","e","f","g","h","i","j","k","l","m"]: {L: b_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: b_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: b_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: b_nezhodne}
+
+    [" ","#"]: {L: b_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  b_nezhodne:
+    "$": {write: "ℹ", R: najdi_b}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L} 
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- c  
+  najdi_c:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_c}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_c:
+    "c": {write: "ⓒ", R: najdi_c} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: c_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","d","e","f","g","h","i","j","k","l","m"]: {L: c_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: c_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: c_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: c_nezhodne}
+
+    [" ","#"]: {L: c_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  c_nezhodne:
+    "$": {write: "ℹ", R: najdi_c}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+   
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}       
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- d  
+  najdi_d:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_d}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_d:
+    "d": {write: "ⓓ", R: najdi_d} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: d_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","e","f","g","h","i","j","k","l","m"]: {L: d_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: d_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: d_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: d_nezhodne}
+
+    [" ","#"]: {L: d_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  d_nezhodne:
+    "$": {write: "ℹ", R: najdi_d}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}     
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- e  
+  najdi_e:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_e}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_e:
+    "e": {write: "ⓔ", R: najdi_e} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: e_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","f","g","h","i","j","k","l","m"]: {L: e_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: e_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: e_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: e_nezhodne}
+
+    [" ","#"]: {L: e_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  e_nezhodne:
+    "$": {write: "ℹ", R: najdi_e}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}   
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- f  
+  najdi_f:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_f}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_f:
+    "f": {write: "ⓕ", R: najdi_f} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: f_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","g","h","i","j","k","l","m"]: {L: f_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: f_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: f_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: f_nezhodne}
+
+    [" ","#"]: {L: f_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  f_nezhodne:
+    "$": {write: "ℹ", R: najdi_f}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}            
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- g  
+  najdi_g:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_g}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_g:
+    "g": {write: "ⓖ", R: najdi_g} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: g_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","h","i","j","k","l","m"]: {L: g_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: g_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: g_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: g_nezhodne}
+
+    [" ","#"]: {L: g_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  g_nezhodne:
+    "$": {write: "ℹ", R: najdi_g}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}   
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- h  
+  najdi_h:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_h}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_h:
+    "h": {write: "ⓗ", R: najdi_h} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: h_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","i","j","k","l","m"]: {L: h_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: h_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: h_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: h_nezhodne}
+
+    [" ","#"]: {L: h_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  h_nezhodne:
+    "$": {write: "ℹ", R: najdi_h}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}   
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- i  
+  najdi_i:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_i}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_i:
+    "i": {write: "ⓘ", R: najdi_h} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: i_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","j","k","l","m"]: {L: i_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: i_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: i_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: i_nezhodne}
+
+    [" ","#"]: {L: i_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  i_nezhodne:
+    "$": {write: "ℹ", R: najdi_i}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}  
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- j  
+  najdi_j:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_j}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_j:
+    "j": {write: "ⓙ", R: najdi_j} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: j_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","k","l","m"]: {L: j_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: j_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: j_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: j_nezhodne}
+
+    [" ","#"]: {L: j_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  j_nezhodne:
+    "$": {write: "ℹ", R: najdi_j}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L} 
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- k  
+  najdi_k:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_k}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_k:
+    "k": {write: "ⓚ", R: najdi_k} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: k_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","l","m"]: {L: k_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: k_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: k_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: k_nezhodne}
+
+    [" ","#"]: {L: k_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  k_nezhodne:
+    "$": {write: "ℹ", R: najdi_k}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L} 
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- l  
+  najdi_l:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_l}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_l:
+    "l": {write: "ⓛ", R: najdi_l} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: l_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","m"]: {L: l_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: l_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: l_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: l_nezhodne}
+
+    [" ","#"]: {L: l_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  l_nezhodne:
+    "$": {write: "ℹ", R: najdi_l}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L} 
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- m  
+  najdi_m:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_m}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_m:
+    "m": {write: "ⓜ", R: najdi_m} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: m_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: m_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: m_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: m_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: m_nezhodne}
+
+    [" ","#"]: {L: m_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  m_nezhodne:
+    "$": {write: "ℹ", R: najdi_m}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- n  
+  najdi_n:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_n}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_n:
+    "n": {write: "ⓝ", R: najdi_n} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: n_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: n_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: n_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: n_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: n_nezhodne}
+
+    [" ","#"]: {L: n_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  n_nezhodne:
+    "$": {write: "ℹ", R: najdi_n}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- o  
+  najdi_o:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_o}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_o:
+    "o": {write: "ⓞ", R: najdi_o} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: o_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: o_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","p","q","r","s","t","u","v","w","x","y","z"]: {L: o_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: o_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: o_nezhodne}
+
+    [" ","#"]: {L: o_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  o_nezhodne:
+    "$": {write: "ℹ", R: najdi_o}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}   
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- p  
+  najdi_p:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_p}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_p:
+    "p": {write: "ⓟ", R: najdi_p} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: p_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: p_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","q","r","s","t","u","v","w","x","y","z"]: {L: p_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: p_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: p_nezhodne}
+
+    [" ","#"]: {L: p_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  p_nezhodne:
+    "$": {write: "ℹ", R: najdi_p}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L} 
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- q  
+  najdi_q:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_q}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_q:
+    "q": {write: "ⓠ", R: najdi_q} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: q_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: q_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","r","s","t","u","v","w","x","y","z"]: {L: q_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: q_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: q_nezhodne}
+
+    [" ","#"]: {L: q_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  q_nezhodne:
+    "$": {write: "ℹ", R: najdi_q}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}  
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- r  
+  najdi_r:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_r}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_r:
+    "r": {write: "ⓡ", R: najdi_r} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: r_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: r_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","s","t","u","v","w","x","y","z"]: {L: r_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: r_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: r_nezhodne}
+
+    [" ","#"]: {L: r_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  r_nezhodne:
+    "$": {write: "ℹ", R: najdi_r}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L} 
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- s  
+  najdi_s:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_s}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_s:
+    "s": {write: "ⓢ", R: najdi_s} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: s_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: s_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","t","u","v","w","x","y","z"]: {L: s_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: s_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: s_nezhodne}
+
+    [" ","#"]: {L: s_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  s_nezhodne:
+    "$": {write: "ℹ", R: najdi_s}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- t  
+  najdi_t:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_t}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_t:
+    "t": {write: "ⓣ", R: najdi_t} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: t_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: t_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","s","u","v","w","x","y","z"]: {L: t_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: t_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: t_nezhodne}
+
+    [" ","#"]: {L: t_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  t_nezhodne:
+    "$": {write: "ℹ", R: najdi_t}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- t  
+  najdi_u:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_u}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_u:
+    "u": {write: "ⓤ", R: najdi_u} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: u_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: u_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","s","t","v","w","x","y","z"]: {L: u_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: u_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: u_nezhodne}
+
+    [" ","#"]: {L: u_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  u_nezhodne:
+    "$": {write: "ℹ", R: najdi_u}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- v  
+  najdi_v:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_v}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_v:
+    "v": {write: "ⓥ", R: najdi_v} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: v_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: v_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","s","t","u","w","x","y","z"]: {L: v_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: v_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: v_nezhodne}
+
+    [" ","#"]: {L: v_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  v_nezhodne:
+    "$": {write: "ℹ", R: najdi_v}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- w  
+  najdi_w:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_w}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_w:
+    "w": {write: "ⓦ", R: najdi_w} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: w_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: w_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","s","t","u","v","x","y","z"]: {L: w_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: w_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: w_nezhodne}
+
+    [" ","#"]: {L: w_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  w_nezhodne:
+    "$": {write: "ℹ", R: najdi_w}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- x  
+  najdi_x:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_x}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_x:
+    "x": {write: "ⓧ", R: najdi_x} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: x_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: x_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","s","t","u","v","w","y","z"]: {L: x_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: x_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: x_nezhodne}
+
+    [" ","#"]: {L: x_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  x_nezhodne:
+    "$": {write: "ℹ", R: najdi_x}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- y  
+  najdi_y:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_y}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_y:
+    "y": {write: "ⓨ", R: najdi_y} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: y_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: y_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","s","t","u","v","w","x","z"]: {L: y_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: y_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: y_nezhodne}
+
+    [" ","#"]: {L: y_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  y_nezhodne:
+    "$": {write: "ℹ", R: najdi_y}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- z  
+  najdi_z:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_z}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_z:
+    "z": {write: "ⓩ", R: najdi_z} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: z_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l"]: {L: z_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["m","n","o","p","q","r","s","t","u","v","w","x","y"]: {L: z_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: z_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: z_nezhodne}
+
+    [" ","#"]: {L: z_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  z_nezhodne:
+    "$": {write: "ℹ", R: najdi_z}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- A  
+  najdi_A:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_A}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_A:
+    "A": {write: "Ⓐ", R: najdi_A} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: A_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: A_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: A_nezhodne}
+
+    ["B","C","D","E","F","G","H","I","J","K","L","M"]: {L: A_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: A_nezhodne}
+
+    [" ","#"]: {L: A_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  A_nezhodne:
+    "$": {write: "ℹ", R: najdi_A}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- B  
+  najdi_B:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_B}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_B:
+    "B": {write: "Ⓑ", R: najdi_B} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: B_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: B_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: B_nezhodne}
+
+    ["A","C","D","E","F","G","H","I","J","K","L","M"]: {L: B_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: B_nezhodne}
+
+    [" ","#"]: {L: B_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  B_nezhodne:
+    "$": {write: "ℹ", R: najdi_B}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- C  
+  najdi_C:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_C}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_C:
+    "C": {write: "Ⓒ", R: najdi_C} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: C_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: C_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: C_nezhodne}
+
+    ["A","B","D","E","F","G","H","I","J","K","L","M"]: {L: C_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: C_nezhodne}
+
+    [" ","#"]: {L: C_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  C_nezhodne:
+    "$": {write: "ℹ", R: najdi_C}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- D  
+  najdi_D:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_D}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_D:
+    "D": {write: "Ⓓ", R: najdi_D} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: D_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: D_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: D_nezhodne}
+
+    ["A","B","C","E","F","G","H","I","J","K","L","M"]: {L: D_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: D_nezhodne}
+
+    [" ","#"]: {L: D_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  D_nezhodne:
+    "$": {write: "ℹ", R: najdi_D}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- E  
+  najdi_E:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_E}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_E:
+    "E": {write: "Ⓔ", R: najdi_E} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: E_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: E_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: E_nezhodne}
+
+    ["A","B","C","D","F","G","H","I","J","K","L","M"]: {L: E_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: E_nezhodne}
+
+    [" ","#"]: {L: E_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  E_nezhodne:
+    "$": {write: "ℹ", R: najdi_E}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- F  
+  najdi_F:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_F}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_F:
+    "F": {write: "Ⓕ", R: najdi_F} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: F_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: F_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: F_nezhodne}
+
+    ["A","B","C","D","F","G","H","I","J","K","L","M"]: {L: F_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: F_nezhodne}
+
+    [" ","#"]: {L: F_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  F_nezhodne:
+    "$": {write: "ℹ", R: najdi_F}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- G  
+  najdi_G:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_G}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_G:
+    "G": {write: "Ⓖ", R: najdi_G} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: G_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: G_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: G_nezhodne}
+
+    ["A","B","C","D","E","F","H","I","J","K","L","M"]: {L: G_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: G_nezhodne}
+
+    [" ","#"]: {L: G_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  G_nezhodne:
+    "$": {write: "ℹ", R: najdi_G}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- H  
+  najdi_H:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_H}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_H:
+    "H": {write: "Ⓗ", R: najdi_H} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: H_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: H_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: H_nezhodne}
+
+    ["A","B","C","D","E","F","G","I","J","K","L","M"]: {L: H_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: H_nezhodne}
+
+    [" ","#"]: {L: H_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  H_nezhodne:
+    "$": {write: "ℹ", R: najdi_H}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}   
+
+# ----------------------------------------------------------------------------------------------------- I  
+  najdi_I:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_I}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_I:
+    "I": {write: "Ⓘ", R: najdi_I} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: I_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: I_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: I_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","J","K","L","M"]: {L: I_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: I_nezhodne}
+
+    [" ","#"]: {L: I_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  I_nezhodne:
+    "$": {write: "ℹ", R: najdi_I}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- J  
+  najdi_J:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_J}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_J:
+    "J": {write: "Ⓙ", R: najdi_J} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: J_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: J_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: J_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","K","L","M"]: {L: J_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: J_nezhodne}
+
+    [" ","#"]: {L: J_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  J_nezhodne:
+    "$": {write: "ℹ", R: najdi_J}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- K  
+  najdi_K:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_K}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_K:
+    "K": {write: "Ⓚ", R: najdi_K} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: K_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: K_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: K_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","L","M"]: {L: K_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: K_nezhodne}
+
+    [" ","#"]: {L: K_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  K_nezhodne:
+    "$": {write: "ℹ", R: najdi_K}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- L  
+  najdi_L:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_L}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_L:
+    "L": {write: "Ⓛ", R: najdi_L} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: L_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: L_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: L_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","M"]: {L: L_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: L_nezhodne}
+
+    [" ","#"]: {L: L_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  L_nezhodne:
+    "$": {write: "ℹ", R: najdi_L}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}
+
+# ----------------------------------------------------------------------------------------------------- M  
+  najdi_M:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_M}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_M:
+    "M": {write: "Ⓜ", R: najdi_M} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: M_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: M_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: M_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L"]: {L: M_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: M_nezhodne}
+
+    [" ","#"]: {L: M_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  M_nezhodne:
+    "$": {write: "ℹ", R: najdi_M}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}  
+
+# ----------------------------------------------------------------------------------------------------- N  
+  najdi_N:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_N}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_N:
+    "N": {write: "Ⓝ", R: najdi_N} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: N_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: N_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: N_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: N_nezhodne}  
+    ["O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: N_nezhodne}
+
+    [" ","#"]: {L: N_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  N_nezhodne:
+    "$": {write: "ℹ", R: najdi_N}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- O  
+  najdi_O:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_O}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_O:
+    "O": {write: "Ⓞ", R: najdi_O} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: O_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: O_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: O_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: O_nezhodne}  
+    ["N","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L: O_nezhodne}
+
+    [" ","#"]: {L: O_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  O_nezhodne:
+    "$": {write: "ℹ", R: najdi_O}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- P  
+  najdi_P:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_P}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_P:
+    "P": {write: "Ⓟ", R: najdi_P} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: P_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: P_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: P_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: P_nezhodne}  
+    ["N","O","Q","R","S","T","U","V","W","X","Y","Z"]: {L: P_nezhodne}
+
+    [" ","#"]: {L: P_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  P_nezhodne:
+    "$": {write: "ℹ", R: najdi_P}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- Q  
+  najdi_Q:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_Q}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_Q:
+    "Q": {write: "Ⓠ", R: najdi_Q} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: Q_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: Q_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: Q_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: Q_nezhodne}  
+    ["N","O","P","R","S","T","U","V","W","X","Y","Z"]: {L: Q_nezhodne}
+
+    [" ","#"]: {L: Q_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  Q_nezhodne:
+    "$": {write: "ℹ", R: najdi_Q}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}  
+
+# ----------------------------------------------------------------------------------------------------- R 
+  najdi_R:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_R}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_R:
+    "R": {write: "Ⓡ", R: najdi_R} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: R_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: R_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: R_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: R_nezhodne}  
+    ["N","O","P","Q","S","T","U","V","W","X","Y","Z"]: {L: R_nezhodne}
+
+    [" ","#"]: {L: R_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  R_nezhodne:
+    "$": {write: "ℹ", R: najdi_R}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- S 
+  najdi_S:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_S}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_S:
+    "S": {write: "Ⓢ", R: najdi_S} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: S_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: S_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: S_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: S_nezhodne}  
+    ["N","O","P","Q","R","T","U","V","W","X","Y","Z"]: {L: S_nezhodne}
+
+    [" ","#"]: {L: S_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  S_nezhodne:
+    "$": {write: "ℹ", R: najdi_S}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- T 
+  najdi_T:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_T}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_T:
+    "T": {write: "Ⓣ", R: najdi_T} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: T_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: T_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: T_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: T_nezhodne}  
+    ["N","O","P","Q","R","S","U","V","W","X","Y","Z"]: {L: T_nezhodne}
+
+    [" ","#"]: {L: T_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  T_nezhodne:
+    "$": {write: "ℹ", R: najdi_T}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- U 
+  najdi_U:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_U}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_U:
+    "U": {write: "Ⓤ", R: najdi_U} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: U_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: U_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: U_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: U_nezhodne}  
+    ["N","O","P","Q","R","S","T","V","W","X","Y","Z"]: {L: U_nezhodne}
+
+    [" ","#"]: {L: U_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  U_nezhodne:
+    "$": {write: "ℹ", R: najdi_U}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- V 
+  najdi_V:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_V}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_V:
+    "V": {write: "Ⓥ", R: najdi_V} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: V_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: V_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: V_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: V_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","W","X","Y","Z"]: {L: V_nezhodne}
+
+    [" ","#"]: {L: V_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  V_nezhodne:
+    "$": {write: "ℹ", R: najdi_V}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- W 
+  najdi_W:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_W}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_W:
+    "W": {write: "Ⓦ", R: najdi_W} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: W_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: W_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: W_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: W_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","X","Y","Z"]: {L: W_nezhodne}
+
+    [" ","#"]: {L: W_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  W_nezhodne:
+    "$": {write: "ℹ", R: najdi_W}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- X 
+  najdi_X:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_X}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_X:
+    "X": {write: "Ⓧ", R: najdi_X} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: X_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: X_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: X_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: X_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","Y","Z"]: {L: X_nezhodne}
+
+    [" ","#"]: {L: X_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  X_nezhodne:
+    "$": {write: "ℹ", R: najdi_X}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- Y 
+  najdi_Y:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_Y}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_Y:
+    "Y": {write: "Ⓨ", R: najdi_Y} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: Y_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: Y_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: Y_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: Y_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Z"]: {L: Y_nezhodne}
+
+    [" ","#"]: {L: Y_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  Y_nezhodne:
+    "$": {write: "ℹ", R: najdi_Y}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L} 
+
+# ----------------------------------------------------------------------------------------------------- Z 
+  najdi_Z:
+    ["ℹ","⇏"]: {R}         # (toto slovo sa ignoruje)
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  # (toto sa tiez ignoruje)  <-- CELA OZNACENA ABECEDA GRAMATIKY 
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+        
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {R}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {R}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {R}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {R}
+
+    "$": {R: oznac_Z}         # (pri prechode k druhemu slovu)
+    [" ","#"]: {L: chod_naspat}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  oznac_Z:
+    "Z": {write: "Ⓩ", R: najdi_Z} # (dane pismeno)
+    "⇏": {R}
+
+    ["ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ"]: {R}  #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    ["ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ"]: {R}
+
+    ["Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ"]: {R}
+    ["Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"]: {R}
+
+    "$": {L: Z_nezhodne}       # (slovo je moc kratke)
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L: Z_nezhodne}  # (slovo pokracuje zle) <-- CELA ABECEDA OKREM DANEHO PISMENA
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L: Z_nezhodne}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L: Z_nezhodne}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y"]: {L: Z_nezhodne}
+
+    [" ","#"]: {L: Z_nezhodne}  # (na zaciatok nacitania - ked uz prisiel na koniec)
+
+  Z_nezhodne:
+    "$": {write: "ℹ", R: najdi_Z}   # (slovo sa ma teraz ignorovat)
+    "⇏": {L}
+
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m"]: {L}  #  <-- CELA ABECEDA GRAMATIKY
+    ["n","o","p","q","r","s","t","u","v","w","x","y","z"]: {L}
+
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M"]: {L}  
+    ["N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]: {L}
+
+    "ⓐ": {write: "a", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "ⓑ": {write: "b", L} "ⓒ": {write: "c", L} "ⓓ": {write: "d", L} "ⓔ": {write: "e", L} "ⓕ": {write: "f", L}
+    "ⓖ": {write: "g", L} "ⓗ": {write: "h", L} "ⓘ": {write: "i", L} "ⓙ": {write: "j", L} "ⓚ": {write: "k", L}
+    "ⓛ": {write: "l", L} "ⓜ": {write: "m", L} "ⓝ": {write: "n", L} "ⓞ": {write: "o", L} "ⓟ": {write: "p", L}
+    "ⓠ": {write: "q", L} "ⓡ": {write: "r", L} "ⓢ": {write: "s", L} "ⓣ": {write: "t", L} "ⓤ": {write: "u", L}
+    "ⓥ": {write: "v", L} "ⓦ": {write: "w", L} "ⓧ": {write: "x", L} "ⓨ": {write: "y", L} "ⓩ": {write: "z", L}
+
+    "Ⓐ": {write: "A", L}           #  <-- CELA OZNACENA ABECEDA GRAMATIKY
+    "Ⓑ": {write: "B", L} "Ⓒ": {write: "C", L} "Ⓓ": {write: "D", L} "Ⓔ": {write: "E", L} "Ⓕ": {write: "F", L}
+    "Ⓖ": {write: "G", L} "Ⓗ": {write: "H", L} "Ⓘ": {write: "I", L} "Ⓙ": {write: "J", L} "Ⓚ": {write: "K", L}
+    "Ⓛ": {write: "L", L} "Ⓜ": {write: "M", L} "Ⓝ": {write: "N", L} "Ⓞ": {write: "O", L} "Ⓟ": {write: "P", L}
+    "Ⓠ": {write: "Q", L} "Ⓡ": {write: "R", L} "Ⓢ": {write: "S", L} "Ⓣ": {write: "T", L} "Ⓤ": {write: "U", L}
+    "Ⓥ": {write: "V", L} "Ⓦ": {write: "W", L} "Ⓧ": {write: "X", L} "Ⓨ": {write: "Y", L} "Ⓩ": {write: "Z", L}        
