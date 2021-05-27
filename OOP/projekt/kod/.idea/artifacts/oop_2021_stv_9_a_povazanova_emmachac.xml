@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="oop-2021-stv-9-a-povazanova-emmachac">
+    <output-path>$PROJECT_DIR$/out/artifacts/oop_2021_stv_9_a_povazanova_emmachac</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="oop_2021_stv_9_a_povazanova_emmachac.jar">
+        <element id="module-output" name="oop-2021-stv-9-a-povazanova-emmachac" />
+      </element>
+    </root>
+  </artifact>
+</component>

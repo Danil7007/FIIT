@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="oop_2021_stv_9_a_povazanova_emmachac.jnlp">
+  <information>
+    <title>oop-2021-stv-9-a-povazanova-emmachac</title>
+    <vendor>Unknown</vendor>
+    <description>oop-2021-stv-9-a-povazanova-emmachac</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="oop_2021_stv_9_a_povazanova_emmachac.jar" size="23332" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="Main"  name="oop-2021-stv-9-a-povazanova-emmachac" />
+  <update check="background"/>
+</jnlp>
