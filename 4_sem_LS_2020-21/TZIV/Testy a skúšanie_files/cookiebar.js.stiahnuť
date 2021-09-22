@@ -1,0 +1,81 @@
+// Cookie Bar 0.001
+
+// (c) 2018 by IS4U, s.r.o.
+// Maintained by milan.sorm@is4u.cz
+
+(function ( $ ) {
+    // Main cookie bar functionality
+    $.uisCookieBar = function ( givenElement, options ) {
+        var defaults = {
+            acceptBtns: '.cookie-btn-accept'
+        };
+
+        var plugin   = this;
+        var element  = givenElement;
+        var settings = {};
+
+        plugin.init = function () {
+            plugin.settings = $.extend( {}, defaults, options );
+
+            var data = $( element ).data();
+            var zone = '';
+            if ( data.hasOwnProperty( 'cookiebarZone' ) )
+                zone = data.cookiebarZone;
+
+            var url = '/cookiebar-save.pl';
+            if ( zone === 'uis' )
+                url = '/auth/cookiebar-save.pl';
+            else if ( zone === 'enavratka' )
+                url = '/navratka/auth/cookiebar-save.pl';
+            else if ( zone === 'eprihlaska' )
+                url = '/prihlaska/auth/cookiebar-save.pl';
+
+            // define close functionallity
+            $( element ).find( plugin.settings.acceptBtns ).on( 'click', function ( event ) {
+                event.preventDefault();
+
+                var data = $( this ).data();
+                var type = 'all';
+                if ( data.hasOwnProperty( 'accept' ) && data.accept === 'technical' )
+                    type = 'technical';
+
+                uis.ajax( {
+                    method: 'GET',
+                    url:    url,
+                    data:   {
+                        'accept': 1,
+                        'type':   type
+                    }
+                } ).done( function ( response ) {
+
+                    // TODO check response
+
+                    $( element ).hide();
+                    $( element ).removeClass( 'cookie-bar-shown' );
+                } );
+            } );
+        };
+
+        // Call constructor
+        plugin.init();
+    };
+
+    // Extend jQuery with new plugin
+    $.fn.uisCookieBar = function ( options ) {
+        if ( options === undefined )
+            options = {};
+
+        return this.each( function () {
+            if ( undefined === $( this ).data( 'uisCookieBar' ) ) {
+                var plugin = new $.uisCookieBar( this, options );
+                $( this ).data( 'uisCookieBar', plugin );
+            }
+        } );
+    };
+
+})( jQuery );
+
+// Activate cookieBar functionality on cookie-bar
+jQuery( document ).ready( function ( $ ) {
+    $( '.cookie-bar' ).uisCookieBar();
+} );

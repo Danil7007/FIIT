@@ -1,0 +1,136 @@
+# Písomná práca
+
+> **Treba si uvedomiť, že to je ako rozhovor samého so sebou**
+
+## Postup
+
+1. Zanalizovať čo už vieme o téme a čo potrebujeme zistiť
+2. Klúčové slová
+3. Zhromažďovanie informácií dokumenty a podobné šity
+4. Podrobná osnova
+5. Prvá verzia textu
+6. Úprava textu po určitom časovom odstupe *(1-2d)*
+
+## Na čo dávať bacha
+
+- Písomná forma jazyka
+- Vecný štýl žiadne omáčkovanie, žiadne beletrizovanie
+- Odborná terminológia pozor na synonimá, nepoužívať ich
+- Definícia pojmov
+- Vyhábanie sa nepresným a zbytočnm slovným spojeniam napr. väčšia polovica, viac menej
+- Musí byť jasné odkial si prebral myšlienku
+- Neutrálne jazykové prostredky (nepoužívať citovo zafarbené slova)
+- Od jednoduchšieho k zložitejšiemu od známeho po neznáme
+- Jednotný čas celej práci
+- Jednotná osob a v celej práci najlepšie autorský plurál
+
+## Pri úprave textu, bacha na...
+
+- Zodpovedal si na zadanú otázku/nemáš odklon od témy?
+- Je štruktúra textu jasná?
+- Sú informácie prezentované v správnom poradí?
+- Sú všetky informácie v texte presné a relevantné
+- Nie sú niektoré pasáže zbytočne?
+- Sú vaše myšlienky dostatočne vysvetlené?
+
+## Editovanie textu spôsob ako text vylepšiť
+
+- Jednotlivé vety tak, abyy boli zrozumiteĺné a logicky dávali zmysel
+- Používať správne slová pre vyjadrenie názoru
+- Očislovať strany
+- Použiť vyhovujúce písmo
+- Bacha na pravopis a interpunkcia
+
+# Základné časti textu
+
+### Titulný list (bude vzor)
+
+### Abstrak, kľučové sová
+
+- Abstrakt sa píše až na konci
+- 5-7 kľúčovýc slov, ktoré vystihujú obsah
+
+### Pojmová mapa
+
+- K práci. Synonimá či čo to za šity
+
+### Obsah
+
+- Názvy hlavných častí
+- Nadpisov, podnadpisov (stačia dve, max 3 podúroovni)
+- **Čísla strán**
+
+### TTTEEEEXXXXTTTTTT  :(
+
+### Zoznam skratiek
+
+### Zoznam tabuliek a obrazkov
+
+- Len ak sa v texte vyskytujú
+
+## Ďalšie časti:
+
+- **Názov:** z názvu musí byť jasné o čom práca bude. Súvisí s témou
+- **Úvod**
+    - Jedna A4
+    - Predstavuje text, sprievodca celou prácou
+    - Prečo sme si zvolili uvedenú tému
+    - Prečo a čo práca prináša
+    - Formuluje cieľ práce oznamovacie vety
+        - Cieľom práce je... Zámerom je...
+    - Štruktúra práce ako je práca členená
+    - Zdôvodnenie, prečo má zmysel o téme písať
+    - Ráta sa do limitu normostrán
+- **Jadro práce:** text práce
+    - Výklad - vysvetľuje čo naša téma znamená
+    - Aké práce na danú temu existuju
+    - Vzťah medti existujucou literaturou a samotnou pracou
+    - ... xxx piči zas uteká s tými slajdami ...
+    - Má logickú štrukturú
+        - Kapitoly
+        - Podkapitoly
+            - Člení sa na viac odsekov⇒ Nikdy nie len jeden!
+            - Vhodné pri kapitolách dlhého rozsahu
+- **Odsek** vyjadruje myšlienku
+    - 1odsek=1myšlienka
+    - **10-15 riadkov** jeden odsek
+    - Vyhýbať sa dlhým odsekom
+
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/22ec72b6-58b6-4db6-85f0-298081b6a7db/20191126_120444.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/22ec72b6-58b6-4db6-85f0-298081b6a7db/20191126_120444.jpg)
+
+    Štruktúra odseku
+
+    - **Kontolne otázky**
+        - Nadväzuju na seba
+        - Skladá sa z viacerých viet
+        - Je formálny?
+        - Zaoberá sa každý odsek určitou myšlienkou?
+- **Záver:** *zrkadlom úvodu*
+    - Nesmie obsahovať novú inofrmáciu
+    - Sumarizuje k čomu sme dospeli
+    - Odpovedá na otázky/ciele uvedené v úvode
+- **Zoznam bibliografických zoznamov**
+- **Prílohy**
+    - Všetko čo je fajn tam mať, ale do textu sa to uplne nehodí
+    - Nieje povinné
+
+## Ako písať?
+
+- Písať jednoducé vety a krátke zrozumiteľné súvetia
+- Dlhé súvetia rozdeliť na kratšie
+- Použíať aktívne vety
+- Rozumne používať cudzi slová tak, aby im rozumel autor aj čitatelia
+- **Používať opísny text**
+    - Popisuje, nehodnotí
+- **Používať kritický text**
+    - Hodnotí pre a proti prezentovaných názorov
+    - **Tvrdenia a odôvodenie nich**
+    - Text je štrukturovaný tak že dáva vahu čo je dôležité
+    - Z napísaneho autor vytvára vždy závery
+- F**ormálna úprava**
+    - Čitaateľné písmo
+    - Normostrana ⇒ 60 znakov na riadok, 30 riadkov na stranu ⇒ 1800 znakov
+    - 8-10 stran
+    - Velkosť písma 11-12, riadkovanie 1,5
+    - xxx
+    - xxx :(

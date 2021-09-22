@@ -1,3 +1,0 @@
-Toto je pi: 3.14150 a toto je Eulerovo cislo: 2.71828
-Ostatne cisla ako -1, 120.0 alebo 350.45 su nezaujimave.
-5

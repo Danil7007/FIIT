@@ -1,0 +1,90 @@
+> EIZ ⇒ Sú informačné zdroje, ktoré sú uchované v eletronickej podobe
+
+## Licencované EIZ
+
+- Profesionalne odborné
+- Platené
+- Prístup do nich je prostredníctvom licenčných zmlúv
+
+## Databázy
+
+> **Databáza** ⇒ Súbor usporiadaných dát, ktorý vznika spracovaním informáciií v rámci určitého informačného systému
+
+### Druhy databáz:
+
+- **Bibliotické + abstraktné záznamy⇒ ???**
+- **Faktografické ⇒** Konkretné údaje, textový alebo numerický charakter
+- **Plnotextové ⇒** Plé texty primárnych pramenov
+- **Citačné ⇒** Citačné ohlasy, impakt faktory časopisov Web of Science, Scopus
+
+### Prečo ich využívať?
+
+- Istota kvality informácií
+- PRidaná odnota od informačných špecialistov
+- Lepšie vyhľadávacie možnosti
+- Snaha producentov databáz o prívetivé používateľské rozhranie
+
+### **Nevýhody**
+
+- Ak skončí predplatné, tak po skončení licencií sa k tomu nedostanem
+- Platené
+- Prevaha anglického jazyku
+- Nedostupnosť databáz ⇒ Knižnica nemá zaplatený vstup, je vzdialená
+
+### Databázy dostupné na STU
+
+www.stuba.sk
+
+Výskum
+
+Virtualná knižnica
+
+?Bla bla databázy?
+
+### Vzdialený prístup.
+
+Na webe je na to "how to" manual
+
+### Linecnčné podmianky
+
+NEpublikovať ďalej
+
+Nessťahovať vo veľkých množstách. Roboty a pod.
+
+# Databázy:
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b1107cf7-3670-4a54-83ac-fbe5b23ee465/20191022_114700.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b1107cf7-3670-4a54-83ac-fbe5b23ee465/20191022_114700.jpg)
+
+## ACM
+
+- Založenáv roku 1947
+- Patrí medzi významné svetové organizácie poskytujúce informačné zdroje
+- Zdroje sprístupnuje pomocou ACM portálu, ktorý umožnuje prístup do **ACM Digital Liblary**
+- Obsahuje cez 750k záznamov
+- Úplne texty článkov
+- Archív od roku 1950
+- Články a príspevky z 50 titulov ACM...
+- JEdnoduché vyhľadávanie
+- PRehľadávanie dokumentov...
+- ...
+
+## IEEE
+
+- NAjväčšia technická asociacia s viac ako 400k členmi po celom skvete
+
+Základné aktivity
+
+- Členstvo
+- ...
+- ...
+- Od rou 1884
+- Najobsiahlejšia plnotextová kolekcia časopisov z oblasti elektroinžiniersta, elektotechniky a infomračných a komunikačných techonologií
+- Má rôzne lektrotechnickké knihy a vzdelavacie kurzy
+
+## Springerlink
+
+- Databáza z rôznych oblastí
+- Má rôzne kolekcie
+- Vydáva zaujímavú kolekciu: **Lecture notesin Computer Science a Computer Science Liblary**
+- Plný text je len k niektorým dokumentov
+    - Retrospektívne od roku 1977

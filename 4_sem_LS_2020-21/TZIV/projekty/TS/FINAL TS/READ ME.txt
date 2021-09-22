@@ -1,0 +1,4 @@
+projekt je robený v turingmachine.io,
+prosím pri testovaní funkčnosti importovať cez Github gist, uchovajú sa tak aj pozície uzlov (inak sa to celé rozhádže a trvá dlho kým sa zastaví animácia)
+
+gist ID: 9e08eebbf10b3ec715fe0421d5bc3004

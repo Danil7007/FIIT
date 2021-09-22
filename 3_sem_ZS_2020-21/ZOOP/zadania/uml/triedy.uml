@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.organizer.triedy</OriginalElement>
+  <nodes>
+    <node x="596.75" y="0.0">com.organizer.triedy.Den</node>
+    <node x="192.6440476190476" y="782.0">com.organizer.triedy.Turnaj</node>
+    <node x="0.0" y="281.0">com.organizer.triedy.Kategoria</node>
+    <node x="206.0" y="413.5">com.organizer.triedy.Zapas</node>
+    <node x="206.75" y="100.5">com.organizer.triedy.Kurt</node>
+    <node x="306.75" y="0.0">com.organizer.triedy.Hrac</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.organizer.triedy.Turnaj" target="com.organizer.triedy.Zapas">
+      <point x="0.0" y="-82.0" />
+      <point x="283.14404761904757" y="762.0" />
+      <point x="287.5" y="762.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
+    <edge source="com.organizer.triedy.Turnaj" target="com.organizer.triedy.Kategoria">
+      <point x="-72.4" y="-82.0" />
+      <point x="210.7440476190476" y="762.0" />
+      <point x="46.5" y="762.0" />
+      <point x="-46.5" y="225.5" />
+    </edge>
+    <edge source="com.organizer.triedy.Zapas" target="com.organizer.triedy.Kurt">
+      <point x="-40.75" y="-93.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.organizer.triedy.Zapas" target="com.organizer.triedy.Hrac">
+      <point x="40.75" y="-93.0" />
+      <point x="328.25" y="256.0" />
+      <point x="347.5833333333333" y="256.0" />
+      <point x="-81.66666666666669" y="115.5" />
+    </edge>
+    <edge source="com.organizer.triedy.Turnaj" target="com.organizer.triedy.Hrac">
+      <point x="72.39999999999998" y="-82.0" />
+      <point x="355.54404761904755" y="762.0" />
+      <point x="458.03214285714284" y="762.0" />
+      <point x="458.03214285714284" y="256.0" />
+      <point x="510.9166666666667" y="256.0" />
+      <point x="81.6666666666667" y="115.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.40000000000000013" x="293.4999999999998" y="407.49999999999983" />
+  <SelectedNodes>
+    <node>com.organizer.triedy.Turnaj</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

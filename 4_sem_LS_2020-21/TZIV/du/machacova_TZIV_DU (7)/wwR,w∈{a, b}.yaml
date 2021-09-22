@@ -1,0 +1,102 @@
+name: 'ww^R, w ∈ {a, b}*'
+source code: |+
+  # ww^R, w ∈ {a, b}*
+  input: ' aba'
+  blank: ' '
+  start state: scan
+  table:
+    # naskenovanie pismena
+    scan:
+      a: {write: A, R: rollA}
+      b: {write: B, R: rollB}
+      [A, B]: {L: rollback2}
+      " ": {R: check}
+    
+    rollA:
+      [a, b]: {R: rollA}
+      [A, B, " "]: {L: toA}
+      
+    rollB:
+      [a, b]: {R: rollB}
+      [A, B, " "]: {L: toB}
+      
+    toA:
+      a: {write: A, L: rollback}
+    
+    toB:
+      b: {write: B, L: rollback}
+    
+    rollback:
+      [a, b]: {L: rollback}
+      [A, B]: {R: scan}
+      
+    rollback2:
+      [A, B]: {L: rollback2}
+      " ": {R: check}
+      
+    check:
+      [A, B]: {R: check}
+      " ": {R: accept}
+      [a, b]: {R: reject}
+      
+    accept:
+    
+    reject:
+
+
+positions:
+  scan: {x: 294.88, y: 217.96}
+  rollA: {x: 430.67, y: 136.37}
+  rollB: {x: 415.7, y: 322.79}
+  toA: {x: 604.68, y: 140.4}
+  toB: {x: 606.61, y: 321.07}
+  rollback: {x: 723.3, y: 217.54}
+  rollback2: {x: 183.16, y: 307.45}
+  check: {x: 79.74, y: 214.93}
+  accept: {x: 35.44, y: 88.24}
+  reject: {x: 30.75, y: 336.21}
+editor contents: |+
+  # ww^R, w ∈ {a, b}*
+  input: ' aba'
+  blank: ' '
+  start state: scan
+  table:
+    # naskenovanie pismena
+    scan:
+      a: {write: A, R: rollA}
+      b: {write: B, R: rollB}
+      [A, B]: {L: rollback2}
+      " ": {R: check}
+    # hladanie a
+    rollA:
+      [a, b]: {R: rollA}
+      [A, B, " "]: {L: toA}
+    # hladanie b
+    rollB:
+      [a, b]: {R: rollB}
+      [A, B, " "]: {L: toB}
+    # a-> A
+    toA:
+      a: {write: A, L: rollback}
+    # b -> B
+    toB:
+      b: {write: B, L: rollback}
+    # kym najdeme A alebo B, potom -> scan
+    rollback:
+      [a, b]: {L: rollback}
+      [A, B]: {R: scan}
+    # po zaciatok pasky
+    rollback2:
+      [A, B]: {L: rollback2}
+      " ": {R: check}
+    # ci su vsetky uppercase  
+    check:
+      [A, B]: {R: check}
+      " ": {R: accept}
+      [a, b]: {R: reject}
+      
+    accept:
+    
+    reject:
+
+

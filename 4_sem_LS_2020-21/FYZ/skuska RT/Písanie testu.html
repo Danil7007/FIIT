@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://is.stuba.sk/auth/elis/ot/psani_testu.pl?test=34621 -->
+<html><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Písanie testu</title><meta http-equiv="Content-Language" content="sk"><meta name="description" content="Písanie testu"><meta name="keywords" content="univerzita, štúdium, prijímacie konanie, vysoká škola, veda a výskum, informačný systém, univerzitný informačný systém, akademický informačný systém, integrovaný študijný informačný systém"><meta name="authors" content="Ústav pre informačný systém MENDELU"><meta name="lang" content="sk"><meta name="charset" content="UTF-8"><meta property="al:ios:app_store_id" content="1486321400"><meta property="al:ios:app_name" content="Moje štúdium"><meta name="apple-itunes-app" content="app-id=1486321400"><meta property="al:android:package" content="cz.uis_info.moje_studium"><meta property="al:android:app_name" content="Moje štúdium"><link rel="manifest" href="https://is.stuba.sk/manifest.json"><link rel="icon" href="https://is.stuba.sk/favicon/favicon_ais.ico" type="image/x-icon"><link rel="shortcut icon" href="https://is.stuba.sk/favicon/favicon_ais.ico" type="image/x-icon"><script type="text/javascript">
+var defaultClass = '';
+
+</script><style type="text/css">table.elis_test_question {padding:0}
+					div.baze_otazek-otazka, .baze_otazek-otazka td {padding:5px}
+		                      table.elis_test_question p, .elis_test_question p, .baze_otazek-otazka p {margin:0}
+		                      .vzorec_latex {vertical-align: middle} 
+            .elis_test_question textarea {max-width: 100%; resize: vertical}
+            .elis_test_question td[valign=top] { vertical-align: middle}
+
+  #cas_text {font-size: 80%; border-bottom: 1px dashed black; padding-bottom:1pt; margin-bottom:1pt}
+					#casovac_box {text-align: center; 
+					width: 65pt; padding:2pt;
+	                                position: fixed; 
+					top: 2px; left: 2px;
+					left: 2px; border: 2px solid black;
+                                        background-color: #95B9C7;
+					z-index: 1051;	
+					_position: absolute;
+					_top: expression(eval(document.body.scrollTop));}
+#titulek,#testingform { padding: 0 10px; }</style><link rel="stylesheet" type="text/css" href="./Písanie testu_files/jquery-ui.min.css"><link rel="stylesheet" type="text/css" href="./Písanie testu_files/dialog-polyfill.css"><link rel="stylesheet" type="text/css" href="./Písanie testu_files/base.css"><link rel="stylesheet" type="text/css" href="./Písanie testu_files/img.pl.stiahnuť"><script type="text/javascript" src="./Písanie testu_files/jquery-3.3.1.min.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/common.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/uis.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/translate.js.stiahnuť"></script><script type="text/javascript">uis.translator.setLang('SK');</script><script type="text/javascript" src="./Písanie testu_files/jquery-ui.min.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/dialog-polyfill.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/showModalDialog.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/uissafetest.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/mathjax-uis-with-test.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/cookiebar.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/help.js.stiahnuť"></script><!--[if IE]><style type="text/css">div.menitko-all{width:98%;}</style><![endif]--></head><body data-new-gr-c-s-check-loaded="14.1014.0" data-gr-ext-installed="">
+<div><div><div><div><div><div id="titulek"><h1>Písanie testu<a href="https://is.stuba.sk/auth/help.pl?page=13768;back=aHR0cHM6Ly9pcy5zdHViYS5zay9hdXRoL2VsaXMvb3QvcHNhbmlfdGVzdHUucGw/dGVzdD0zNDYyMQ==" class="context-help-invoke" target="_blank" data-contexthelppage="13768"><img src="./Písanie testu_files/uisimg_184005.png" alt="" sysid="base-help"></a></h1><hr></div><form method="post" action="https://is.stuba.sk/auth/elis/ot/psani_testu.pl" enctype="application/x-www-form-urlencoded" name="testingform" id="testingform" data-storage-key="34621103037"><script type="text/javascript"><!--
+
+                        jQuery(document).ready(function () {
+                                try {
+                                        uis.safeTest.disableContext();
+                                        uis.safeTest.handleKeys();
+                                }
+                                catch (e) {}
+                        });
+                
+//--></script><div><div id="casovac_box" class="ui-draggable ui-draggable-handle"><div id="cas_text">Emma Macháčová</div><span style="font-size:8pt; padding-bottom:1pt">Ostáva času</span><br><span id="casovac"><span style="font-size:10pt; color: red; font-weight:bold">00:01:09</span></span></div><script type="text/javascript"><!--
+function odesli_formular() {
+	var forms = document.getElementsByTagName('form');
+	var i=0;
+	while (forms[i] && forms[i].name != 'testingform') {i++;}
+	var form = forms[i] ? forms[i] : forms[0];
+	if (form) jQuery(form).submit();
+	else window.alert('Chyba při odesílání formuláře, kontaktujte examinátora.');
+}
+
+function spust_casovac(){
+    var zbyvaCasu = Math.floor((konecPsaniTestu-Date.now())/1000); // rozdil ve vterinach
+	doba = zbyvaCasu; if (doba < 0) doba = 0;
+	hodin = Math.floor(doba / 3600);
+	minut = Math.floor((doba - (hodin * 3600)) / 60);
+	sekund = doba - (3600 * hodin) - (60 * minut);
+	if (hodin < 10) hodin = "0" + hodin;
+	if (minut < 10) minut = "0" + minut;
+	if (sekund < 10) sekund = "0" + sekund;
+	
+	window.status = hodin+":"+minut+":"+sekund;
+	var cas = document.getElementById('casovac');
+	if (cas) {
+		cas.innerHTML = '<span style="font-size:10pt; ' + 
+		                (doba <= 1800 ? 'color: red; font-weight:bold' : '') + 
+		                '">' + hodin + ':' + minut + ':' + sekund + '</span>';
+	}
+	if (doba == 0) { 
+		if (hlaska) {
+			 var dialog = jQuery('<div>Vypršel Vám časový limit vyhrazený na psaní testu.\n Formulář bude automaticky odeslán a vyhodnocen.</div>').dialog({ modal:true, resizable:false});
+		}
+		vypni_odesilani = 1;
+		vypni_odesilani_form = 1;
+		setTimeout(function() {
+			if (window.onbeforeunload) window.onbeforeunload = null;
+			if (typeof(ajax) != 'undefined' && ajax) clearTimeout(ajax);
+			try {
+				odesli_formular();;
+			}
+			catch (error) {
+				document.testingform.submit();
+			}
+			if (timer) clearTimeout(timer);
+		}, 1000);
+	}
+	else {
+		timer =  setTimeout("spust_casovac()",1000)
+	}
+}
+var doba = 5400 + 1;
+var konecPsaniTestu = Date.now() + doba * 1000; // konec psani v milisekundach
+var hlaska = 'Vypršel Vám časový limit vyhrazený na psaní testu.\n Formulář bude automaticky odeslán a vyhodnocen.';
+spust_casovac();
+(jQuery('#casovac_box') && jQuery('#casovac_box').draggable && jQuery('#casovac_box').draggable()); 
+
+//--></script></div><script type="text/javascript"><!--
+
+				   var stara_kontrola = window.onbeforeunload;
+				   var kontrola_zavreni = function (udalost) {
+					if (stara_kontrola) {
+						stara_kontrola();
+					}
+					return 'Píšete práve test.';
+				   }
+				   window.onbeforeunload = kontrola_zavreni;
+				   
+//--></script><script type="text/javascript"><!--
+var pocet_ulozeni = 0;
+					                function kontrola_ukladani(info) {
+					                  // info muze obsahova 'stav_ulozeni;zbyvajici_cas'
+					                  var stavy = info.split(';');
+
+					                  // nastavime obnoveny cas
+					                  zbyvajiciCas = stavy[1];
+                                        
+                                        try {
+                                            if ( zbyvajiciCas ) {
+                                              konecPsaniTestu =  Date.now() + zbyvajiciCas * 1000;
+                                            }
+                                        }
+                                        catch (e) {}
+
+					                  if (stavy[0] == 'CHYBA_ULOZENI') {
+					                    pocet_ulozeni++;
+					                  }
+					                  else {
+					                    pocet_ulozeni = 1;
+					                    if (stavy[0]) window.alert(otest.responseText);
+					                  }
+					                  if (pocet_ulozeni == 3) {
+					                    alert('Opakovane sa nepodarilo priebežne uložiť Vašu prácu, zrejme sa jedná o technickú chybu Vášho počítača či výpadok systému. Kontaktujte dozor.');
+					                  }
+					                }
+//--></script><script type="text/javascript"><!--
+
+		function form_par(nazev_formulare) {
+                        // ZMENA var formular = document.forms[nazev_formulare] || document.forms[0];
+                        var formular = document.getElementsByTagName('form');
+                        if (nazev_formulare) {
+                                var i =0;
+				
+                                while (i<formular.length && formular[i].name != nazev_formulare) {
+                                        i++;
+                                }
+                                // pokud jsem nasel formular se jmenem, tak je poslu, jinak beru prvni
+                                formular = formular[i].name == nazev_formulare ? formular[i] : formular[0];
+                        }
+                        else {
+                                formular = formular[0]; //vezmu prvni, pokud neni urceno jinak
+                        }
+                        var form_prvky = new Array("input", "textarea", "select");
+                        var parametry = '';
+                        for (var i in form_prvky) {
+                                //ziskam vsechny elementy podle jmena
+                                var elementy = formular.getElementsByTagName(form_prvky[i]);
+                                for (var x=0; x <= elementy.length; x++) {
+                                        // pokud jsou pojmenovane, tak je zpracuji
+                                        if (elementy[x] &&  elementy[x].name) {
+                                                var name = elementy[x].name;
+                                                var type = 'notype';
+                                                // v pripade radio a checkboxu kontroluji zatrzeni
+                                                if (elementy[x].type) type = elementy[x].type;
+                                                if ((type != 'radio' && type != 'checkbox') || elementy[x].checked)
+                                                        parametry += name + '=' + encodeURIComponent(elementy[x].value) + ';';
+                                        }
+                                }
+                        }
+                        return parametry;
+                }
+//--></script><script type="text/javascript"><!--
+
+	var vypni_odesilani = 0;
+	function prace_ajax_pozadavek() {
+		var metoda = 'post';
+		if ((typeof(vypni_odesilani_form) == 'undefined' || !vypni_odesilani_form) && ( typeof doba == 'undefined' || doba > 30 )) {vypni_odesilani = 1;
+		try {
+			if (window.ActiveXObject) {
+				try {
+					otest = new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				catch (e) {
+					otest = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+			else {
+				otest = new XMLHttpRequest();
+			}
+		
+			if (!Date.now) {
+    				Date.now = function() { return new Date().getTime(); }
+			}
+
+			var parametry = form_par('testingform') + ';ts=' + Date.now();
+			otest.onreadystatechange = prace_ajax_handler;
+			if (metoda == 'post') {
+				otest.open('post', 'prubezne_ulozeni.pl', true);
+				otest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=iso-8859-2');
+				otest.send(parametry);
+			}
+			else {
+				otest.open('post', 'prubezne_ulozeni.pl?'+parametry, true);
+				otest.send(null);	
+			}
+			
+		}
+		catch(error) {
+			//zachycena vyjimka
+			window.alert('Nelze inicializovat ajax komunikaci!');
+		}
+		vypni_odesilani = 0;}
+	}
+//--></script><script type="text/javascript"><!--
+
+	function prace_ajax_handler(){
+		if (otest.readyState == 4) {
+			if (otest.status == 200) {
+				kontrola_ukladani(otest.responseText);;
+				//window.alert(otest.getAllResponseHeaders());
+			} else {
+				kontrola_ukladani("Chyba pri uložení.");;
+				//alert('Chyba:' + otest.statusText);
+			}
+		}
+	}
+//--></script><script type="text/javascript"><!--
+var ajax; function per_akce() {prace_ajax_pozadavek(); ajax = setTimeout("per_akce()",60000)} ajax = setTimeout("per_akce()",60000); 
+//--></script><div><table><tbody><tr class=""><td class="odsazena" colspan="3" align="left"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left" valign="top"><span class="ysmall415"><b>Pokyny k&nbsp;vypracovaniu testu: </b></span></td><td class="odsazena" align="left"><span class="ysmall28"><p></p>
+<div>
+<table>
+    <tbody>
+        <tr>
+            <td class="odsazena" align="left">
+            <div class="xsmall28" align="justify">
+            <p align="justify"><strong>pri slovných odpovediach v&nbsp;teste:</strong></p>
+            <p align="justify"><strong>1</strong>. nepísať zbytocne medzere&nbsp;</p>
+            <p align="justify"><strong>2.</strong>&nbsp;výsledky zapísať a&nbsp;zaokrúhliť na toľko cifier, ako vyžaduje zadanie&nbsp;</p>
+            <p align="justify"><strong>3. </strong>neuvádzať<strong>&nbsp;</strong>jednotky veličín do odpoveďového poľa</p>
+            <p align="justify">4. znamienko mínus uvádzať pred číslo ako spojovník (krátke "-")&nbsp;</p>
+            <p align="justify"><strong>špeciálne znaky, konštanty zapisovať ako:</strong></p>
+            <p align="justify"><strong>1</strong>.&nbsp;ε<sub>0&nbsp;</sub>písať ako "E"</p>
+            <p align="justify"><strong>2.</strong>&nbsp;μ<sub>0</sub>&nbsp;písať ako "M"</p>
+            <p align="justify"><strong>3.</strong>&nbsp;π písať ako "Pi"</p>
+            <p align="justify"><strong>4. </strong>uvažovať hodnotu <em>g</em> = 10 m/s<sup>2</sup></p>
+            </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div></span></td></tr></tbody></table><p></p></span></td></tr><tr class=""><td class="odsazena" colspan="3" align="left"><span class="ysmall28"><b>Spôsob vyhodnotenia</b>: Pri vyhodnotení budú udelené body iba za úplne správne zodpovedanú otázku. Za čiastočné odpovede nebudú žiadne body udelené.</span></td></tr><tr class=""><td class="odsazena" align="center" colspan="3"><span class="ysmall415"><big><b>Blok otázok 1</b></big><p></p></span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">1.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p><span>Vyberte správnu odpoveď. Ak bude hmotnosť telesa polovičná a&nbsp;jeho rýchlosť sa zdvojnásobí, finálna kinetická energia vzhľadom na počiatočnú bude:</span></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309088" value="1135712"></span></td><td class="odsazena" align="left"><span class="ysmall"><p><span>osemnásobná.</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309088" value="1135709"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p><span>rovnaká.</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309088" value="1135711"></div></td><td class="odsazena" align="left"><div class="xsmall"><p><span>dvojnásobná.</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309088" value="1135710"></span></td><td class="odsazena" align="left"><span class="ysmall"><p><span>štvornásobná.</span></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><script type="text/javascript"><!--
+uis.readyPush(
+	function () {
+		// pri kliknuti na obrazek ho zkusim reloadnout
+		$('.vzorec_latex')
+		  .mouseover(function () { $(this).css('cursor','default'); })
+		  .attr('alt',function () { return $(this).attr('alt') + ' Pro znovunačtení matematického vzorce klikněte.'; })
+		  .bind('click',function () {
+		                  $(this).attr('src',$(this).attr('src') + '%20');
+		                }
+		       );
+	}
+);
+
+//--></script></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309088_body"><span class="ysmall">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">2.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><p>Vyberte správne tvrdenie. Pri nepružnej zrážke:</p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309083" value="1135687"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">hybnosť sústavy narastie.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309083" value="1135686"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">kinetická energia sústavy sa zmenší.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309083" value="1135688"></span></td><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph" align="justify">hybnosť sústavy sa zmenší.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309083" value="1135685"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">kinetická energia sústavy narastie.<o:p></o:p></p>
+<p></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309083_body"><span class="ysmall28">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">3.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p><span>Teleso s&nbsp;hmotnosťou <i>m</i> pohybujúce sa rýchlosťou <i>v</i>&nbsp; sa zrazí čelne s&nbsp;druhým telesom o&nbsp;hmotnosti <i>2m</i>, ktoré sa pred zrážkou nehýbe. Zrážka je pružná. Strata kinetickej energie projektilu (s&nbsp;hmotnosťou <i>m</i>) bude:</span></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309084" value="1135690"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">1/9 jeho počiatočnej kinetickej energie.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309084" value="1135689"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph" align="justify"><span>&nbsp;</span>½ jeho počiatočnej kinetickej energie.<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309084" value="1135692"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">¼ jeho počiatočnej kinetickej energie.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309084" value="1135691"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">8/9 jeho počiatočnej kinetickej energie.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309084" value="1135693"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph" align="justify">nezmení sa.<o:p></o:p></p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309084_body"><div class="xsmall415">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415">4.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Nájdite zrýchlenie telesa s&nbsp;hmotnosťou <i>m<sub>2</sub></i> pre ktoré platí, že jeho hmotnosť je štvornásobne menšia ako hmotnosť telesa <i>m<sub>1</sub></i>. Zanedbajte trenie a&nbsp;hmotnosť kladky a&nbsp;lana.&nbsp;</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.12.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309092" value="1135730"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph"><i>2g/3<o:p></o:p></i></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309092" value="1135729"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph"><i>g/2<o:p></o:p></i></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309092" value="1135731"></span></td><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph"><i>3g/5<o:p></o:p></i></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309092" value="1135732"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph"><i>3g/4<o:p></o:p></i></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309092" value="1135733"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify"><i>4g/5<o:p></o:p></i></p>
+<p></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309092_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">5.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph" align="justify">Teleso v&nbsp;tvare polkružnice sa nachádza v&nbsp;homogénnom magnetickom poli (viď. obrázok) a&nbsp;prechádza ním prúd <i>I</i>. Porovnajte veľkosti magnetickej sily, pôsobiacej na polkružnicovú <i>F<sub>polkruh</sub></i><sub> </sub>a&nbsp;priamu líniu vodiča <i>F<sub>priamka</sub></i>.&nbsp;</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.23.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><span class="small28">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309204" value="1136252"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p><i><span>F<sub>polkruh </sub>&gt; F<sub>priamka</sub></span></i></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309204" value="1136254"></div></td><td class="odsazena" align="left"><div class="xsmall"><p><i><span>F<sub>polkruh </sub>= F<sub>priamka</sub></span></i></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309204" value="1136253"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p><i><span>F<sub>polkruh </sub>&lt; F<sub>priamka</sub></span></i></p>
+<p></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309204_body"><div class="xsmall">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">6.</span></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Kváder s&nbsp;hmotnosťou <i>m</i> je položené na drsnej podložke. Pôsobia naň dve sily tak,&nbsp; ako je ukázané na obrázku. Aký musí byť koeficient statického trenia, aby sa kváder nehýbal ?</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.2.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309081" value="1135677"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><img src="./Písanie testu_files/teximg.pl.stiahnuť" alt="\frac{F_1cos\theta+F_2}{mg-F_2sin\theta} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309081" value="1135675"></div></td><td class="odsazena" align="left"><div class="xsmall"><p><img src="./Písanie testu_files/teximg.pl(1).stiahnuť" alt="\frac{F_1+F_2sin\theta}{mg+F_2cos\theta} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309081" value="1135678"></span></td><td class="odsazena" align="left"><div class="xsmall"><p><img src="./Písanie testu_files/teximg.pl(2).stiahnuť" alt="\frac{F_1sin\theta-F_2}{mg-F_2cos\theta} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309081" value="1135676"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><img src="./Písanie testu_files/teximg.pl(3).stiahnuť" alt="\frac{F_1+F_2cos\theta}{mg+F_2sin\theta} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309081_body"><div class="xsmall">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415">7.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Loptička s&nbsp;hmotnosťou <i>m</i> je zavesená na pevnom lane a&nbsp;pustená z&nbsp;výšky <i>h</i>. V&nbsp;najnižšom bode sa <b>pružne</b> zrazí s&nbsp;kvádrom s&nbsp;hmotnosťou <i>2m</i>, ktorý stál v&nbsp;pokoji na dokonale hladkej podložke tak, ako je to zakreslené na obrázku. Do akej výšky vystúpi loptička po tejto zrážke ?</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.10.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309089" value="1135717"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph"><i>2/3 h</i><o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309089" value="1135716"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph"><i>1/2 h</i><o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309089" value="1135714"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph"><i>1/8 h<o:p></o:p></i></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309089" value="1135713"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph"><i>1/9 h&nbsp;<o:p></o:p></i></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309089" value="1135715"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph"><i>1/3 h<o:p></o:p></i></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309089_body"><div class="xsmall">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">8.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">Na obrázku je znázornená guľa s&nbsp;polomerom <i>R</i> a&nbsp;kocka s&nbsp;dĺžkou hrany <i>a</i>, uprostred ktorých je umiestnený rovnaký náboj <i>Q&nbsp; &gt; 0</i>. Vyberte správnu odpoveď pre tok vektora <b><i>E</i></b> cez tieto plochy.&nbsp;</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/fiit_1_elmag.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><i><o:p></o:p></i></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309215" value="1136290"></div></td><td class="odsazena" align="left"><span class="ysmall"><p>Tok cez guľu je&nbsp;<img src="./Písanie testu_files/teximg.pl(4).stiahnuť" alt="\frac{Q}{4\pi R^2} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec"> a&nbsp;cez kocku&nbsp;<img src="./Písanie testu_files/teximg.pl(5).stiahnuť" alt="\frac{Q}{6 a^2} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec"></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309215" value="1136295"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph" align="justify">Pre oba objekty je tok nulový.<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309215" value="1136294"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph" align="justify">Nie je uvedená správna odpoveď.<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309215" value="1136293"></span></td><td class="odsazena" align="left"><span class="ysmall"><p>Tok cez guľu je&nbsp;<img src="./Písanie testu_files/teximg.pl(6).stiahnuť" alt="\frac{3Q}{4\pi R^3} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"> a&nbsp;cez kocku je&nbsp;<img src="./Písanie testu_files/teximg.pl(7).stiahnuť" alt="\frac{Q}{a^3} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec"></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309215" value="1136291"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p>Tok cez obe plochy je rovnaký.</p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309215_body"><div class="xsmall28">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">9.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">Majme dva rovnako veľké náboje s&nbsp;opačným znamienkom&nbsp;<i>+Q</i>&nbsp; a&nbsp;<i>−Q</i>.&nbsp;Skúmame elektrostatické pole na ich spojnici (známa ako úsečka <i>r</i>). Presne uprostred tejto spojnice si predstavme bod B. Čo platí pre hodnoty intenzity elektrického poľa <i>E<sub>B</sub></i> ?<o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small28">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309201" value="1136241"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p><img src="./Písanie testu_files/teximg.pl(8).stiahnuť" alt="E_B=\frac{Q}{2\pi\varepsilon_0r^2} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309201" value="1136240"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p><span>nie je uvedená správna odpoveď</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309201" value="1136239"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p><i><span>E<sub>B </sub>= 0</span></i></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309201" value="1136242"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><img src="./Písanie testu_files/teximg.pl(9).stiahnuť" alt="E_B=\frac{Q}{4\pi\varepsilon_0r^2} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309201_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">10.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><p><span>Dva kvádre A&nbsp;a&nbsp;B s&nbsp;hmotnosťami <i>m<sub>1</sub> </i>a&nbsp;<i>m<sub>2</sub></i> sú položené na dokonale hladkej vodorovnej podložke. Oba kvádre sa dotýkajú, pričom na kváder A&nbsp;pôsobí vodorovná sila <b><i>F</i></b>. Akou silou pôsobí kváder A&nbsp;na kváder B ?&nbsp;</span></p>
+<p><img src="./Písanie testu_files/1.1.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309080" value="1135671"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p><img src="./Písanie testu_files/teximg.pl(10).stiahnuť" alt="\frac{m_1F}{m_2} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309080" value="1135674"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p><img src="./Písanie testu_files/teximg.pl(11).stiahnuť" alt="\frac{m_2F}{m_1+m_2} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309080" value="1135672"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p><img src="./Písanie testu_files/teximg.pl(12).stiahnuť" alt="\frac{m_2F}{m_1} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec"></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309080" value="1135673"></span></td><td class="odsazena" align="left"><span class="ysmall"><p><img src="./Písanie testu_files/teximg.pl(13).stiahnuť" alt="\frac{m_1F}{m_1+m_2} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309080_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">11.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Dlhý solenoid, ktorým preteká prúd, vytvára magnetické pole <i>B </i>pozdĺž solenoidu. Ak veľkosť prúdu zdvojnásobíme a&nbsp;počet závitov na jednotku dĺžky znížime na polovicu, nová hodnota magnetického poľa bude:<o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309211" value="1136274"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p><em>B</em>/2</p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309211" value="1136273"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p>4<em>B</em></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309211" value="1136277"></div></td><td class="odsazena" align="left"><span class="ysmall"><p>2<em>B</em></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309211" value="1136276"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p><em>B</em></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309211_body"><span class="ysmall28">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">12.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">Vyberte správne tvrdenie<b>. Elektrostatické pole</b> je:&nbsp;<o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309199" value="1136232"></div></td><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph" align="justify">nedá sa určiť jednoznačne, v&nbsp;niektorých prípadoch môže byť konzervatívne, v&nbsp;iných nekonzervatívne<span><o:p></o:p></span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309199" value="1136233"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><span>vždy nekonzervatívne.</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309199" value="1136231"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p>vždy konzervatívne.&nbsp;</p>
+<p></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309199_body"><div class="xsmall28">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">13.</span></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">Ktoré z&nbsp;nasledujúcich možností NEpredstavujú konzervatívnu silu ?<o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small415">Vyberte ľubovoľný počet možných odpovedí. Správna nemusí byť žiadna, ale tiež môžu byť správne všetky.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><script type="text/javascript"><!--
+function uncheck(mujbox,jmeno) {
+					                	if (mujbox.checked) {
+					                		var boxy = document.getElementsByName(jmeno);
+					                		for (box in boxy) {
+						                		boxy[box].checked = false;
+						                	}
+					                	}
+					                }
+//--></script><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="checkbox" name="odpoved_472741_309130" value="1135890"></span></td><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">Sila pružnosti.<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="checkbox" name="odpoved_472741_309130" value="1135891"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p>Trecia sila.</p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="checkbox" name="odpoved_472741_309130" value="1135889"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Gravitačná sila.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="checkbox" name="odpoved_472741_309130" value="1135888"></div></td><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph" align="justify">Elektrostatická sila.<o:p></o:p></p>
+<p></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309130_body"><div class="xsmall28">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">14.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Poloha <i>x</i> častice sa mení časom <i>t</i> ako <i>x = At<sup>2</sup> – Bt<sup>3</sup></i>. Určte čas, kedy bude zrýchlenie častice nulové ?&nbsp;<o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small28">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309126" value="1135884"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p><i><span>A/B</span></i><span>&nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309126" value="1135887"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p><span>0</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309126" value="1135885"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p><i><span>2A/(3B)</span></i></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309126" value="1135886"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><i><span>A/(3B)</span></i></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309126_body"><div class="xsmall">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">15.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">Kváder s&nbsp;hmotnosťou 50 kg&nbsp;sme presunuli po vodorovnej podložke z&nbsp;bodu A&nbsp;do bodu B po dráhe dlhej 40 m. Akú prácu vykoná gravitačná sila ?&nbsp;</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.8.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309087" value="1135707"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p>5 J</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309087" value="1135705"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p>15 J</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309087" value="1135704"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p>3 J</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309087" value="1135706"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p>0 J</p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309087" value="1135708"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p>10 J</p>
+<p></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309087_body"><div class="xsmall415">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">16.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph" align="justify">Na obrázku sú znázornené dve sily&nbsp;<b><i>F<sub>1</sub></i></b>&nbsp;a&nbsp;<b><i>F<sub>2</sub></i></b>. Teleso sa posunulo o&nbsp;vektor&nbsp;<b><i>d</i></b>.&nbsp;&nbsp;Prácu&nbsp;sily&nbsp;<b><i>F<sub>1</sub></i></b>&nbsp;označme<strong>&nbsp;</strong><i>W<sub>1</sub></i>&nbsp;a&nbsp;prácu sily&nbsp;<b><i>F<sub>2</sub></i></b>&nbsp;označme&nbsp;<i>W<sub>2</sub></i>. Porovnajte práce&nbsp;<i>W</i>, ktoré vykonali jednotlivé sily a&nbsp;vyberte správne tvrdenie.</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.6.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><span class="small28">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309085" value="1135696"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify"><i><span>W<sub>1</sub>&nbsp;&gt;&nbsp;W<sub>2</sub></span></i><o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309085" value="1135694"></span></td><td class="odsazena" align="left"><div class="xsmall"><p><i><span>W<sub>1</sub>&nbsp;=&nbsp;W<sub>2</sub></span></i></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309085" value="1135695"></div></td><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify"><i><span>W<sub>1</sub>&nbsp;&lt; W<sub>2</sub></span></i><o:p></o:p></p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309085_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">17.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall"><p><span>Dve nabité častice majú rovnaký náboj <i>Q</i>, ale rôzne rýchlosti ako ukazuje obrázok. Obe častice sa pohybujú v&nbsp;magnetickom poli s&nbsp;indukciou <b><i>B</i></b>. Na ktorú časticu pôsobí väčšia sila ?</span></p>
+<p><img src="./Písanie testu_files/1.24.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><span class="small28">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309206" value="1136256"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">Na časticu 2 pôsobí väčšia sila, pretože má väčšiu rýchlosť.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309206" value="1136258"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Žiadna z&nbsp;uvedených možností nie je správna.&nbsp;<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309206" value="1136257"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph" align="justify">Na časticu 2 pôsobí väčšia sila, pretože jej rýchlosť je rovnobežná so smerom magnetického poľa.&nbsp;<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309206" value="1136255"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Na časticu 1 pôsobí väčšia sila, pretože sa pohybuje kolmo na smer magnetického poľa.&nbsp;<o:p></o:p></p>
+<p></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309206_body"><div class="xsmall">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">18.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph" align="justify">Obyčajným permanentným magnetom vytvoríme magnetické pole, do ktorého vložíme vodič (viď. obrázok). Magnetické indukčné čiary majú smer zo severu (N) na juh (S). Následne necháme vodičom prechádzať konštantný elektrický prúd v&nbsp;smere šípky. Ako sa vychýli vodič ?</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.28.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309212" value="1136282"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p><span>von z&nbsp;nákresu (ku severnému pólu magnetu)</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309212" value="1136281"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p><span>do nákresu (ku južnému pólu magnetu)</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309212" value="1136279"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p><span>nadol (dovnútra magnetu)</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309212" value="1136280"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p><span>nahor (mimo magnet)</span></p>
+<p></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309212_body"><div class="xsmall">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415">19.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoNoSpacing" align="justify"><span lang="PL">Na obrázku sú zakreslené tri obvody, </span><span>obsahujúce sústredné kruhové oblúky (polkružnice </span><span lang="PT-BR">alebo čtvrťkružnice s&nbsp;polomermi <i>r</i>, 2<i>r </i>a 3<i>r</i>) a&nbsp;radiálne</span><span> priame úseky. Obvodmi preteká rovnaký prúd. Zoraďte ich zostupne (od najväčšej po najmenšiu) podľa veľkosti magnetickej indukcie v&nbsp;strede oblúkov (označené bodkou).</span></p>
+<p class="MsoNoSpacing" align="justify"><img src="./Písanie testu_files/1.29.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoNoSpacing" align="justify"><span><o:p></o:p></span></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309213" value="1136287"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p><span>c, a=b</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309213" value="1136288"></div></td><td class="odsazena" align="left"><span class="ysmall"><p><span>a=b, c</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309213" value="1136283"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p><span>a, b, c</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309213" value="1136289"></div></td><td class="odsazena" align="left"><span class="ysmall"><p><span>c, b, a&nbsp;</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309213" value="1136284"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><span>a, c, b</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309213" value="1136286"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p><span>c, a, b&nbsp;</span></p>
+<p></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309213_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">20.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p>Vyberte správne tvrdenie.&nbsp;<span>Zákon zachovania hybnosti platí, keď:&nbsp;&nbsp;</span></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309082" value="1135680"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph">celková práca nekonzervatívnych síl je nulová.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309082" value="1135683"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph">vektorová výslednica všetkých konzervatívnych síl pôsobiacich na sústavu je nulová.<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309082" value="1135682"></span></td><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph">vektorová výslednica všetkých nekonzervatívnych síl pôsobiacich na sústavu je nulová.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309082" value="1135681"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph">celková práca všetkých pôsobiacich síl je nulová.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_472741_309082" value="1135684"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoNormal">vektorová výslednica všetkých pôsobiacich síl na sústavu je nulová.<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309082" value="1135679"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph">celková práca konzervatívnych síl je nulová.<o:p></o:p></p>
+<p></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309082_body"><span class="ysmall28">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">21.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph" align="justify">Na obrázku je ukázaný ohnutý vodič, ktorým tečie prúd <em>i</em>.&nbsp; Aká je indukcia magnetického poľa v&nbsp;bode O&nbsp;?&nbsp;</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.26.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309209" value="1136270"></div></td><td class="odsazena" align="left"><span class="ysmall"><p><img src="./Písanie testu_files/teximg.pl(14).stiahnuť" alt="\frac{\mu_0i}{4 r} - \frac{\mu_0i}{4\pi r} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec"></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309209" value="1136269"></div></td><td class="odsazena" align="left"><div class="xsmall"><p><img src="./Písanie testu_files/teximg.pl(15).stiahnuť" alt="\frac{\mu_0i}{4 r} + \frac{\mu_0i}{4\pi r} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309209" value="1136268"></span></td><td class="odsazena" align="left"><div class="xsmall"><p><img src="./Písanie testu_files/teximg.pl(16).stiahnuť" alt="\frac{\mu_0i}{4 r} + \frac{\mu_0i}{2\pi r} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309209" value="1136267"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p><img src="./Písanie testu_files/teximg.pl(17).stiahnuť" alt="\frac{\mu_0i}{4\pi r} Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309209_body"><div class="xsmall28">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28">22.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">Na obrázku je znázornená závislosť zrýchlenia telesa od času. Určte zmenu rýchlosti (v&nbsp;m/s) telesa medzi 3 a&nbsp;7 sekundou. Výsledok zapíšte ako celé číslo.&nbsp;<img src="./Písanie testu_files/1.14.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><span class="small">Na túto otázku je možné väčšinou odpovedať jedným slovom.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><input type="text" name="odpoved_472741_309095" size="50" class="doplnpole-test-text" id="odpoved_472741_309095" value="" style="width: 384px; font-family: Arial;"><br><script type="text/javascript"><!--
+uis.readyPush(function() {
+	var minWidth = new Object();
+	var poradi = 0;
+	$('.doplnpole-test-text').each(function () {
+		var myID
+		if ($(this).attr('id')) {
+			myID = $(this).attr('id');
+		} else {
+			myID = '_textfieldAutoID' + poradi;
+			poradi ++;
+			$(this).attr('id',myID);
+		}
+		minWidth[myID] = $(this).width();
+		$(this).width(minWidth[myID]);
+	});
+	if (! jQuery.support.cssFloat) {
+		$('.doplnpole-test-text').css({'font-size':$('.doplnpole-test-text:first').css('font-size') + 2,
+		                                'font-family':$('.doplnpole-test-text:first').css('font-family')});
+	}
+	$('.doplnpole-test-text').keydown(function(e) {
+		var span = $('<span/>').css({'font-family':$(this).css('font-family'),'font-size':$(this).css('font-size'),'white-space':'pre'}).text($(this).val());
+		$('body').append(span);
+		if ($(span).width() > minWidth[$(this).attr('id')] - 20) {
+			var kod = e.keyCode ? e.keyCode : e.which;
+			if (kod == 8 || kod == 127) {
+				$(this).width($(span).width() + 5);
+			} else {
+				$(this).width($(span).width() + 20);
+			}
+			if ($(this).width() < minWidth[$(this).attr('id')]) {
+				$(this).width(minWidth[$(this).attr('id')]);
+			}
+		} else {
+			$(this).width(minWidth[$(this).attr('id')]);
+		}
+		span.remove();
+	});
+	$('.doplnpole-test-text').keydown();
+});
+
+//--></script></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309095_body"><div class="xsmall415">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">23.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph" align="justify"><span>&nbsp;</span>Aký je smer indukovaného prúdu v&nbsp;slučke, ak prúd <i>I</i> prechádzajúci vodičom s&nbsp;časom konštantne narastá.&nbsp;</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.22.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309203" value="1136250"></div></td><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">Proti smeru hodinových ručičiek.&nbsp;<o:p></o:p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309203" value="1136251"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">V&nbsp;tomto prípade sa prúd neindukuje.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309203" value="1136249"></div></td><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph" align="justify">V&nbsp;smere hodinových ručičiek.<o:p></o:p></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309203_body"><div class="xsmall">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">24.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p><span>Elektrón sa pohybuje konštantnou rýchlosťou &nbsp;smerujúcou doľava v&nbsp;magnetickom poli. Pole vstupuje do papiera. Akým smerom bude pôsobiť výsledná sila pôsobiaca na elektrón ?&nbsp;</span></p>
+<p><img src="./Písanie testu_files/1.21.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309202" value="1136244"></span></td><td class="odsazena" align="left"><span class="ysmall"><p>nadol</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309202" value="1136247"></div></td><td class="odsazena" align="left"><span class="ysmall"><p>doľava</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309202" value="1136243"></div></td><td class="odsazena" align="left"><span class="ysmall"><p>von z&nbsp;papiera</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309202" value="1136245"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p>nahor</p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309202" value="1136246"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p>doprava</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309202" value="1136248"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p>do papiera</p>
+<p></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309202_body"><div class="xsmall415">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">25.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p class="MsoListParagraph" align="justify">Určte zmenu kinetickej energie častice, ak pôsobením sily&nbsp;<b><i>F</i></b><i>&nbsp;= 7<b>i</b>&nbsp;+ 6<b>j</b></i><b>&nbsp;</b>bola premiestnená z&nbsp;bodu A&nbsp;[ 0,1,2] do bodu B [-3,-4,16].&nbsp;Výsledok zapíšte ako celé číslo.&nbsp;<o:p></o:p></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small415">Na túto otázku je možné väčšinou odpovedať jedným slovom.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><input type="text" name="odpoved_472741_309086" size="50" class="doplnpole-test-text" id="odpoved_472741_309086" value="" style="width: 384px; font-family: Arial;"><br></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309086_body"><div class="xsmall28">1 b.</div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">26.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify"><span lang="PL">Teleso s&nbsp;hmotnosťou <i>m</i> = 0,5 kg je </span>položené na<span lang="PL"> podložke, ktorú sme začali pomaly dvíhať smerom nahor a&nbsp;zväčšovať uhol <i>φ</i>. Zistili sme, že teleso sa začalo pohybovať, keď podložka zvierala s&nbsp;horizontálnym smerom uhol <i>φ<sub>k</sub></i> = 30°. Určte koeficient statického trenia <i>f<sub>s</sub></i>. Výsledok zapíšte ako číslo zaokrúhlené na <strong>2 desatinné</strong> miesta.</span></p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.11.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><span lang="PL"><o:p></o:p></span></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><span class="small">Na túto otázku je možné väčšinou odpovedať jedným slovom.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><input type="text" name="odpoved_472741_309090" size="50" class="doplnpole-test-text" id="odpoved_472741_309090" value="" style="width: 384px; font-family: Arial;"><br></span></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309090_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">27.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p><span align="justify">Ktorá z&nbsp;Maxwellových rovníc vyjadruje , že elektrické pole indukované</span><span align="justify">&nbsp; </span><span align="justify">zmenou magnetického poľa je </span><b align="justify"><u>NEKONZERVATÍVNE.</u></b></p></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><span class="small415">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309200" value="1136237"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p>&nbsp;<img src="./Písanie testu_files/teximg.pl(18).stiahnuť" alt="$$\oint \overrightarrow{E}\bullet d\overrightarrow{S} = \frac{Q}{\varepsilon_0}$$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický text" style="cursor: default;"></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309200" value="1136236"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p>&nbsp;<img src="./Písanie testu_files/teximg.pl(19).stiahnuť" alt="$$\oint \overrightarrow{B}\bullet d\overrightarrow{l} = \mu_0 (I+\varepsilon_0\frac{d\phi_E}{dt})$$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický text" style="cursor: default;">&nbsp;kde&nbsp;<img src="./Písanie testu_files/teximg.pl(20).stiahnuť" alt="$$\phi_E=\int\overrightarrow{E}\bullet d\overrightarrow{S}$$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309200" value="1136238"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p>&nbsp;<img src="./Písanie testu_files/teximg.pl(21).stiahnuť" alt="$$\oint \overrightarrow{E}\bullet d\overrightarrow{l} = -\frac{d\phi_B}{dt}$$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický text" style="cursor: default;">&nbsp;kde&nbsp;<img src="./Písanie testu_files/teximg.pl(22).stiahnuť" alt="$$\phi_B=\int\overrightarrow{B}\bullet d\overrightarrow{S}$$
+
+ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309200" value="1136235"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p>&nbsp;<img src="./Písanie testu_files/teximg.pl(23).stiahnuť" alt="$$\oint \overrightarrow{E}\bullet d\overrightarrow{l} = -\frac{d\phi_E}{dt}$$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický text" style="cursor: default;">&nbsp;kde&nbsp;<img src="./Písanie testu_files/teximg.pl(20).stiahnuť" alt="$$\phi_E=\int\overrightarrow{E}\bullet d\overrightarrow{S}$$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický vzorec" style="cursor: default;"></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309200" value="1136234"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p>&nbsp;<img src="./Písanie testu_files/teximg.pl(24).stiahnuť" alt="$$\oint \overrightarrow{B}\bullet d\overrightarrow{S} = 0 $$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický text"></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309200_body"><span class="ysmall28">2 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">28.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><p class="MsoListParagraph" align="justify">Tri častice A&nbsp;, B , C sú vyhodené z&nbsp;vrchu veže rovnako veľkou rýchlosťou. A&nbsp;je hodená nad horizont, B hodená pod horizont a&nbsp;C je hodená vodorovným smerom. Dopadnú na zem rýchlosťami <i>v<sub>A</sub>, v<sub>B</sub></i> a&nbsp;<i>v<sub>C</sub></i> pre ktoré platí:</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.13.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_472741_309094" value="1135736"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><i><span>v<sub>A </sub>&gt;<sub> </sub>v<sub>B</sub></span></i><span> &gt;&nbsp;<i>v<sub>C</sub></i></span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309094" value="1135737"></span></td><td class="odsazena" align="left"><div class="xsmall"><p><i><span>v<sub>C </sub>&gt;<sub> </sub>v<sub>B</sub></span></i><span> &gt;&nbsp;<i>v<sub>A</sub></i></span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309094" value="1135735"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p><i><span>v<sub>A </sub>= v<sub>C</sub></span></i><span> &gt;&nbsp;<i>v<sub>B</sub></i></span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309094" value="1135734"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p><i><span>v<sub>A </sub>= v<sub>B</sub></span></i><span> =&nbsp;<i>v<sub>C</sub></i></span></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309094_body"><span class="ysmall">1 b.</span></td></tr><tr class=""><td class="odsazena" align="center" colspan="3"><span class="ysmall28"><big><b>Blok otázok 2</b></big><p></p></span></td></tr><tr class=""><td class="odsazena" colspan="3" align="left"><div class="xsmall415"><table><tbody><tr class=""><td class="odsazena" align="left" valign="top"><div class="xsmall28"><b>Pokyny k&nbsp;bloku otázok:</b></div></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph" align="justify">Slučka s&nbsp;polomerom <i>R </i>= 2 sa nachádza v&nbsp;magnetickom poli, ktorého <b><i>B</i></b> sa mení s&nbsp;časom podľa vzťahu <b><i>B</i></b><i> = 5e<sup>3t</sup></i>.<o:p></o:p></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">29.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p><span>Určte veľkosť indukovaného napätia v&nbsp;slučke čase <i>t</i> = 1. Výsledok zapíšte ako celé číslo.</span></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><span class="small415">Na túto otázku je možné väčšinou odpovedať jedným slovom.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><input type="text" name="odpoved_472741_309197" size="50" class="doplnpole-test-text" id="odpoved_472741_309197" value="" style="width: 384px; font-family: Arial;"><br></span></td></tr></tbody></table><p></p></div></span></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309197_body"><span class="ysmall28">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">30.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p>Vyberte správne tvrdenie:</p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><span class="small28">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309198" value="1136228"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><span>konzervatívne</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309198" value="1136230"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p><span>nedá sa jednoznačne povedať</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_472741_309198" value="1136229"></span></td><td class="odsazena" align="left"><div class="xsmall"><p><span>nekonzervatívne</span></p>
+<p></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309198_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="center" colspan="3"><div class="xsmall28"><big><b>Blok otázok 3</b></big><p></p></div></td></tr><tr class=""><td class="odsazena" colspan="3" align="left"><div class="xsmall"><table><tbody><tr class=""><td class="odsazena" align="left" valign="top"><span class="ysmall"><b>Pokyny k&nbsp;bloku otázok:</b></span></td><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">Tyčový magnet sa pohybuje rýchlosťou <i>v&nbsp;</i>smerom k&nbsp;obruči, ktorá je v&nbsp;horizontálnej rovine tak, ako je ukázané na obrázku (t.j. južným pólom nadol). Určte smer indukovaného prúdu v&nbsp;obruči <b>pri pohľade zhora</b> v&nbsp;prípade, keď:&nbsp;</p>
+<p class="MsoListParagraph" align="justify"><img src="./Písanie testu_files/1.25.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">31.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">magnet vstupuje do obruče, indukovaný prúd:&nbsp;<o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><span class="small">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_472741_309207" value="1136260"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph" align="justify"><b><span>&nbsp;</span></b>je proti smeru hodinových ručičiek.<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309207" value="1136259"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">je v&nbsp;smere hodinových ručičiek.<o:p></o:p></p>
+<p></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309207_body"><span class="ysmall415">1 b.</span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28">32.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p><span>magnet opúšťa obruč, indukovaný prúd:&nbsp;</span></p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><span class="small28">Vyberte iba jednu z&nbsp;nasledujúcich možných odpovedí.</span></span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_472741_309208" value="1136263"></div></td><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph" align="justify"><b><span>&nbsp;</span></b>je proti smeru hodinových ručičiek.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_472741_309208" value="1136262"></div></td><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify"><b><span>&nbsp;</span></b>je v&nbsp;smere hodinových ručičiek.<o:p></o:p></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td><td class="odsazena" align="right" nowrap="1" valign="top" id="generate_test_309208_body"><span class="ysmall415">1 b.</span></td></tr></tbody></table><p><span class="small">Tlačidlom "Odoslať test" odovzdáte tento elektronický test a&nbsp;budete informovaný o&nbsp;svojej úspešnosti.</span><br><br><input type="submit" name="generate_test_odeslat" value="Odoslať test" id="generate_test_odeslat"><input type="hidden" name="generate_test_prace" value="472741"><script type="text/javascript"><!--
+
+		jQuery(document).ready(function () {
+			vypni_odesilani_form = 0;
+
+			jQuery( '#generate_test_odeslat' ).click( function ( event, sendForm ) {
+				if ( (typeof doba === 'undefined') || doba > 0 ) {
+					var dialog = jQuery('<div title="Upozornenie">Skutočne chcete odoslať test? Potom už nebude možné test opravovať.</div>');
+					vypni_odesilani_form = 1;
+					dialog.dialog({
+						modal: true,
+						buttons: {
+							'áno': function() {		
+								if ( (typeof(vypni_odesilani) == 'undefined' || !vypni_odesilani ) && ( (typeof doba === 'undefined') || doba > 1 ) ) {
+									window.onbeforeunload = null;
+									if (typeof(ajax) != 'undefined' && ajax) {clearTimeout(ajax)};
+									jQuery( '#generate_test_odeslat' ).closest( 'form' ).submit();
+									jQuery( dialog ).html( '<div style="padding-left:45%"><img src="/img.pl?sysid=base-progress" alt="" title="..."/></div>' );
+									jQuery( dialog ).parent().find( 'button' ).prop( 'disabled', true ).addClass('ui-state-disabled'); 
+								}
+							},
+							'nie': function() {
+								jQuery( this ).dialog( 'destroy' );
+								vypni_odesilani_form = 0;
+							}
+						}
+					});
+				}
+				 
+				return false;
+			});
+		});
+//--></script></p></div><input type="hidden" name="odeslat" value="Odoslať"></form><form method="post" action="https://is.stuba.sk/auth/elis/ot/psani_testu.pl" enctype="application/x-www-form-urlencoded" name="check_ajax_form"><input type="hidden" name="correct_ajax" value="1"></form></div></div></div></div></div><br><ul id="navig-footer"><li><i><a href="https://is.stuba.sk/auth">Návrat do osobnej administratívy</a></i></li></ul><div id="uis-control-data" data-uis_ang_lokalizace="US" data-stat_tel_predvolba="+421"></div></body></html>

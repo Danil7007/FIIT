@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://is.stuba.sk/auth/elis/ot/psani_testu.pl?test=34407;lang=sk -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Písanie testu</title><meta http-equiv="Content-Language" content="sk"><meta name="description" content="Písanie testu"><meta name="keywords" content="univerzita, štúdium, prijímacie konanie, vysoká škola, veda a výskum, informačný systém, univerzitný informačný systém, akademický informačný systém, integrovaný študijný informačný systém"><meta name="authors" content="Ústav pre informačný systém MENDELU"><meta name="lang" content="sk"><meta name="charset" content="UTF-8"><meta property="al:ios:app_store_id" content="1486321400"><meta property="al:ios:app_name" content="Moje štúdium"><meta name="apple-itunes-app" content="app-id=1486321400"><meta property="al:android:package" content="cz.uis_info.moje_studium"><meta property="al:android:app_name" content="Moje štúdium"><link rel="manifest" href="https://is.stuba.sk/manifest.json"><link rel="icon" href="https://is.stuba.sk/favicon/favicon_ais.ico" type="image/x-icon"><link rel="shortcut icon" href="https://is.stuba.sk/favicon/favicon_ais.ico" type="image/x-icon"><script type="text/javascript">
+var defaultClass = '';
+
+</script><style type="text/css">table.elis_test_question {padding:0}
+					div.baze_otazek-otazka, .baze_otazek-otazka td {padding:5px}
+		                      table.elis_test_question p, .elis_test_question p, .baze_otazek-otazka p {margin:0}
+		                      .vzorec_latex {vertical-align: middle} 
+            .elis_test_question textarea {max-width: 100%; resize: vertical}
+            .elis_test_question td[valign=top] { vertical-align: middle}
+
+  #cas_text {font-size: 80%; border-bottom: 1px dashed black; padding-bottom:1pt; margin-bottom:1pt}
+					#casovac_box {text-align: center; 
+					width: 65pt; padding:2pt;
+	                                position: fixed; 
+					top: 2px; left: 2px;
+					left: 2px; border: 2px solid black;
+                                        background-color: #95B9C7;
+					z-index: 1051;	
+					_position: absolute;
+					_top: expression(eval(document.body.scrollTop));}
+#titulek,#testingform { padding: 0 10px; }</style><link rel="stylesheet" type="text/css" href="./Písanie testu_files/jquery-ui.min.css"><link rel="stylesheet" type="text/css" href="./Písanie testu_files/dialog-polyfill.css"><link rel="stylesheet" type="text/css" href="./Písanie testu_files/base.css"><link rel="stylesheet" type="text/css" href="./Písanie testu_files/img.pl.stiahnuť"><script type="text/javascript" src="./Písanie testu_files/jquery-3.3.1.min.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/common.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/uis.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/translate.js.stiahnuť"></script><script type="text/javascript">uis.translator.setLang('SK');</script><script type="text/javascript">uis.params.transport.add("lang","sk");</script><script type="text/javascript" src="./Písanie testu_files/jquery-ui.min.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/dialog-polyfill.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/showModalDialog.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/uissafetest.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/mathjax-uis-with-test.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/cookiebar.js.stiahnuť"></script><script type="text/javascript" src="./Písanie testu_files/help.js.stiahnuť"></script><!--[if IE]><style type="text/css">div.menitko-all{width:98%;}</style><![endif]--></head><body>
+<div><div><div><div><div><div><div id="titulek"><h1>Písanie testu<a href="https://is.stuba.sk/auth/help.pl?page=13768;back=aHR0cHM6Ly9pcy5zdHViYS5zay9hdXRoL2VsaXMvb3QvcHNhbmlfdGVzdHUucGw/dGVzdD0zNDQwNw==;lang=sk" class="context-help-invoke" target="_blank" data-contexthelppage="13768"><img src="./Písanie testu_files/uisimg_184005.png" alt="" sysid="base-help"></a></h1><hr></div><form method="post" action="https://is.stuba.sk/auth/elis/ot/psani_testu.pl" enctype="application/x-www-form-urlencoded" name="testingform" id="testingform" data-storage-key="34407103037"><input type="hidden" name="lang" value="sk"><script type="text/javascript"><!--
+
+                        jQuery(document).ready(function () {
+                                try {
+                                        uis.safeTest.disableContext();
+                                        uis.safeTest.handleKeys();
+                                }
+                                catch (e) {}
+                        });
+                
+//--></script><div><div id="casovac_box" class="ui-draggable ui-draggable-handle"><div id="cas_text">Emma Macháčová</div><span style="font-size:8pt; padding-bottom:1pt">Ostáva času</span><br><span id="casovac"><span style="font-size:10pt; ">00:24:03</span></span></div><script type="text/javascript"><!--
+function odesli_formular() {
+	var forms = document.getElementsByTagName('form');
+	var i=0;
+	while (forms[i] && forms[i].name != 'testingform') {i++;}
+	var form = forms[i] ? forms[i] : forms[0];
+	if (form) jQuery(form).submit();
+	else window.alert('Chyba při odesílání formuláře, kontaktujte examinátora.');
+}
+
+function spust_casovac(){
+    var zbyvaCasu = Math.floor((konecPsaniTestu-Date.now())/1000); // rozdil ve vterinach
+	doba = zbyvaCasu; if (doba < 0) doba = 0;
+	hodin = Math.floor(doba / 3600);
+	minut = Math.floor((doba - (hodin * 3600)) / 60);
+	sekund = doba - (3600 * hodin) - (60 * minut);
+	if (hodin < 10) hodin = "0" + hodin;
+	if (minut < 10) minut = "0" + minut;
+	if (sekund < 10) sekund = "0" + sekund;
+	
+	window.status = hodin+":"+minut+":"+sekund;
+	var cas = document.getElementById('casovac');
+	if (cas) {
+		cas.innerHTML = '<span style="font-size:10pt; ' + 
+		                (doba <= 600 ? 'color: red; font-weight:bold' : '') + 
+		                '">' + hodin + ':' + minut + ':' + sekund + '</span>';
+	}
+	if (doba == 0) { 
+		if (hlaska) {
+			 var dialog = jQuery('<div>Vypršel Vám časový limit vyhrazený na psaní testu.\n Formulář bude automaticky odeslán a vyhodnocen.</div>').dialog({ modal:true, resizable:false});
+		}
+		vypni_odesilani = 1;
+		vypni_odesilani_form = 1;
+		setTimeout(function() {
+			if (window.onbeforeunload) window.onbeforeunload = null;
+			if (typeof(ajax) != 'undefined' && ajax) clearTimeout(ajax);
+			try {
+				odesli_formular();;
+			}
+			catch (error) {
+				document.testingform.submit();
+			}
+			if (timer) clearTimeout(timer);
+		}, 1000);
+	}
+	else {
+		timer =  setTimeout("spust_casovac()",1000)
+	}
+}
+var doba = 1800 + 1;
+var konecPsaniTestu = Date.now() + doba * 1000; // konec psani v milisekundach
+var hlaska = 'Vypršel Vám časový limit vyhrazený na psaní testu.\n Formulář bude automaticky odeslán a vyhodnocen.';
+spust_casovac();
+(jQuery('#casovac_box') && jQuery('#casovac_box').draggable && jQuery('#casovac_box').draggable()); 
+
+//--></script></div><script type="text/javascript"><!--
+
+				   var stara_kontrola = window.onbeforeunload;
+				   var kontrola_zavreni = function (udalost) {
+					if (stara_kontrola) {
+						stara_kontrola();
+					}
+					return 'Píšete práve test.';
+				   }
+				   window.onbeforeunload = kontrola_zavreni;
+				   
+//--></script><script type="text/javascript"><!--
+var pocet_ulozeni = 0;
+					                function kontrola_ukladani(info) {
+					                  // info muze obsahova 'stav_ulozeni;zbyvajici_cas'
+					                  var stavy = info.split(';');
+
+					                  // nastavime obnoveny cas
+					                  zbyvajiciCas = stavy[1];
+                                        
+                                        try {
+                                            if ( zbyvajiciCas ) {
+                                              konecPsaniTestu =  Date.now() + zbyvajiciCas * 1000;
+                                            }
+                                        }
+                                        catch (e) {}
+
+					                  if (stavy[0] == 'CHYBA_ULOZENI') {
+					                    pocet_ulozeni++;
+					                  }
+					                  else {
+					                    pocet_ulozeni = 1;
+					                    if (stavy[0]) window.alert(otest.responseText);
+					                  }
+					                  if (pocet_ulozeni == 3) {
+					                    alert('Opakovane sa nepodarilo priebežne uložiť Vašu prácu, zrejme sa jedná o technickú chybu Vášho počítača či výpadok systému. Kontaktujte dozor.');
+					                  }
+					                }
+//--></script><script type="text/javascript"><!--
+
+		function form_par(nazev_formulare) {
+                        // ZMENA var formular = document.forms[nazev_formulare] || document.forms[0];
+                        var formular = document.getElementsByTagName('form');
+                        if (nazev_formulare) {
+                                var i =0;
+				
+                                while (i<formular.length && formular[i].name != nazev_formulare) {
+                                        i++;
+                                }
+                                // pokud jsem nasel formular se jmenem, tak je poslu, jinak beru prvni
+                                formular = formular[i].name == nazev_formulare ? formular[i] : formular[0];
+                        }
+                        else {
+                                formular = formular[0]; //vezmu prvni, pokud neni urceno jinak
+                        }
+                        var form_prvky = new Array("input", "textarea", "select");
+                        var parametry = '';
+                        for (var i in form_prvky) {
+                                //ziskam vsechny elementy podle jmena
+                                var elementy = formular.getElementsByTagName(form_prvky[i]);
+                                for (var x=0; x <= elementy.length; x++) {
+                                        // pokud jsou pojmenovane, tak je zpracuji
+                                        if (elementy[x] &&  elementy[x].name) {
+                                                var name = elementy[x].name;
+                                                var type = 'notype';
+                                                // v pripade radio a checkboxu kontroluji zatrzeni
+                                                if (elementy[x].type) type = elementy[x].type;
+                                                if ((type != 'radio' && type != 'checkbox') || elementy[x].checked)
+                                                        parametry += name + '=' + encodeURIComponent(elementy[x].value) + ';';
+                                        }
+                                }
+                        }
+                        return parametry;
+                }
+//--></script><script type="text/javascript"><!--
+
+	var vypni_odesilani = 0;
+	function prace_ajax_pozadavek() {
+		var metoda = 'post';
+		if ((typeof(vypni_odesilani_form) == 'undefined' || !vypni_odesilani_form) && ( typeof doba == 'undefined' || doba > 30 )) {vypni_odesilani = 1;
+		try {
+			if (window.ActiveXObject) {
+				try {
+					otest = new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				catch (e) {
+					otest = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+			else {
+				otest = new XMLHttpRequest();
+			}
+		
+			if (!Date.now) {
+    				Date.now = function() { return new Date().getTime(); }
+			}
+
+			var parametry = form_par('testingform') + ';ts=' + Date.now();
+			otest.onreadystatechange = prace_ajax_handler;
+			if (metoda == 'post') {
+				otest.open('post', 'prubezne_ulozeni.pl', true);
+				otest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=iso-8859-2');
+				otest.send(parametry);
+			}
+			else {
+				otest.open('post', 'prubezne_ulozeni.pl?'+parametry, true);
+				otest.send(null);	
+			}
+			
+		}
+		catch(error) {
+			//zachycena vyjimka
+			window.alert('Nelze inicializovat ajax komunikaci!');
+		}
+		vypni_odesilani = 0;}
+	}
+//--></script><script type="text/javascript"><!--
+
+	function prace_ajax_handler(){
+		if (otest.readyState == 4) {
+			if (otest.status == 200) {
+				kontrola_ukladani(otest.responseText);;
+				//window.alert(otest.getAllResponseHeaders());
+			} else {
+				kontrola_ukladani("Chyba pri uložení.");;
+				//alert('Chyba:' + otest.statusText);
+			}
+		}
+	}
+//--></script><script type="text/javascript"><!--
+var ajax; function per_akce() {prace_ajax_pozadavek(); ajax = setTimeout("per_akce()",60000)} ajax = setTimeout("per_akce()",60000); 
+//--></script><div><table><tbody><tr class=""><td class="odsazena" colspan="2" align="left"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left" valign="top"><span class="ysmall28"><b>Pokyny k&nbsp;vypracovaniu testu: </b></span></td><td class="odsazena" align="left"><span class="ysmall415"><p>Tento test sluzi LEN ako vzor testu na skusku. Ziskane body sa NEBUDU zapocitavat do hodnotenia predmetu, ani sa NEBUDE prihliadat kto a&nbsp;s&nbsp;akym vysledkom sa testu zucastnil.&nbsp; &nbsp;</p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr><tr class=""><td class="odsazena" colspan="2" align="left"><div class="xsmall415"><b>Spôsob vyhodnotenia</b>: Pri vyhodnotení sú započítané iba správne odpovede.</div></td></tr><tr class=""><td class="odsazena" align="center" colspan="2"><div class="xsmall28"><big><b>Blok otázok 1</b></big><p></p></div></td></tr><tr class=""><td class="odsazena" colspan="2" align="left"><div class="xsmall"><table><tbody><tr class=""><td class="odsazena" align="left" valign="top"><span class="ysmall28"><b>Pokyny k&nbsp;bloku otázok:</b></span></td><td class="odsazena" align="left"><span class="ysmall415"><p></p>
+<div>
+<table align="justify">
+    <tbody>
+        <tr>
+            <td class="odsazena" align="left">
+            <div class="xsmall28" align="justify">
+            <p align="justify"><strong>nepísať:</strong></p>
+            <p align="justify"><strong>1</strong>. zbytocne medzere ;&nbsp;<strong>2.</strong>&nbsp;deleno ako dvojbodku ":" ale ako lomítko "/"</p>
+            <p align="justify"><strong>3.&nbsp;</strong>jednotky veličín ak to nevyžaduje zadanie&nbsp;</p>
+            <p align="justify"><strong>špeciálne znaky, konštanty:</strong></p>
+            <p align="justify"><strong>1</strong>.&nbsp;ε<sub>0&nbsp;</sub>písať ako "E"</p>
+            <p align="justify"><strong>2.</strong>&nbsp;μ<sub>0</sub>&nbsp;písať ako "M"</p>
+            <p align="justify"><strong>3.</strong>&nbsp;π písať ako "Pi"</p>
+            </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div></span></td></tr></tbody></table><p></p></div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415">1.</span></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall"><p><img src="./Písanie testu_files/1.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p>2. Na obrázku je znázornená závislosť polohy telesa od času. Určte jeho zrýchlenie.&nbsp;</p>
+</div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_465014_243048" value="865818"></span></td><td class="odsazena" align="left"><div class="xsmall"><p>&nbsp;Z grafu nie je možné zistiť zrýchlenie.&nbsp;</p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_465014_243048" value="865816"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p>&nbsp;Teleso sa pohybuje s&nbsp;a&nbsp;&lt; 0.</p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_465014_243048" value="865815"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p>&nbsp;Teleso sa pohybuje s&nbsp;<i>a &gt; 0</i>.</p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_465014_243048" value="865817"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p>&nbsp;Teleso nekoná zrýchlený pohyb, <i>a = 0</i>.&nbsp;</p></div></td></tr></tbody></table><p></p></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><script type="text/javascript"><!--
+uis.readyPush(
+	function () {
+		// pri kliknuti na obrazek ho zkusim reloadnout
+		$('.vzorec_latex')
+		  .mouseover(function () { $(this).css('cursor','default'); })
+		  .attr('alt',function () { return $(this).attr('alt') + ' Pro znovunačtení matematického vzorce klikněte.'; })
+		  .bind('click',function () {
+		                  $(this).attr('src',$(this).attr('src') + '%20');
+		                }
+		       );
+	}
+);
+
+//--></script></span></td></tr></tbody></table><p></p></div></span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">2.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><p>&nbsp;Intenzita elektrického poľa vo vzdialenoti<em> r</em> od náboja <em>q</em> je <em>E</em>. Aká bude intenzita elektrického poľa vo vzdialenosti <em>2r </em>od náboja <em>q</em> ?&nbsp;</p></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_465014_243056" value="865860"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p><em>&nbsp;E/6</em></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_465014_243056" value="865857"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p>&nbsp;Nie je uvedená správna odpoveď.&nbsp;</p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_465014_243056" value="865858"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p><strong><em>&nbsp;</em></strong><em>E/2</em></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_465014_243056" value="865859"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p><em>&nbsp;E/4</em></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415">3.</span></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p class="MsoListParagraph" align="justify">Ak hybnosť častice narastie o&nbsp;5 %, kinetická energia narastie o:<o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_465014_243054" value="865851"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p>125 %</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_465014_243054" value="865850"></div></td><td class="odsazena" align="left"><div class="xsmall"><p>100 %</p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_465014_243054" value="865849"></span></td><td class="odsazena" align="left"><span class="ysmall28"><p>50 %</p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="radio" name="odpoved_465014_243054" value="865852"></span></td><td class="odsazena" align="left"><div class="xsmall"><p>10 %&nbsp;</p>
+<p></p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">4.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall"><p>&nbsp;<img src="./Písanie testu_files/7.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p><span>Dve identické krabice sú ťahané po vodorovnej podložke <b>konštantnou rýchlosťou</b> silou o&nbsp;veľkosti 176 N, ktorá pôsobí na jednu z&nbsp;krabíc vodorovný smerom ako je ukázané na obrázku. Medzi každou krabicou a&nbsp;podložkou pôsobí rovnaká trecia sila. Určte veľkosť sily, ktorou pôsobí lano na prvú debňu.</span></p></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_465014_243051" value="865823"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p>&nbsp;44 N</p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_465014_243051" value="865822"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p>&nbsp;176 N</p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_465014_243051" value="865824"></div></td><td class="odsazena" align="left"><div class="xsmall415"><p>&nbsp;Nemáme dostatok informácií na jej určenie.</p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_465014_243051" value="865826"></div></td><td class="odsazena" align="left"><div class="xsmall"><p>&nbsp;132 N</p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_465014_243051" value="865825"></div></td><td class="odsazena" align="left"><span class="ysmall"><p>&nbsp;88 N</p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">5.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p>Počas nepružnej&nbsp;<span>zrážky medzi dvoma telesami, ktorá z&nbsp;nasledujúcich veličín sa zachováva ?&nbsp;</span></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall"><script type="text/javascript"><!--
+function uncheck(mujbox,jmeno) {
+					                	if (mujbox.checked) {
+					                		var boxy = document.getElementsByName(jmeno);
+					                		for (box in boxy) {
+						                		boxy[box].checked = false;
+						                	}
+					                	}
+					                }
+//--></script><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall415"><input type="checkbox" name="odpoved_465014_243055" value="865856"></span></td><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="left">Rýchlosť každého telesa&nbsp;<o:p></o:p></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="checkbox" name="odpoved_465014_243055" value="865854"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p><span>Celková mechanická energia</span></p>
+<p></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="checkbox" name="odpoved_465014_243055" value="865853"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p><span>Celková kinetická energia</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="checkbox" name="odpoved_465014_243055" value="865855"></span></td><td class="odsazena" align="left"><span class="ysmall415"><p><span>Celková hybnosť</span></p>
+<p></p></span></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">6.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">Celkový náboj indukovaný vo vodivej slučke, keď sa pohybuje v&nbsp;magnetickom poli závisí:<o:p></o:p></p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="checkbox" name="odpoved_465014_243058" value="865867"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p><span>Celkovej zmeny magnetického toku.&nbsp;</span></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="checkbox" name="odpoved_465014_243058" value="865868"></span></td><td class="odsazena" align="left"><div class="xsmall28"><p class="MsoListParagraph" align="justify">Iba od konečného magnetického toku.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="checkbox" name="odpoved_465014_243058" value="865866"></div></td><td class="odsazena" align="left"><div class="xsmall"><p class="MsoListParagraph" align="justify"><span>&nbsp;&nbsp;</span>Iba od počiatočného magnetického toku.<o:p></o:p></p>
+<p></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="checkbox" name="odpoved_465014_243058" value="865865"></div></td><td class="odsazena" align="left"><span class="ysmall"><p class="MsoListParagraph" align="justify">Na rýchlosti zmeny magnetického toku.<o:p></o:p></p>
+<p></p></span></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415">7.</div></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><span class="ysmall28"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><p>&nbsp;<img src="./Písanie testu_files/16-2.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p><span align="justify">Na obrázku je znázornený prúdovodič, ktorým tečie prúd <em><strong>I</strong></em>. Vytvorili sme plochu, ktorá je uzavretá orientovanou krivkou. Určte cirkuláciu vektora <em><strong>B</strong></em> pozdĺž tejto krivky.<img src="./Písanie testu_files/teximg.pl.stiahnuť" alt=" $$\oint_\Gamma \overrightarrow{B} \bullet d\overrightarrow{l}=$$ Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický text"></span></p>
+<p class="MsoListParagraph" align="justify"><o:p></o:p></p></div></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><input type="text" name="odpoved_465014_243059" size="50" class="doplnpole-test-text" id="odpoved_465014_243059" value="" style="width: 379px; font-family: Arial;"><br><script type="text/javascript"><!--
+uis.readyPush(function() {
+	var minWidth = new Object();
+	var poradi = 0;
+	$('.doplnpole-test-text').each(function () {
+		var myID
+		if ($(this).attr('id')) {
+			myID = $(this).attr('id');
+		} else {
+			myID = '_textfieldAutoID' + poradi;
+			poradi ++;
+			$(this).attr('id',myID);
+		}
+		minWidth[myID] = $(this).width();
+		$(this).width(minWidth[myID]);
+	});
+	if (! jQuery.support.cssFloat) {
+		$('.doplnpole-test-text').css({'font-size':$('.doplnpole-test-text:first').css('font-size') + 2,
+		                                'font-family':$('.doplnpole-test-text:first').css('font-family')});
+	}
+	$('.doplnpole-test-text').keydown(function(e) {
+		var span = $('<span/>').css({'font-family':$(this).css('font-family'),'font-size':$(this).css('font-size'),'white-space':'pre'}).text($(this).val());
+		$('body').append(span);
+		if ($(span).width() > minWidth[$(this).attr('id')] - 20) {
+			var kod = e.keyCode ? e.keyCode : e.which;
+			if (kod == 8 || kod == 127) {
+				$(this).width($(span).width() + 5);
+			} else {
+				$(this).width($(span).width() + 20);
+			}
+			if ($(this).width() < minWidth[$(this).attr('id')]) {
+				$(this).width(minWidth[$(this).attr('id')]);
+			}
+		} else {
+			$(this).width(minWidth[$(this).attr('id')]);
+		}
+		span.remove();
+	});
+	$('.doplnpole-test-text').keydown();
+});
+
+//--></script></span></td></tr></tbody></table><p></p></div></span></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><span class="ysmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">8.</span></td></tr></tbody></table><p></p></span></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall415"><p>&nbsp;Vyberte správnu odpoveď: Ak sa nabitá častica pohybuje kolmo k&nbsp;smeru magnetického poľa, potom</p></span></td></tr><tr class=""><td class="odsazena" align="left"><span class="ysmall"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_465014_243057" value="865861"></span></td><td class="odsazena" align="left"><div class="xsmall"><p>&nbsp;sa nemení jej vektor rýchlosti.&nbsp;</p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_465014_243057" value="865864"></div></td><td class="odsazena" align="left"><div class="xsmall28"><p>&nbsp;&nbsp;sa nemení jej zrýchlenie.&nbsp;</p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall415"><input type="radio" name="odpoved_465014_243057" value="865863"></div></td><td class="odsazena" align="left"><span class="ysmall"><p>&nbsp;&nbsp;sa nemení jej smer.&nbsp;</p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall"><input type="radio" name="odpoved_465014_243057" value="865862"></span></td><td class="odsazena" align="left"><div class="xsmall"><p>&nbsp;&nbsp;sa nemení jej veľkosť rýchlosti.&nbsp;</p></div></td></tr></tbody></table><p></p></span></td></tr></tbody></table><p></p></div></div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall415"><table><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall">9.</div></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><div class="xsmall415"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><p>&nbsp;<img src="./Písanie testu_files/obr_15.png" class="obrazek" border="0" alt="[IMG ERROR]"></p>
+<p><span lang="PL" align="justify">Na obrázku sú zakreslené dva obvody, </span><span align="justify">obsahujúce sústredné kruhové oblúky (polkružnice </span><span lang="PT-BR" align="justify">alebo čtvrťkružnice s&nbsp;polomermi <strong><i>r</i></strong>, <strong>2</strong><strong><i>r</i></strong>) a&nbsp;radiálne</span><span align="justify"> priame úseky. Obvodmi preteká rovnaký prúd. Vyberte správnu odpoveď pre magnetickú indukciu v&nbsp;strede polkružníc (veľká čierna bodka).<strong> Veľkosť </strong>magnetickej indukcie v&nbsp;obvode (a) je <strong>B<sub>a</sub> </strong>a v&nbsp;obvode (b) je <strong>B<sub>b</sub></strong>.</span></p>
+<p class="MsoListParagraph" align="justify"><span><o:p></o:p></span></p></div></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall415"><table class="t-select"><tbody><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall28"><input type="radio" name="odpoved_465014_243060" value="865873"></div></td><td class="odsazena" align="left"><div class="xsmall"><p>&nbsp;B<sub>a</sub> &gt; B<sub>b</sub></p></div></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><div class="xsmall"><input type="radio" name="odpoved_465014_243060" value="865874"></div></td><td class="odsazena" align="left"><span class="ysmall28"><p>&nbsp;B<sub>a</sub> = B<sub>b</sub></p></span></td></tr><tr class=""><td class="odsazena" valign="top" align="left"><span class="ysmall28"><input type="radio" name="odpoved_465014_243060" value="865875"></span></td><td class="odsazena" align="left"><div class="xsmall415"><p>&nbsp;B<sub>a</sub> &lt; B<sub>b</sub></p></div></td></tr></tbody></table><p></p></div></td></tr></tbody></table><p></p></div></div></td></tr><tr class=""><td class="odsazena" align="right" valign="top"><div class="xsmall28"><table><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall">10.</span></td></tr></tbody></table><p></p></div></td><td class="odsazena" width="100%" align="left"><span class="ysmall"><div><table class="elis_test_question"><tbody><tr class=""><td class="odsazena" align="left"><span class="ysmall28"><p>Teleso sa pohybuje tak, že jeho x-ová súradnica sa mení podľa vzťahu&nbsp;<img src="./Písanie testu_files/teximg.pl(1).stiahnuť" alt="x=1-12t+3t^2 Pro znovunačtení matematického vzorce klikněte." class="vzorec_latex" title="Matematický text">&nbsp;. Určte čas, v&nbsp;ktorom teleso zastalo.&nbsp;</p>
+</span></td></tr><tr class=""><td class="odsazena" align="left"><div class="xsmall28"><input type="text" name="odpoved_465014_243050" size="10" class="doplnpole-test-text" id="odpoved_465014_243050" value="" style="width: 99px; font-family: Arial;"><br></div></td></tr></tbody></table><p></p></div></span></td></tr></tbody></table><p><span class="small415">Tlačidlom "Odoslať test" odovzdáte tento elektronický test a&nbsp;budete informovaný o&nbsp;svojej úspešnosti.</span><br><br><input type="submit" name="generate_test_odeslat" value="Odoslať test" id="generate_test_odeslat"><input type="hidden" name="generate_test_prace" value="465014"><script type="text/javascript"><!--
+
+		jQuery(document).ready(function () {
+			vypni_odesilani_form = 0;
+
+			jQuery( '#generate_test_odeslat' ).click( function ( event, sendForm ) {
+				if ( (typeof doba === 'undefined') || doba > 0 ) {
+					var dialog = jQuery('<div title="Upozornenie">Skutočne chcete odoslať test? Potom už nebude možné test opravovať.</div>');
+					vypni_odesilani_form = 1;
+					dialog.dialog({
+						modal: true,
+						buttons: {
+							'áno': function() {		
+								if ( (typeof(vypni_odesilani) == 'undefined' || !vypni_odesilani ) && ( (typeof doba === 'undefined') || doba > 1 ) ) {
+									window.onbeforeunload = null;
+									if (typeof(ajax) != 'undefined' && ajax) {clearTimeout(ajax)};
+									jQuery( '#generate_test_odeslat' ).closest( 'form' ).submit();
+									jQuery( dialog ).html( '<div style="padding-left:45%"><img src="/img.pl?sysid=base-progress" alt="" title="..."/></div>' );
+									jQuery( dialog ).parent().find( 'button' ).prop( 'disabled', true ).addClass('ui-state-disabled'); 
+								}
+							},
+							'nie': function() {
+								jQuery( this ).dialog( 'destroy' );
+								vypni_odesilani_form = 0;
+							}
+						}
+					});
+				}
+				 
+				return false;
+			});
+		});
+//--></script></p></div><input type="hidden" name="odeslat" value="Odoslať"></form><form method="post" action="https://is.stuba.sk/auth/elis/ot/psani_testu.pl" enctype="application/x-www-form-urlencoded" name="check_ajax_form"><input type="hidden" name="lang" value="sk"><input type="hidden" name="correct_ajax" value="1"></form></div></div></div></div></div></div><br><ul id="navig-footer"><li><i><a href="https://is.stuba.sk/auth?lang=sk">Návrat do osobnej administratívy</a></i></li></ul><div id="uis-control-data" data-uis_ang_lokalizace="US" data-stat_tel_predvolba="+421"></div></body></html>

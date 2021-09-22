@@ -1,7 +1,0 @@
-Dobry den, na dnesnom cviceni sme mali prejst algoritmy na vyhladavanie v poliach.
-Preposielam Vam link, kde je dana tema pekne spracovana http://www2.fiit.stuba.sk/~pospichal/soltis/uvod.htm.
-14.00
-1. zadanie - Algoritmy pre polia - usporiadane polia  (Mahmudov Firuzjon)
-2. zadanie - Algoritmy pre polia - neusporiadane polia (Lukács Bence Márk)
-
-Vzhladom, ze dane prezentacie momentalne niesu prezentovane prosim dajte si zalezat na prezentaciach, je predpoklad ze tieto prezentacie sa budu prezentovat po skonceni ochrannych opatreni. 

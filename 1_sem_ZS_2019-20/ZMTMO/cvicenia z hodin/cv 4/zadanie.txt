@@ -1,0 +1,6 @@
+Vytvorte stránku, ktorá obsahuje: záhlavie s orámovaný nadpisom 1. úrovne, jeden artikel s troma
+sekciami, ktoré sú oddelené èiarami a zápätie. Každá sekcia obsahuje nadpis 2. úrovne napísaný
+fontom Arial a žltým tieòom a paragraf. Paragraf textu prvej sekcie je zelenou farbou, kurzívou,
+zarovnaný do bloku, paragraf textu druhej sekcie je modrou farbou, tuèným písmom, kapitálkami,
+paragraf textu tretej sekcie je èervenou farbou, zarovnaný doprava. Odde¾ujúce èiary sú oranžovou
+farbou. V zápätí je odkaz na ¾ubovo¾nú stránku na Internete a je èervenou farbou

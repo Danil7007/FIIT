@@ -1,0 +1,17 @@
+vstup
+
+abarakarafara
+xyzzyxxyzzyxxyzzyx
+aabbccbbabb
+aaaaaxaaaaa
+aaaabbbbccccffffaaaaabbbbbcccccfffff
+abaabaabaabbbafffffbbbbbabaxxxxxffxxxxxbbxxxxxaaxxxxx
+
+vystup
+
+7 arakara arafara 
+18 xyzzyxxyzzyxxyzzyx 
+8 abbccbba 
+11 aaaaaxaaaaa 
+5 aaaaa bbbbb ccccc fffff 
+12 xxxxxffxxxxx xxxxxbbxxxxx xxxxxaaxxxxx 

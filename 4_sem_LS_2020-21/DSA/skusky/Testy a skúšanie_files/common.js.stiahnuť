@@ -1,0 +1,18 @@
+/* COMMON.JS
+ * Soubor pro kod nadrazeny vsemu ostatnimu - nacita se hned po jQuery primo v UIS.pm
+ * 2018-01-05 jan.konstant
+ */
+
+/*
+ * Hnusarna aby fungovaly uz neaktualizovane pluginy pouzivajici jQuery.browser
+ */
+jQuery.browser = {};
+(function() {
+    jQuery.browser.msie = false;
+    jQuery.browser.version = 0;
+    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+        jQuery.browser.msie = true;
+        jQuery.browser.version = RegExp.$1;
+    }
+}
+)();

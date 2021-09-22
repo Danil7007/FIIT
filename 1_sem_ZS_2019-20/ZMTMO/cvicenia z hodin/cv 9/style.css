@@ -1,0 +1,103 @@
+@media ( max-width:700px ){
+    img {
+        border: 2px dotted green;
+        content:url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fukrainetrek.com%2Fblog%2Fwp-content%2Fuploads%2F2016%2F12%2Ftop-10-photos-ukrainian-nature-2016-1.jpg&f=1&nofb=1);
+    }
+    .pod{
+        background-image:url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fukrainetrek.com%2Fblog%2Fwp-content%2Fuploads%2F2016%2F12%2Ftop-10-photos-ukrainian-nature-2016-1.jpg&f=1&nofb=1);
+    }
+    .c01{
+        width: 45%;
+    }
+    .c02{
+        width: 45%;
+        color:red;
+        text-align: left;
+    }
+    .c03{
+        width: 100%;
+        color:blue;
+        text-align: left;
+    }
+    section{
+        font-style: italic;
+    }
+    .navigacia{
+        background-image: linear-gradient(white, yellow);
+    }
+}
+
+@media ( max-width:550px ){
+    .navigacia{
+        background-image: linear-gradient(blue, black) !important;
+        color:white;
+    }
+    .c01{
+        width: 100%;
+        background-color: rgba(0, 0, 255, 0.253);
+    }
+    .c02{
+        width: 100%;
+        background-color: white;
+    }
+    .c03{
+        width: 100%;
+        background-color:yellow;
+    }
+    section{
+        text-align: center;
+        color:green;
+        text-decoration: underline;
+    }
+    img{
+        border: 0px!important;;
+        content:url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F6%2F68%2FC.H._Burroughs_House.jpg%2F1200px-C.H._Burroughs_House.jpg&f=1&nofb=1);
+    }
+    .pod{
+        background-image:url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F6%2F68%2FC.H._Burroughs_House.jpg%2F1200px-C.H._Burroughs_House.jpg&f=1&nofb=1);
+    }
+
+}
+
+
+img{
+    float: left;
+    width: 50%;
+    margin: 2%;
+    border: 10px solid yellow;
+}
+
+.navigacia li{
+    display: inline;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+a {
+    color:green;
+}
+
+section{
+    overflow: hidden;
+    width: 30%;
+    float: right;
+    margin-right: 1%;
+    margin-left: 1%;
+    font-weight: bold;
+}
+
+.c01{
+    text-align: left;
+    color:blue;
+}
+.c02{
+    text-align: center;
+    color:red;
+}
+.c03{
+    text-align: right;
+    color:green;
+}
+
+.navigacia{
+    background-image: linear-gradient(white, yellow);
+}
