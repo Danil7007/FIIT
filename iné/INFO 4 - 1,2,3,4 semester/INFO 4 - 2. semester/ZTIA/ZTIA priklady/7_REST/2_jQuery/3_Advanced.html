@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery 3</title>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+	      $("tr:even").css("background-color", "red");
+        $("tr:odd").css("background-color", "yellow");
+	});
+  </script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>John Doe</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>Jane Doe</td>
+        <td>21</td>
+    </tr>
+    <tr>
+        <td>Mary Doe</td>
+        <td>22</td>
+    </tr>
+</table>
+</body>

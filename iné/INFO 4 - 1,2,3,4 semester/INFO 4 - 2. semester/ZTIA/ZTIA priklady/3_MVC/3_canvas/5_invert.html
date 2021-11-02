@@ -1,0 +1,148 @@
+<html>
+
+<head>
+  <title>Bouncing Dots</title>
+  <script>
+    var canvas
+    var ctx
+    var timer
+    var tick = 0
+    var colours = ["red", "green", "blue", "yellow", "cyan", "black"]
+
+    // Model
+    var dots = []
+
+    function Dot() {
+      // Construct a dot object
+      this.x = Math.random() * canvas.width
+      this.y = Math.random() * canvas.height
+      this.dx = Math.random() * 10 - 5
+      this.dy = Math.random() * 10 - 5
+      this.size = Math.random() * 8 + 2
+
+      // Generate a random colour
+      var colour_index = Math.round(Math.random() * (colours.length - 1))
+      this.colour = colours[colour_index]
+    }
+    Dot.prototype = {
+      // This is shared between all objects
+      move: function() {
+        // Logic
+        if (this.x >= canvas.width || this.x <= 0) {
+          this.dx *= -1
+        }
+        if (this.y >= canvas.height || this.y <= 0) {
+          this.dy *= -1
+        }
+
+        // Movement
+        this.x = this.x + this.dx
+        this.y = this.y + this.dy
+      }
+    }
+
+    // View
+    function draw() {
+      // Clear canvas
+      ctx.fillStyle = "white"
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      // Render a filled circle
+      for (i in dots) {
+        var dot = dots[i]
+        ctx.fillStyle = dot.colour
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+
+    function invert() {
+      // Traverse through all pizels on the left side of canvas
+      var block = ctx.getImageData(0, 0, canvas.width / 2, canvas.height)
+      for (var y = 0; y < block.height; y++) {
+        for (var x = 0; x < block.width; x++) {
+          var pixel = (y * block.width + x) * 4
+
+          // Dim the intensity of pixel
+          //block.data[pixel + 0] /= 2
+          //block.data[pixel + 1] /= 2
+          //block.data[pixel + 2] /= 2
+
+
+          // Invert the color of the pixel
+          block.data[pixel + 0] = 255 - block.data[pixel + 0]
+          block.data[pixel + 1] = 255 - block.data[pixel + 1]
+          block.data[pixel + 2] = 255 - block.data[pixel + 2]
+        }
+      }
+      ctx.putImageData(block, 0, 0)
+    }
+
+    function setText() {
+      text.innerHTML = "Tick: " + tick
+    }
+
+    // Controller
+    function move() {
+      for (var i in dots) {
+        dots[i].move()
+      }
+    }
+
+    function step() {
+      tick++
+      move()
+      draw()
+      invert()
+      setText()
+    }
+
+    function start() {
+      if (timer) {
+        timer = clearInterval(timer)
+        button.textContent = "Start"
+      } else {
+        timer = setInterval(step, 1000 / 30);
+        button.textContent = "Stop"
+      }
+    }
+
+    // Initialization
+    window.onload = function() {
+      // Set up global variables
+      button = document.getElementById("button")
+      text = document.getElementById("text")
+      canvas = document.getElementById("canvas")
+      ctx = canvas.getContext("2d")
+      button.onclick = start
+
+      // Create 20 objects
+      for (i = 0; i < 20; i++) {
+        dots.push(new Dot())
+      }
+    }
+  </script>
+  <style>
+    #canvas {
+      border-style: solid;
+      border-width: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    <canvas id="canvas" height="200" width="200"></canvas>
+  </p>
+  <p>
+    <button id="button">Start</button>
+  </p>
+  <p id="text">
+    Press Start !
+  </p>
+</body>
+
+</html>

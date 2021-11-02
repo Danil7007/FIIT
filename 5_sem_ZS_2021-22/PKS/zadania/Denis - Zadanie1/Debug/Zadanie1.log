@@ -1,0 +1,83 @@
+﻿  Source.c
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(64): warning C4098: 'open_ethernet': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(82): warning C4098: 'open_iee8023': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(102): warning C4098: 'open_bdup': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(120): warning C4098: 'open_ip': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(138): warning C4098: 'open_ipx': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(156): warning C4098: 'open_isiIP': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(174): warning C4098: 'open_lan': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(192): warning C4098: 'open_llc1': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(210): warning C4098: 'open_llc2': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(228): warning C4098: 'open_mms': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(246): warning C4098: 'open_nullSap': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(264): warning C4098: 'open_proway': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(282): warning C4098: 'open_proway2': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(300): warning C4098: 'open_snap': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(318): warning C4098: 'open_raw': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(336): warning C4098: 'open_ieeX25': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(356): warning C4098: 'open_appleTalk': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(375): warning C4098: 'open_appleTalkAARP': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(395): warning C4098: 'open_arp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(414): warning C4098: 'open_iee8021q': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(433): warning C4098: 'open_ipv4': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(453): warning C4098: 'open_ipv6': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(472): warning C4098: 'open_mpls': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(491): warning C4098: 'open_mpls2': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(510): warning C4098: 'open_novellIpx': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(529): warning C4098: 'open_ppp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(548): warning C4098: 'open_pppoe': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(567): warning C4098: 'open_pppoe2': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(586): warning C4098: 'open_pup': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(605): warning C4098: 'open_reverseARP': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(624): warning C4098: 'open_x25': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(643): warning C4098: 'open_x75': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(662): warning C4098: 'open_xerox': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(684): warning C4098: 'open_icmp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(705): warning C4098: 'open_igmp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(724): warning C4098: 'open_tcp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(745): warning C4098: 'open_igrp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(764): warning C4098: 'open_udp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(785): warning C4098: 'open_gre': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(805): warning C4098: 'open_esp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(825): warning C4098: 'open_ah': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(845): warning C4098: 'open_skip': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(865): warning C4098: 'open_ospf': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(885): warning C4098: 'open_eigrp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(905): warning C4098: 'open_l2tp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(926): warning C4098: 'open_http': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(944): warning C4098: 'open_https': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(960): warning C4098: 'open_ftp_control': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(973): warning C4098: 'open_ftp_data': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(986): warning C4098: 'open_telnet': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1002): warning C4098: 'open_ssh': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1020): warning C4098: 'open_tftp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1039): warning C4098: 'open_icmp_type': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1059): warning C4098: 'open_arp_request': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1075): warning C4098: 'open_arp_reply': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1092): warning C4098: 'open_destination': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1327): warning C4091: 'typedef ': ignored on left of 'ip' when no variable is declared
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1496): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1962): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(1975): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(2442): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(2455): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(2922): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(2935): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(3402): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(3415): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(3882): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(3895): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4362): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4375): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4519): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4587): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4654): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4698): warning C4098: 'protokol_icmp': 'void' function returning a value
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4783): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4841): warning C4091: 'typedef ': ignored on left of 'ip' when no variable is declared
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(5014): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(5098): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(5167): warning C4018: '<': signed/unsigned mismatch
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4834): warning C4101: 'constant': unreferenced local variable
+c:\users\denis\documents\visual studio 2017\projects\pks\zadanie1\zadanie1\source.c(4833): warning C4101: 'fkonstanta': unreferenced local variable
+  Zadanie1.vcxproj -> C:\Users\Denis\Documents\Visual Studio 2017\Projects\PKS\Zadanie1\Debug\Zadanie1.exe

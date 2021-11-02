@@ -1,0 +1,101 @@
+<html>
+
+<head>
+  <title>Bouncing Dot</title>
+  <script>
+    var canvas
+    var ctx
+    var tick = 0
+
+    //
+    // MODEL
+
+
+    // Simple object that stores where the dot is and what it can do
+    var dot = {
+      x: 50,
+      y: 50,
+      dx: 10,
+      dy: 4,
+
+      // A method to move the object
+      move: function() {
+        if (this.x >= canvas.width || this.x <= 0) {
+          this.dx *= -1
+        }
+        if (this.y >= canvas.height || this.y <= 0) {
+          this.dy *= -1
+        }
+
+        // Update object position
+        this.x = this.x + this.dx
+        this.y = this.y + this.dy
+      }
+    }
+
+    //
+    // View
+    //
+
+    // Just takes care of drawing based on model
+    function drawDot() {
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Render a dot
+      ctx.fillStyle = "red"
+      ctx.beginPath()
+      ctx.arc(dot.x, dot.y, 10, 0, Math.PI * 2)
+      ctx.closePath()
+      ctx.fill()
+    }
+
+    // Update html text
+    function setText() {
+      text.innerHTML = "Tick: " + tick
+    }
+
+    //
+    // Controller
+    //
+
+    // Controlls what is being done in the application
+    // In this case it just orchestrates the model to move and view to render in a loop
+    function step() {
+      tick++
+      dot.move()
+      drawDot()
+      setText()
+    }
+
+    // Initialize the application
+    window.onload = function() {
+      // Set up global variables for easy access
+      button = document.getElementById("button")
+      text = document.getElementById("text")
+      canvas = document.getElementById("canvas")
+      ctx = canvas.getContext("2d")
+      button.onclick = step
+    }
+  </script>
+  <style>
+    #canvas {
+      border-style: solid;
+      border-width: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    <canvas id="canvas" height="400" width="400"></canvas>
+  </p>
+  <p>
+    <button id="button">Step</button>
+  </p>
+  <p id="text">
+    Please click Step!
+  </p>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+34888
+MPLS with upstream-assigned label

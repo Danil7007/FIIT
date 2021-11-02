@@ -1,0 +1,54 @@
+#Ethertypes
+0800 IPv4
+0806 ARP
+0842 Wake-on-LAN
+22f0 AVTP
+86dd IPv6
+88cc Link Layer Discovery Protocol
+9000 Loopback
+#LSAPs
+42 STP
+aa SNAP
+e0 IPX
+ff IPX
+#IPProtocolNumbers
+01 ICMP
+02 IGMP
+06 TCP
+11 UDP
+67 PIM
+3a ICMPv6
+#TCPs
+0007 ECHO
+0013 CHARGEN
+0014 FTP-DATA
+0015 FTP-CONTROL
+0016 SSH
+0017 TELNET
+0050 HTTP
+01bb HTTPs
+#UDPs
+0035 DNS
+0045 TFTP
+0208 Route Info Protocol
+0089 NetBIOS Name Service
+008a NetBIOS Datagram Service
+076c Simple Service Discovery Protocol
+14eb Link-local Multicast Name Resolution
+#ICMPs
+00 Echo Reply
+03 Destination Unreachable
+04 Source Quench
+05 Redirect
+08 Echo Request
+09 Router Advertisement
+0a Router Selection"
+0b Time Exceeded
+0c Parameter Problem
+0d Timestamp
+0e Timestamp Reply
+0f Information Request
+10 Information Reply
+11 Address Mask Request
+12 Address Mask Reply
+1e Traceroute

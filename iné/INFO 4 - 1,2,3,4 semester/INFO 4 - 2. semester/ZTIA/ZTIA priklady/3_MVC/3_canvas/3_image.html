@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #canvas {
+      border: 3px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="600" height="200"></canvas>
+  <script>
+    var canvas = document.getElementById("canvas")
+    var context = canvas.getContext("2d")
+
+    var imageObj = new Image()
+    imageObj.src = "ball.png"
+
+    imageObj.onload = function() {
+      // Image, x, y, width, height
+      context.drawImage(imageObj, 50, 30, 128, 128)
+    }
+  </script>
+</body>
+
+</html>
