@@ -1,0 +1,5 @@
+ip config-release - vypne sa net
+ipconfig- renew - zapne sa net, dostali sme IP 
+255.255.255.255 bradcast
+ apr - 
+sietova karta v promiskuitnom mode - snifuje

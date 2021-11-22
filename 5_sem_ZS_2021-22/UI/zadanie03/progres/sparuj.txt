@@ -1,0 +1,70 @@
+def sparuj(rodic1, rodic2):
+
+    chromozom_smery = []
+    chromozom_vstupy = []
+
+    sanca = random.random()
+
+    if sanca < glob.PROB1:  # zmena jedno
+
+        chromozom_smery = rodic1[glob.OPER]
+        for i in range(0, len(rodic1[glob.START])):
+
+            sanca = random.random()
+
+            if sanca < glob.PROB1:
+                chromozom_vstupy.append(rodic1[glob.START][i])
+            elif sanca < glob.PROB2:
+                chromozom_vstupy.append(rodic2[glob.START][i])
+            else:                                                   # mutacia
+                gen = randint(0, zahrada.obvod - 1)
+                chromozom_vstupy.append(gen)
+
+    elif sanca < glob.PROB2:  # zmena druhe
+
+        chromozom_vstupy = rodic1[glob.START]
+        for i in range(0, len(rodic1[glob.OPER])):
+
+            sanca = random.random()
+
+            if sanca < glob.PROB1:
+                chromozom_smery.append(rodic1[glob.OPER][i])
+            elif sanca < glob.PROB2:
+                chromozom_smery.append(rodic2[glob.OPER][i])
+            else:                                                   # mutacia
+                gen = randint(0, 3)
+                chromozom_smery.append(gen)
+
+            mnich[glob.START] = chromozom_vstupy
+            mnich[glob.OPER] = chromozom_smery
+
+    else:  # zmena obe
+
+        for i in range(0, len(rodic1[glob.START])):
+
+            sanca = random.random()
+
+            if sanca < glob.PROB1:
+                chromozom_vstupy.append(rodic1[glob.START][i])
+            elif sanca < glob.PROB2:
+                chromozom_vstupy.append(rodic2[glob.START][i])
+            else:  # mutacia
+                gen = randint(0, zahrada.obvod - 1)
+                chromozom_vstupy.append(gen)
+
+        for i in range(0, len(rodic1[glob.OPER])):
+
+            sanca = random.random()
+
+            if sanca < glob.PROB1:
+                chromozom_smery.append(rodic1[glob.OPER][i])
+            elif sanca < glob.PROB2:
+                chromozom_smery.append(rodic2[glob.OPER][i])
+            else:  # mutacia
+                gen = randint(0, 3)
+                chromozom_smery.append(gen)
+
+    mnich[glob.START] = chromozom_vstupy
+    mnich[glob.OPER] = chromozom_smery
+
+    return mnich

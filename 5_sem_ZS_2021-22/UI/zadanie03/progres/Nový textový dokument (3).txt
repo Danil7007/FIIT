@@ -1,0 +1,317 @@
+import itertools
+import random
+from itertools import groupby
+from random import randint
+
+
+class zahrada:
+    zaciatky = []
+    policka = []
+    zahradaX = 0
+    zahradaY = 0
+    pocetKamenov = 0
+    pocetPolicok = 0
+    obvod = 0
+
+
+class pohyb:
+    POHYB_X = [1, 0, -1, 0]     # DOLE, DOPRAVA, HORE, DOLAVA
+    POHYB_Y = [0, 1, 0, -1]
+
+
+class glob:
+    START = 0
+    POSUN = 1
+    OPER = 2
+    POC = 3
+    KAMEN = 4
+
+    MAX_POSUN = 15
+
+    POCET_MNICHOV = 150
+    POCET_MAX_MNICHOV = 0
+    TOP_PERCENTO = 50
+    POCET_NOVYCH = 24
+    ROZSAH_PAROVANIA = 40
+
+
+class farby:
+    SAND = '\u001b[43;1m'
+    STONE = '\u001b[30m\u001b[47;1m'
+
+    R = '\u001b[31m'
+    G = '\u001b[32m'
+    Y = '\u001b[33m'
+    B = '\u001b[34m'
+    M = '\u001b[35m'
+    C = '\u001b[36m'
+
+    ENDC = '\033[0m'
+
+
+def najdiZaciatky(x, y):    # suradnice okrajov zahrady
+    for i in range(0, x):
+        for j in range(0, y):
+
+            if (i == 0 or i == x-1):
+                zahrada.zaciatky.append([i, j], )
+            elif (j == 0 or j == y-1):
+                zahrada.zaciatky.append([i, j], )
+
+    return
+
+
+def vytvorZahradu():
+    try:
+        subor = open("zahrada1.txt", "r")
+    except FileNotFoundError:
+        print("Dany subor neexistuje")
+        return
+
+    poradie = 0
+    kamenX = kamenY = 0
+    pocetKamenov = 0
+
+    try:
+        for i in subor:
+            #print(i[:-1], end = ", ")
+            i = i[:-1]          # odstranenie enteru
+
+            if i.isdigit():
+                poradie += 1
+
+                if poradie == 1:    # SIRKA
+                    zahrada.zahradaX = int(i)
+                elif poradie == 2:  # VYSKA
+                    zahrada.zahradaY = int(i)
+                    # print("sirka x", zahrada.zahradaX, "vyska y", zahrada.zahradaY)
+                    zahrada.policka = [[0 for stlpec in range(0, zahrada.zahradaY)] for riadok in range(0, zahrada.zahradaX)]
+
+                elif poradie % 2 == 1:
+                    kamenX = int(i)
+                else:
+                    kamenY = int(i)
+                    pocetKamenov += 1
+                    # print("kamen:", pocetKamenov, "x:", kamenX, "y:", kamenY)
+                    zahrada.policka[kamenX][kamenY] = "K"
+    except IndexError:
+        print("Zle zadane rozmery v subore")
+
+    zahrada.pocetKamenov = pocetKamenov
+    zahrada.pocetPolicok = zahrada.zahradaX * zahrada.zahradaY - pocetKamenov
+    najdiZaciatky(zahrada.zahradaX, zahrada.zahradaY)
+    zahrada.obvod = len(zahrada.zaciatky)
+    print("\nZahrada vytvorena, rozmer", zahrada.zahradaX, "x", zahrada.zahradaY, "\npocet kamenov", pocetKamenov, "pocet policok", zahrada.pocetPolicok, "obvod", zahrada.obvod)
+    return
+
+
+def vypisZahradu(policka):
+    for x in range(0, zahrada.zahradaX):
+        for y in range(0, zahrada.zahradaY):
+            #print(x, y, end=', ')
+            policko = policka[x][y]
+            if policko == "K":
+                print(farby.STONE, "", policko, farby.ENDC, end='')
+            else:
+                if int(policko) < 10:
+                    if int(policko) == 0:
+                        print(farby.SAND, "", policko, farby.ENDC, end='')
+                    elif int(policko) % 3 == 0:
+                        print(farby.SAND + farby.G, "", policko, farby.ENDC, end='')
+                    elif int(policko) % 2 == 0:
+                        print(farby.SAND + farby.B, "", policko, farby.ENDC, end='')
+                    else:
+                        print(farby.SAND + farby.R, "", policko, farby.ENDC, end='')
+                else:
+                    if int(policko) % 3 == 0:
+                        print(farby.SAND + farby.C, policko, farby.ENDC, end='')
+                    elif int(policko) % 2 == 0:
+                        print(farby.SAND + farby.M, policko, farby.ENDC, end='')
+                    else:
+                        print(farby.SAND + farby.B, policko, farby.ENDC, end='')
+
+        print()
+
+
+def pohrab(mnich, flag):
+
+    kopiaZahrady = [[0 for stlpec in range(0, zahrada.zahradaY)] for riadok in range(0, zahrada.zahradaX)]
+    mnich[glob.POC] = 0
+    mnich[glob.KAMEN] = 0
+
+    for i in range(0, zahrada.zahradaX):        # vytvorenie docasnej zahradky
+        for j in range(0, zahrada.zahradaY):
+            kopiaZahrady[i][j] = zahrada.policka[i][j]
+
+    # posunKruh = 1
+    cisloCesty = 1
+    for i in range(0, len(zahrada.zaciatky), mnich[glob.POSUN]):     # pre vsetky zaciatky
+        if (i + mnich[glob.POSUN] >= len(zahrada.zaciatky)):
+            i = ((i + mnich[glob.POSUN]) % mnich[glob.POSUN])        # koloecko
+
+        startX = aktX = zahrada.zaciatky[i][0]      # kde mnich zacina
+        startY = aktY = zahrada.zaciatky[i][1]
+
+        if kopiaZahrady[startX][startY] == 0:              # ak nebolo pohrabane
+            kopiaZahrady[startX][startY] = cisloCesty      # pohrabeme
+            mnich[3] += 1                                  # pripocitame
+
+            for j in range(0, len(mnich[glob.OPER])):       # pre jeho operatory
+
+                posunX = pohyb.POHYB_X[mnich[glob.OPER][j]]
+                posunY = pohyb.POHYB_Y[mnich[glob.OPER][j]]
+
+                aktX += posunX                      # kam by sa dostal
+                aktY += posunY
+                #print(aktX, aktY)
+
+                # ak je to v ramci zahradky a nebol tam (a nieje tam kamen)
+                while (aktX >= 0 and aktX < zahrada.zahradaX) and (aktY >= 0 and aktY < zahrada.zahradaY) and (kopiaZahrady[aktX][aktY] == 0) :
+                    #print(aktX, aktY)
+                    kopiaZahrady[aktX][aktY] = cisloCesty  # pohrabeme
+                    mnich[glob.POC] += 1                   # pripocitame
+
+                    aktX += posunX  # kam by sa dostal
+                    aktY += posunY
+                    #print(aktX, aktY)
+
+
+                # ak sme vysli von
+                if not(aktX >= 0 and aktX < zahrada.zahradaX) or not(aktY >= 0 and aktY < zahrada.zahradaY):
+                    pass
+
+                elif (j != (len(mnich[glob.OPER]) - 1)) and (kopiaZahrady[aktX][aktY] == "K"):
+                    mnich[glob.KAMEN] += 1
+                    aktX -= posunX  # ak ma este ine smery bude pokracovat z policka z pred kamena
+                    aktY -= posunY
+
+                # ak sme narazili v zahradke na prekazku a nepozna dalsie kroky
+                elif (j == (len(mnich[glob.OPER]) - 1)) and (0 <= aktX < zahrada.zahradaX) and (0 <= aktY < zahrada.zahradaY) and (kopiaZahrady[aktX][aktY] != 0):
+                    if flag == 1:
+                        vypisZahradu(kopiaZahrady)
+                    return mnich[glob.POC]
+                else:
+                    aktX -= posunX      # ak ma este ine smery bude pokracovat z policka z pred kamena
+                    aktY -= posunY
+
+            cisloCesty += 1     # medzicasom zisiel dole zo zahradky
+
+    #print()
+    #print("pocet pohrabanych policok", mnich[glob.POC])
+    if flag == 1:
+        vypisZahradu(kopiaZahrady)
+    return mnich[glob.POC]
+
+
+def vytvorMnicha():
+    max = zahrada.obvod / 2 + zahrada.pocetKamenov
+    # max -= 3  # todo rata sa do genomu aj START, POSUN a POCET?
+
+    start = randint(0, len(zahrada.zaciatky) - 1)
+    posun = randint(1, glob.MAX_POSUN)
+    #pocetOperatorov = randint(1, max)
+    pocetOperatorov = max
+    operatory = []
+
+    while (len(operatory) != pocetOperatorov - 1):
+        operator = randint(0, 3)
+        operatory.append(operator)
+        operatory = [x[0] for x in groupby(operatory)]  # odstranenie dupl. operatorov
+
+    mnich = [start, posun, operatory, 0, 0]
+    return mnich
+
+
+# todo optimalizuj
+def sparuj(rodic1, rodic2):
+    mnich = [0, 1, [0, 1, 2, 0, 1, 3, 2, 1], 0, 0]
+    return mnich
+
+
+# todo musi mnich na konci zostat vonku?
+# todo rata sa do genomu aj START, POSUN a POCET?
+# todo je spravny krok ze vojde a hned vyde?
+# todo akym sposobom sa maju krizit
+# todo musi to najst riesenie pri oboch sposoboch vyberu mnichov?
+# todo mame obmedzenie na pocet mnichov?
+
+if __name__ == "__main__":
+
+    vytvorZahradu()
+    vypisZahradu(zahrada.policka)
+    print()
+
+    max = 0
+    max2 = 0
+    maxMnich = []
+    maxMnich2 = []
+    populacia = []
+    generacia = 1
+
+    # ------------------------------------------------------------- PRVA GENERACIA
+    for i in range(0, glob.POCET_MNICHOV):
+        mnich = vytvorMnicha()
+        pocet = pohrab(mnich, 0)
+        populacia.append(mnich)
+
+        if pocet > max:
+            max = pocet
+            maxMnich = mnich
+        if mnich[glob.KAMEN] > max2 and maxMnich != maxMnich2:
+            maxMnich2 = mnich
+
+    print("najviac pohrabanych policok je:", max, "/", zahrada.pocetPolicok, "generacia c.:", generacia)
+    # pohrab(maxMnich, 1)        # vypis
+
+    if max == zahrada.pocetPolicok:
+        print("NASLI SME RIESENIE!")
+
+    # ----------------------------------------------------------------- DALSIE GENERACIE
+    else:
+        while max != zahrada.pocetPolicok:
+            zoradovac = lambda x: (x[glob.POC])             # zoradime podla poctu pohrabanych policok
+            populacia = sorted(populacia, key=zoradovac)
+
+            generacia += 1
+            novaGeneracia = []                                      # najlepsich x % prezije
+            pocet = int(glob.TOP_PERCENTO * len(populacia)/100)
+            novaGeneracia.extend(populacia[len(populacia)-pocet:len(populacia)+1])
+
+            for i in range(0, glob.POCET_MAX_MNICHOV):      # UZ MAXIMALNY
+                novaGeneracia.append(maxMnich)
+
+            for i in range(0, glob.POCET_NOVYCH):           # NOVI
+                mnich = vytvorMnicha()
+                novaGeneracia.append(mnich)
+
+            novaGeneracia.append(maxMnich2)
+
+            estePotrebujeme = len(populacia) - len(novaGeneracia)
+
+            while (len(novaGeneracia) != glob.POCET_MNICHOV):
+
+                rodic1 = random.choice(populacia[glob.ROZSAH_PAROVANIA:])
+                rodic2 = random.choice(populacia[glob.ROZSAH_PAROVANIA:])
+
+                dieta = sparuj(rodic1, rodic2)
+                novaGeneracia.append(dieta)
+
+            # dalsie skusanie
+            for i in range(0, len(novaGeneracia)):
+                mnich = novaGeneracia[i]
+
+                pocet = pohrab(mnich, 0)
+
+                if pocet > max:
+                    max = pocet
+                    maxMnich = mnich
+                    print("najviac pohrabanych policok je:", max, "/", zahrada.pocetPolicok, "stretnutych kamenov:", maxMnich2[glob.KAMEN], "generacia c.:", generacia)
+                    pohrab(maxMnich, 1)
+                    print()
+                    pohrab(maxMnich2, 1)
+                if mnich[glob.KAMEN] > max2 and maxMnich != maxMnich2:
+                    maxMnich2 = mnich
+
+            if max == zahrada.pocetPolicok:
+                print("NASLI SME RIESENIE!")
+                pohrab(maxMnich, 1)
